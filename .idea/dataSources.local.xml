@@ -12,5 +12,25 @@
       <user-name>Wenja</user-name>
       <introspection-schemas>GTWPEST:dbo</introspection-schemas>
     </data-source>
+    <data-source name="GTWPEST@ruchenshanghai.database.chinacloudapi.cn" uuid="eeba4d68-17df-443e-9c35-012e4f6114b9">
+      <database-info product="Microsoft SQL Server" version="12.00.304" jdbc-version="4.0" driver-name="Microsoft JDBC Driver 4.0 for SQL Server" driver-version="4.0.2206.100">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>Wenja</user-name>
+      <introspection-schemas>GTWPEST:dbo</introspection-schemas>
+    </data-source>
+    <data-source name="Ecolab@ruchenshanghai.database.chinacloudapi.cn" uuid="afbbec7d-b48a-4688-bd44-676a7e94cf2a">
+      <database-info product="Microsoft SQL Server" version="12.00.304" jdbc-version="4.0" driver-name="Microsoft JDBC Driver 4.0 for SQL Server" driver-version="4.0.2206.100">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>Wenja</user-name>
+      <introspection-schemas>Ecolab:dbo</introspection-schemas>
+    </data-source>
   </component>
 </project>
