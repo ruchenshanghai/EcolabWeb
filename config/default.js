@@ -1,18 +1,14 @@
+/**
+ * Created by wenjin on 2017/6/19.
+ */
 module.exports = {
+    hostname: 'http://localhost',
     port: 2017,
-    dbconfig: {
-        user: 'Wenja',
-        password: 'Ecolab2017',
-        server: 'CNSHASQLSDB01P',
-        database: 'GTWPEST',
-        port: 1433,
-        options: {
-            encrypt: true
-        },
-        pool: {
-            min: 0,
-            max: 10,
-            idleTimeoutMillis: 3000
-        }
+    userName: 'Wenja',
+    password: 'Ecolab2017',
+    server: 'ruchenshanghai.database.chinacloudapi.cn',
+    options: {
+        database: 'Ecolab',
+        encrypt: true
     }
 };

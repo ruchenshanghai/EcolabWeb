@@ -10,16 +10,17 @@ var config = require('./config/default');
 var MainData = require('./model/MainData');
 var Util = require('./lib/Util');
 
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'public/template'));
 app.set('view engine', 'ejs');
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 // 404 page
 app.use(function (req, res) {
     if (!res.headersSent) {
-        res.redirect('/AllData');
+        res.redirect('/index');
     }
 });
 
@@ -42,9 +43,9 @@ app.use(function (req, res) {
 //     });
 // });
 
-Util.saveNewCompetitorCN('地头蛇').then(value => {
-    console.log(value);
-});
+// Util.saveNewCompetitorCN('地头蛇').then(value => {
+//     console.log(value);
+// });
 
 
 app.listen(config.port);
