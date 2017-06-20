@@ -23,26 +23,28 @@ app.use(function (req, res) {
     }
 });
 
-let testData = new MainData();
-console.log(testData.BUDistrictID);
+// let testData = new MainData();
+// Util.resolveMainData(testData).then(value => {
+//     console.log(value);
+//     testData.Province = '上海';
+//     testData.SalesRep = '黄鹤';
+//     Util.updateMainData(testData).then(value => {
+//         console.log(value);
+//     });
+// });
 
-// MainData.test();
-Util.resolveMainData(testData, function (err) {
-    if (err) {
-        console.log(err);
-    } else {
-        testData.Province = '北京';
-        Util.updataMainData(testData, function (err) {
-            if (!err) {
-                console.log('no error');
-            }
-        })
-    }
+// let testData = new MainData();
+// testData.constructTest();
+// Util.saveNewMainData(testData).then(value => {
+//     console.log('mainDataID: ' + value);
+//     Util.getMainDataByID(value).then(value => {
+//         console.log(value);
+//     });
+// });
+
+Util.saveNewCompetitorCN('地头蛇').then(value => {
+    console.log(value);
 });
-
-
-
-
 
 
 app.listen(config.port);
