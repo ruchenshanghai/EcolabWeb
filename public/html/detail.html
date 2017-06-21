@@ -34,7 +34,7 @@
 
 
     <div class="container" id="footer-container">
-        <b>You can change the old record or create a new record.</b>
+        <b>Welcome! <h1 id="username"></h1>You can change the old record or create a new record.</b>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <table id="content-table">
@@ -124,11 +124,11 @@
                     </tr>
                     <tr>
                         <td id="CorporateAccountChinese">
-                            <label class="label">CorporateAccountChinese/集团客户中文</label><br />
+                            <label class="label">CorporateAccountChinese/集团客户-中文</label><br />
                             <input type="text" class="form-control" id="CorporateAccountChineseInput">
                         </td>
                         <td  id="CorporateAccountEnglish">
-                            <label class="label">CorporateAccountEnglish/集团客户英文</label><br />
+                            <label class="label">CorporateAccountEnglish/集团客户-英文</label><br />
                             <input type="text" class="form-control" id="CorporateAccountEnglishInput">
                         </td>
                         <td id="SalesRep">
@@ -148,7 +148,7 @@
                     </tr>
                     <tr>
                         <td id="FollowingStatus">
-                            <label class="label">FollowingStatus/j进展状态</label><br />
+                            <label class="label">FollowingStatus/进展状态</label><br />
                             <select class="form-control" id="FollowingStatusInput">
                                 <option>1</option>
                                 <option>2</option>
@@ -174,6 +174,49 @@
                         <td id="SalesType">
                             <label class="label">SalesType/销售类型</label><br />
                             <select class="form-control" id="SalesTypeInput">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="FollowingStatusRemark">
+                            <label class="label">FollowingStatusRemark/进展状态备注</label><br />
+                            <input type="text" class="form-control" id="FollowingStatusRemarkInput">
+                        </td>
+                        <td  id="CompetitorCN">
+                            <label class="label">CompetitorCN/竞争对手-中文</label><br />
+                            <select class="form-control" id="CompetitorCNInput">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                        <td id="FirstCollaborationDate">
+                            <label class="label">FirstCollaborationDate/最早合作日期</label><br />
+                            <input type="date" class="form-control" id="FirstCollaborationDateInput">
+                        </td>
+                        <td id="EstimatedPCO">
+                            <label class="label">EstimatedPCO/艺康可能占客户PCO比例</label><br />
+                            <div class="input-group">
+                                <input type="number" oninput="if(value.length>5)value=value.slice(0,2)"  class="form-control" id="EstimatedPCOInput">
+                                <span class="input-group-addon">%</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="Remark">
+                            <label class="label">Remark/备注</label><br />
+                            <input type="text" class="form-control" id="RemarkInput">
+                        </td>
+                        <td  id="MarketClassification">
+                            <label class="label">MarketClassification/市场分类-中文</label><br />
+                            <select class="form-control" id="MarketClassificationInput">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
