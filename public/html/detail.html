@@ -36,45 +36,154 @@
     <div class="container" id="footer-container">
         <b>You can change the old record or create a new record.</b>
         <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="Reviewer">
-                <tr>
-                    <label>Reviewer/区域负责人</label>
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </tr>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <table id="content-table">
+                    <tr>
+                        <td id="Reviewer">
+                            <label class="label">Reviewer/区域负责人</label><br />
+                            <select class="form-control" id="ReviewerInput">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                        <td  id="BUDistrict">
+                            <label class="label">BU District/BU区属</label><br />
+                            <select class="form-control" id="BUDistrictInput">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                        <td id="OpportunityCode">
+                            <label class="label">OpportunityCode/机会客户编码</label><br />
+                            <label class="label">6000-20170621-1</label>
+                        </td>
+                        <td id="Province">
+                            <label class="label">Province/省级</label><br />
+                            <input type="text" class="form-control" id="ProvinceInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="City">
+                            <label class="label">City/市级</label><br />
+                            <input type="text" class="form-control" id="CityInput">
+                        </td>
+                        <td  id="Site">
+                            <label class="label">Site/县级</label><br />
+                            <input type="text" class="form-control" id="SiteInput">
+                        </td>
+                        <td id="ChineseName">
+                            <label class="label">ChineseName/客户中文名</label><br />
+                            <input type="text" class="form-control" id="ChineseNameInput">
+                        </td>
+                        <td id="EnglishNamee">
+                            <label class="label">EnglishName/客户英文名</label><br />
+                            <input type="text" class="form-control" id="EnglishNameInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="PipelineStatus">
+                            <label class="label">PipelineStatus/Pipeline进度</label><br />
+                            <select class="form-control" id="PipelineStatusInput">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                        <td  id="ContractTerm">
+                            <label class="label">ContractTerm/合同有效期</label><br />
+                            <select class="form-control" id="ContractTermInput">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                        <td  id="TargetRate">
+                            <label class="label">TargetRate/成功几率</label><br />
+                            <select class="form-control" id="TargetRateInput">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                        <td id="AnnualSales">
+                            <label class="label">AnnualSales/年度金额(RMB)</label><br />
+                            <input type="number" class="form-control" id="AnnualSalesInput">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="CorporateAccountChinese">
+                            <label class="label">CorporateAccountChinese/集团客户中文</label><br />
+                            <input type="text" class="form-control" id="CorporateAccountChineseInput">
+                        </td>
+                        <td  id="CorporateAccountEnglish">
+                            <label class="label">CorporateAccountEnglish/集团客户英文</label><br />
+                            <input type="text" class="form-control" id="CorporateAccountEnglishInput">
+                        </td>
+                        <td id="SalesRep">
+                            <label class="label">SalesRep/销售代表</label><br />
+                            <input type="text" class="form-control" id="SalesRepInput">
+                        </td>
+                        <td id="AssistCAMName">
+                            <label class="label">AssistCAMName/协助CAM姓名</label><br />
+                            <select class="form-control" id="AssistCAMNameInput">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="FollowingStatus">
+                            <label class="label">FollowingStatus/j进展状态</label><br />
+                            <select class="form-control" id="FollowingStatusInput">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                        <td  id="CTCBU">
+                            <label class="label">CTCBU/CTC业务部</label><br />
+                            <select class="form-control" id="CTCBUInput">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                        <td id="CTCSales">
+                            <label class="label">CTCSales/CTC销售负责人</label><br />
+                            <input type="text" class="form-control" id="CTCSalesInput">
+                        </td>
+                        <td id="SalesType">
+                            <label class="label">SalesType/销售类型</label><br />
+                            <select class="form-control" id="SalesTypeInput">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
             </div>
-
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="BUDistrict">
-                <tr>
-                    <label>BU District/BU区属</label>
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </tr>
-            </div>
-
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="OpportunityCode">
-                <tr>
-                    <label>OpportunityCode/机会客户代码</label>
-                    <select class="form-control">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                </tr>
-            </div>
-
         </div>
     </div>
 

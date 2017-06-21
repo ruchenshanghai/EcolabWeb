@@ -14,14 +14,20 @@ router.get('/detail/:id', function (req, res) {
    res.sendFile(path.join(__dirname, '../public/html/detail.html'));
 });
 
-router.get('/data/:id', function (req, res) {
-    res.send('hello, request for data id: ' + req.params.id);
-});
 
-router.get('/AllData', function (req, res) {
-    Util.getAllData().then(dataArray => {
+// api
+router.post('/data/:id', function (req, res) {
+    Util.getMainDataByID(req.params.id).then(mainData => {
+       res.send(mainData);
+    });
+});
+router.post('/AllData', function (req, res) {
+    Util.getAllData(req.connection.user).then(dataArray => {
         res.send(dataArray);
     });
+});
+router.post('/username', function (req, res) {
+    res.send(req.connection.user);
 });
 
 module.exports = router;
