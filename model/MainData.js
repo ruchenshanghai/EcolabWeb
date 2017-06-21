@@ -151,7 +151,7 @@ MainData.prototype.constructTest = function () {
     this.MarketClassificationID = 1;
 
     this.OpportunityCode = '007';
-    this.Province = '007';
+    this.Province = '香港';
     this.City = '007';
     this.Site = '007';
     this.ChineseName = '007';

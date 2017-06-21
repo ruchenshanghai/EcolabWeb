@@ -33,6 +33,9 @@ app.use(function (req, res) {
 //         console.log(value);
 //     });
 // });
+Util.getAllData().then(value => {
+   console.log(value);
+});
 
 // let testData = new MainData();
 // testData.constructTest();
@@ -47,5 +50,22 @@ app.use(function (req, res) {
 //     console.log(value);
 // });
 
+// const sql = require('mssql/msnodesqlv8');
+//
+// const pool = new sql.ConnectionPool({
+//     database: 'GTWPEST',
+//     server: 'CNSHASQLSDB01P',
+//     driver: 'msnodesqlv8',
+//     options: {
+//         trustedConnection: true
+//     }
+// })
+//
+// pool.connect().then(() => {
+//     //simple query
+//     pool.request().query('select * from MainData', (err, result) => {
+//         console.log(result);
+//     });
+// });
 
 app.listen(config.port);

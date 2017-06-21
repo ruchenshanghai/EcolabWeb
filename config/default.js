@@ -4,11 +4,38 @@
 module.exports = {
     hostname: 'http://localhost',
     port: 2017,
-    userName: 'Wenja',
-    password: 'Ecolab2017',
-    server: 'ruchenshanghai.database.chinacloudapi.cn',
+    userName: 'GTW',
+    password: 'Ecolabit@123',
+    server: 'CNSHASQLSDB01P',
     options: {
-        database: 'Ecolab',
+        port:1433,
+        database: 'GTWPEST',
         encrypt: true
     }
+
+    // userName: 'Wenja',
+    // password: 'Ecolab2017',
+    // server: 'ruchenshanghai.database.chinacloudapi.cn',
+    // options: {
+    //     port:1433,
+    //     database: 'GTWPEST',
+    //     encrypt: true
+    // }
+
+    // userName: 'Wenja', //Username
+    // password: 'ecolabECOLAB521', //Password
+    // // IntegratedSecurity: true,
+    // // domainName: 'ECOLAB.CORP', //Domain
+    // server: 'CNSHASQLSDB01P', //Database address
+    // options: {
+    //     instanceName: '',
+    //     database: "GTWPEST",
+    //     debug: {
+    //         packet: false,
+    //         payload: false,
+    //         token: false,
+    //         data: false
+    //     },
+    //     // encrypt: false
+    // }
 };

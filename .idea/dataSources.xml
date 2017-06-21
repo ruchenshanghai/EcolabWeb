@@ -7,17 +7,17 @@
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
       <jdbc-url>jdbc:sqlserver://CNSHASQLSDB01P ;databaseName=GTWPEST</jdbc-url>
     </data-source>
-    <data-source source="LOCAL" name="GTWPEST@ruchenshanghai.database.chinacloudapi.cn" uuid="eeba4d68-17df-443e-9c35-012e4f6114b9">
-      <driver-ref>sqlserver.ms</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://ruchenshanghai.database.chinacloudapi.cn;databaseName=GTWPEST</jdbc-url>
-    </data-source>
     <data-source source="LOCAL" name="Ecolab@ruchenshanghai.database.chinacloudapi.cn" uuid="afbbec7d-b48a-4688-bd44-676a7e94cf2a">
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
       <jdbc-url>jdbc:sqlserver://ruchenshanghai.database.chinacloudapi.cn;databaseName=Ecolab</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="GTWPEST@ruchenshanghai.database.chinacloudapi.cn" uuid="ed4e1763-06d9-498a-8bc3-906b8161cbf1">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://ruchenshanghai.database.chinacloudapi.cn;databaseName=GTWPEST</jdbc-url>
     </data-source>
   </component>
 </project>
