@@ -163,7 +163,7 @@ MainData.prototype.constructTest = function () {
     this.CTCSales = '007';
     this.FollowingStatusRemark = '007';
     this.FirstCollaborationDate = '1997-01-17';
-    this.EstimatedPCO = '007';
+    this.EstimatedPCO = 0;
     this.Remark = '007';
     this.Username = '';
 };

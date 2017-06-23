@@ -1,3 +1,254 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title>Detail</title>-->
+    <!--<link href="../styles/bootstrap.min.css" rel="stylesheet">-->
+    <!--<link rel="stylesheet" href="../styles/detail.css">-->
+
+    <!--<script src="../js/jquery-3.2.1.min.js"></script>-->
+    <!--<script src="../js/detail.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div id="main-container">-->
+    <!--<div class="container" id="nav-container">-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">-->
+                <!--<a href="http://www.ecolab.com.cn/" target="_blank">-->
+                    <!--<img src="../images/nav-ico.png">-->
+                <!--</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="container" id="header-container">-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-0 col-sm-0 col-md-1 col-lg-2"></div>-->
+            <!--<div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">-->
+                <!--<img src="../images/header-ico.jpg">-->
+            <!--</div>-->
+            <!--<div class="col-xs-0 col-sm-0 col-md-1 col-lg-2"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+    <!--<div class="container" id="footer-container">-->
+        <!--<b>Welcome! <h1 id="username"></h1>You can update the old record or create a new record.</b>-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">-->
+                <!--<table id="content-table">-->
+                    <!--<tr>-->
+                        <!--<td id="Reviewer">-->
+                            <!--<label class="label">Reviewer/区域负责人</label><br />-->
+                            <!--<select class="form-control" id="ReviewerInput">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option value="2">3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                        <!--<td  id="BUDistrict">-->
+                            <!--<label class="label">BU District/BU区属</label><br />-->
+                            <!--<select class="form-control" id="BUDistrictInput">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                        <!--<td id="OpportunityCode">-->
+                            <!--<label class="label">OpportunityCode/机会客户编码</label><br />-->
+                            <!--<label class="label">6000-20170621-1</label>-->
+                        <!--</td>-->
+                        <!--<td id="Province">-->
+                            <!--<label class="label">Province/省级</label><br />-->
+                            <!--<input type="text" class="form-control" id="ProvinceInput">-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td id="City">-->
+                            <!--<label class="label">City/市级</label><br />-->
+                            <!--<input type="text" class="form-control" id="CityInput">-->
+                        <!--</td>-->
+                        <!--<td  id="Site">-->
+                            <!--<label class="label">Site/县级</label><br />-->
+                            <!--<input type="text" class="form-control" id="SiteInput">-->
+                        <!--</td>-->
+                        <!--<td id="ChineseName">-->
+                            <!--<label class="label">ChineseName/客户中文名</label><br />-->
+                            <!--<input type="text" class="form-control" id="ChineseNameInput">-->
+                        <!--</td>-->
+                        <!--<td id="EnglishNamee">-->
+                            <!--<label class="label">EnglishName/客户英文名</label><br />-->
+                            <!--<input type="text" class="form-control" id="EnglishNameInput">-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td id="PipelineStatus">-->
+                            <!--<label class="label">PipelineStatus/Pipeline进度</label><br />-->
+                            <!--<select class="form-control" id="PipelineStatusInput">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                        <!--<td  id="ContractTerm">-->
+                            <!--<label class="label">ContractTerm/合同有效期</label><br />-->
+                            <!--<select class="form-control" id="ContractTermInput">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                        <!--<td  id="TargetRate">-->
+                            <!--<label class="label">TargetRate/成功几率</label><br />-->
+                            <!--<select class="form-control" id="TargetRateInput">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                        <!--<td id="AnnualSales">-->
+                            <!--<label class="label">AnnualSales/年度金额(RMB)</label><br />-->
+                            <!--<input type="number" class="form-control" id="AnnualSalesInput">-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td id="CorporateAccountChinese">-->
+                            <!--<label class="label">CorporateAccountChinese/集团客户-中文</label><br />-->
+                            <!--<input type="text" class="form-control" id="CorporateAccountChineseInput">-->
+                        <!--</td>-->
+                        <!--<td  id="CorporateAccountEnglish">-->
+                            <!--<label class="label">CorporateAccountEnglish/集团客户-英文</label><br />-->
+                            <!--<input type="text" class="form-control" id="CorporateAccountEnglishInput">-->
+                        <!--</td>-->
+                        <!--<td id="SalesRep">-->
+                            <!--<label class="label">SalesRep/销售代表</label><br />-->
+                            <!--<input type="text" class="form-control" id="SalesRepInput">-->
+                        <!--</td>-->
+                        <!--<td id="AssistCAMName">-->
+                            <!--<label class="label">AssistCAMName/协助CAM姓名</label><br />-->
+                            <!--<select class="form-control" id="AssistCAMNameInput">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td id="FollowingStatus">-->
+                            <!--<label class="label">FollowingStatus/进展状态</label><br />-->
+                            <!--<select class="form-control" id="FollowingStatusInput">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                        <!--<td  id="CTCBU">-->
+                            <!--<label class="label">CTCBU/CTC业务部</label><br />-->
+                            <!--<select class="form-control" id="CTCBUInput">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                        <!--<td id="CTCSales">-->
+                            <!--<label class="label">CTCSales/CTC销售负责人</label><br />-->
+                            <!--<input type="text" class="form-control" id="CTCSalesInput">-->
+                        <!--</td>-->
+                        <!--<td id="SalesType">-->
+                            <!--<label class="label">SalesType/销售类型</label><br />-->
+                            <!--<select class="form-control" id="SalesTypeInput">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td id="FollowingStatusRemark">-->
+                            <!--<label class="label">FollowingStatusRemark/进展状态备注</label><br />-->
+                            <!--<input type="text" class="form-control" id="FollowingStatusRemarkInput">-->
+                        <!--</td>-->
+                        <!--<td  id="CompetitorCN">-->
+                            <!--<label class="label">CompetitorCN/竞争对手-中文</label><br />-->
+                            <!--<select class="form-control" id="CompetitorCNInput">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                        <!--<td id="FirstCollaborationDate">-->
+                            <!--<label class="label">FirstCollaborationDate/最早合作日期</label><br />-->
+                            <!--<input type="date" class="form-control" id="FirstCollaborationDateInput">-->
+                        <!--</td>-->
+                        <!--<td id="EstimatedPCO">-->
+                            <!--<label class="label">EstimatedPCO/艺康可能占客户PCO比例</label><br />-->
+                            <!--<div class="input-group">-->
+                                <!--<input type="number" oninput="if(value.length>5)value=value.slice(0,2)"  class="form-control" id="EstimatedPCOInput">-->
+                                <!--<span class="input-group-addon">%</span>-->
+                            <!--</div>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td id="Remark">-->
+                            <!--<label class="label">Remark/备注</label><br />-->
+                            <!--<input type="text" class="form-control" id="RemarkInput">-->
+                        <!--</td>-->
+                        <!--<td  id="MarketClassification">-->
+                            <!--<label class="label">MarketClassification/市场分类-中文</label><br />-->
+                            <!--<select class="form-control" id="MarketClassificationInput">-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                                <!--<option>5</option>-->
+                            <!--</select>-->
+                        <!--</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<td colspan="2"><button class="btn btn-primary" id="new-button"><span class="glyphicon glyphicon-pencil"></span> New</button></td>-->
+                        <!--<td colspan="2"><button class="btn btn-primary" id="update-button"><span class="glyphicon glyphicon-pencil"></span> Update</button></td>-->
+                    <!--</tr>-->
+                <!--</table>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;<label>默认的复选框和单选按钮的实例</label>&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="radio">&ndash;&gt;-->
+        <!--&lt;!&ndash;<label>&ndash;&gt;-->
+            <!--&lt;!&ndash;<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 选项 1&ndash;&gt;-->
+        <!--&lt;!&ndash;</label>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;<div class="radio">&ndash;&gt;-->
+        <!--&lt;!&ndash;<label>&ndash;&gt;-->
+            <!--&lt;!&ndash;<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">选项 2 - 选择它将会取消选择选项 1&ndash;&gt;-->
+        <!--&lt;!&ndash;</label>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,196 +285,145 @@
 
 
     <div class="container" id="footer-container">
-        <b>Welcome! <h1 id="username"></h1>You can change the old record or create a new record.</b>
+        <b>Welcome! <h1 id="username"></h1>You can update the old record or create a new record.</b>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <table id="content-table">
                     <tr>
-                        <td id="Reviewer">
+                        <td>
                             <label class="label">Reviewer/区域负责人</label><br />
                             <select class="form-control" id="ReviewerInput">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                         </td>
-                        <td  id="BUDistrict">
+                        <td>
                             <label class="label">BU District/BU区属</label><br />
                             <select class="form-control" id="BUDistrictInput">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                         </td>
                         <td id="OpportunityCode">
                             <label class="label">OpportunityCode/机会客户编码</label><br />
                             <label class="label">6000-20170621-1</label>
                         </td>
-                        <td id="Province">
+                        <td>
                             <label class="label">Province/省级</label><br />
                             <input type="text" class="form-control" id="ProvinceInput">
                         </td>
                     </tr>
                     <tr>
-                        <td id="City">
+                        <td>
                             <label class="label">City/市级</label><br />
                             <input type="text" class="form-control" id="CityInput">
                         </td>
-                        <td  id="Site">
+                        <td>
                             <label class="label">Site/县级</label><br />
                             <input type="text" class="form-control" id="SiteInput">
                         </td>
-                        <td id="ChineseName">
+                        <td>
                             <label class="label">ChineseName/客户中文名</label><br />
                             <input type="text" class="form-control" id="ChineseNameInput">
                         </td>
-                        <td id="EnglishNamee">
+                        <td>
                             <label class="label">EnglishName/客户英文名</label><br />
                             <input type="text" class="form-control" id="EnglishNameInput">
                         </td>
                     </tr>
                     <tr>
-                        <td id="PipelineStatus">
+                        <td>
                             <label class="label">PipelineStatus/Pipeline进度</label><br />
                             <select class="form-control" id="PipelineStatusInput">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                         </td>
-                        <td  id="ContractTerm">
+                        <td>
                             <label class="label">ContractTerm/合同有效期</label><br />
                             <select class="form-control" id="ContractTermInput">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                         </td>
-                        <td  id="TargetRate">
+                        <td>
                             <label class="label">TargetRate/成功几率</label><br />
                             <select class="form-control" id="TargetRateInput">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                         </td>
-                        <td id="AnnualSales">
+                        <td>
                             <label class="label">AnnualSales/年度金额(RMB)</label><br />
                             <input type="number" class="form-control" id="AnnualSalesInput">
                         </td>
                     </tr>
                     <tr>
-                        <td id="CorporateAccountChinese">
+                        <td>
                             <label class="label">CorporateAccountChinese/集团客户-中文</label><br />
                             <input type="text" class="form-control" id="CorporateAccountChineseInput">
                         </td>
-                        <td  id="CorporateAccountEnglish">
+                        <td>
                             <label class="label">CorporateAccountEnglish/集团客户-英文</label><br />
                             <input type="text" class="form-control" id="CorporateAccountEnglishInput">
                         </td>
-                        <td id="SalesRep">
+                        <td>
                             <label class="label">SalesRep/销售代表</label><br />
                             <input type="text" class="form-control" id="SalesRepInput">
                         </td>
-                        <td id="AssistCAMName">
+                        <td>
                             <label class="label">AssistCAMName/协助CAM姓名</label><br />
                             <select class="form-control" id="AssistCAMNameInput">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td id="FollowingStatus">
+                        <td>
                             <label class="label">FollowingStatus/进展状态</label><br />
                             <select class="form-control" id="FollowingStatusInput">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                         </td>
-                        <td  id="CTCBU">
+                        <td>
                             <label class="label">CTCBU/CTC业务部</label><br />
                             <select class="form-control" id="CTCBUInput">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                         </td>
-                        <td id="CTCSales">
+                        <td>
                             <label class="label">CTCSales/CTC销售负责人</label><br />
                             <input type="text" class="form-control" id="CTCSalesInput">
                         </td>
-                        <td id="SalesType">
+                        <td>
                             <label class="label">SalesType/销售类型</label><br />
                             <select class="form-control" id="SalesTypeInput">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td id="FollowingStatusRemark">
+                        <td>
                             <label class="label">FollowingStatusRemark/进展状态备注</label><br />
                             <input type="text" class="form-control" id="FollowingStatusRemarkInput">
                         </td>
-                        <td  id="CompetitorCN">
+                        <td>
                             <label class="label">CompetitorCN/竞争对手-中文</label><br />
                             <select class="form-control" id="CompetitorCNInput">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                         </td>
-                        <td id="FirstCollaborationDate">
+                        <td>
                             <label class="label">FirstCollaborationDate/最早合作日期</label><br />
                             <input type="date" class="form-control" id="FirstCollaborationDateInput">
                         </td>
-                        <td id="EstimatedPCO">
+                        <td>
                             <label class="label">EstimatedPCO/艺康可能占客户PCO比例</label><br />
                             <div class="input-group">
-                                <input type="number" oninput="if(value.length>5)value=value.slice(0,2)"  class="form-control" id="EstimatedPCOInput">
+                                <input type="number" class="form-control" id="EstimatedPCOInput">
                                 <span class="input-group-addon">%</span>
                             </div>
                         </td>
                     </tr>
                     <tr>
-                        <td id="Remark">
+                        <td>
                             <label class="label">Remark/备注</label><br />
                             <input type="text" class="form-control" id="RemarkInput">
                         </td>
-                        <td  id="MarketClassification">
+                        <td>
                             <label class="label">MarketClassification/市场分类-中文</label><br />
                             <select class="form-control" id="MarketClassificationInput">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
                             </select>
                         </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button class="btn btn-primary" id="new-button"><span class="glyphicon glyphicon-pencil"></span> New</button></td>
+                        <td colspan="2"><button class="btn btn-primary" id="update-button"><span class="glyphicon glyphicon-pencil"></span> Update</button></td>
                     </tr>
                 </table>
             </div>
@@ -232,14 +432,14 @@
 
     <!--<label>默认的复选框和单选按钮的实例</label>-->
     <!--<div class="radio">-->
-        <!--<label>-->
-            <!--<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 选项 1-->
-        <!--</label>-->
+    <!--<label>-->
+    <!--<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> 选项 1-->
+    <!--</label>-->
     <!--</div>-->
     <!--<div class="radio">-->
-        <!--<label>-->
-            <!--<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">选项 2 - 选择它将会取消选择选项 1-->
-        <!--</label>-->
+    <!--<label>-->
+    <!--<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">选项 2 - 选择它将会取消选择选项 1-->
+    <!--</label>-->
     <!--</div>-->
 </div>
 
