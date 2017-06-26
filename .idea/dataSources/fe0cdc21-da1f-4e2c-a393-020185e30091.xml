@@ -45,7 +45,7 @@
     </database>
     <schema id="15" parent="2" name="dbo">
       <ObjectId>1</ObjectId>
-      <IntrospectionTimestamp>2017-06-24.00:50:02.523</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2017-06-26.14:45:13.457</IntrospectionTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -88,63 +88,62 @@
     <table id="28" parent="15" name="AssistCAMName">
       <ObjectId>997578592</ObjectId>
       <CreatedTimestamp>2017-06-17.15:15:57.920</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:58:58.783</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.127</ModifiedTimestamp>
     </table>
     <table id="29" parent="15" name="BUDistrict">
       <ObjectId>805577908</ObjectId>
       <CreatedTimestamp>2017-06-16.23:11:27.397</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:50:39.180</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.123</ModifiedTimestamp>
     </table>
     <table id="30" parent="15" name="CTCBU">
       <ObjectId>1061578820</ObjectId>
       <CreatedTimestamp>2017-06-17.15:22:57.920</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.16:00:37.670</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.130</ModifiedTimestamp>
     </table>
     <table id="31" parent="15" name="CompetitorCN">
-      <ObjectId>1125579048</ObjectId>
-      <CreatedTimestamp>2017-06-17.15:30:38.123</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:30:38.130</ModifiedTimestamp>
+      <ObjectId>1525580473</ObjectId>
+      <CreatedTimestamp>2017-06-26.11:28:31.490</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.133</ModifiedTimestamp>
     </table>
     <table id="32" parent="15" name="ContractTerm">
       <ObjectId>933578364</ObjectId>
       <CreatedTimestamp>2017-06-17.15:10:31.320</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:53:07.200</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.123</ModifiedTimestamp>
     </table>
     <table id="33" parent="15" name="FollowingStatus">
       <ObjectId>1029578706</ObjectId>
       <CreatedTimestamp>2017-06-17.15:20:35.950</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.16:00:37.663</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.127</ModifiedTimestamp>
     </table>
     <table id="34" parent="15" name="MainData">
-      <ObjectId>1189579276</ObjectId>
-      <Comment>AnnualSales/RMB, </Comment>
-      <CreatedTimestamp>2017-06-17.15:43:46.680</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-24.00:50:01.827</ModifiedTimestamp>
+      <ObjectId>1829581556</ObjectId>
+      <CreatedTimestamp>2017-06-26.14:45:13.117</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.117</ModifiedTimestamp>
     </table>
     <table id="35" parent="15" name="MarketClassification">
       <ObjectId>1157579162</ObjectId>
       <CreatedTimestamp>2017-06-17.15:32:35.947</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.16:07:27.657</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.130</ModifiedTimestamp>
     </table>
     <table id="36" parent="15" name="PipelineStatus">
       <ObjectId>901578250</ObjectId>
       <CreatedTimestamp>2017-06-16.23:17:18.960</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:53:07.183</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.123</ModifiedTimestamp>
     </table>
     <table id="37" parent="15" name="Reviewer">
       <ObjectId>837578022</ObjectId>
       <CreatedTimestamp>2017-06-16.23:13:21.837</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:43:46.690</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.120</ModifiedTimestamp>
     </table>
     <table id="38" parent="15" name="SalesType">
       <ObjectId>1093578934</ObjectId>
       <CreatedTimestamp>2017-06-17.15:26:02.613</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.16:02:04.127</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.130</ModifiedTimestamp>
     </table>
     <table id="39" parent="15" name="TargetRate">
       <ObjectId>965578478</ObjectId>
       <CreatedTimestamp>2017-06-17.15:12:18.733</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:55:26.637</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.127</ModifiedTimestamp>
     </table>
     <routine id="40" parent="15" name="fn_diagramobjects">
       <ObjectId>725577623</ObjectId>
@@ -309,7 +308,7 @@
       <DataType>ntext|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="65" parent="31" name="PK__Competit__3214EC27F9F61AAF">
+    <index id="65" parent="31" name="PK__Competit__3214EC27EBE279AE">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
@@ -321,13 +320,13 @@
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="67" parent="31" name="PK__Competit__3214EC27F9F61AAF">
-      <ObjectId>1141579105</ObjectId>
+    <key id="67" parent="31" name="PK__Competit__3214EC27EBE279AE">
+      <ObjectId>1541580530</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2017-06-17.15:30:38.127</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:30:38.127</ModifiedTimestamp>
+      <CreatedTimestamp>2017-06-26.11:28:31.510</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.11:28:31.510</ModifiedTimestamp>
       <ColNames>ID</ColNames>
-      <UnderlyingIndexName>PK__Competit__3214EC27F9F61AAF</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__Competit__3214EC27EBE279AE</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
     <column id="68" parent="32" name="ID">
@@ -499,142 +498,146 @@
       <Position>22</Position>
       <DataType>ntext|0</DataType>
     </column>
-    <column id="100" parent="34" name="CompetitorCNID">
+    <column id="100" parent="34" name="FirstCollaborationDate">
       <Position>23</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="101" parent="34" name="Remark">
+      <Position>24</Position>
+      <DataType>ntext|0</DataType>
+    </column>
+    <column id="102" parent="34" name="MarketClassificationID">
+      <Position>25</Position>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="101" parent="34" name="FirstCollaborationDate">
-      <Position>24</Position>
-      <DataType>date|0</DataType>
-    </column>
-    <column id="102" parent="34" name="Remark">
+    <column id="103" parent="34" name="Username">
       <Position>26</Position>
-      <DataType>ntext|0</DataType>
+      <DataType>nvarchar(1024)|0</DataType>
     </column>
-    <column id="103" parent="34" name="MarketClassificationID">
+    <column id="104" parent="34" name="EstimatedPCO">
       <Position>27</Position>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="104" parent="34" name="Username">
-      <Position>29</Position>
-      <DataType>nvarchar(1024)|0</DataType>
-    </column>
-    <column id="105" parent="34" name="EstimatedPCO">
-      <Position>30</Position>
+    <column id="105" parent="34" name="CompetitorCNID">
+      <Position>28</Position>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="106" parent="34" name="PK__MainData__3214EC274E7D96DB">
+    <index id="106" parent="34" name="PK__MainData__3214EC27913223F1">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="107" parent="34" name="MainData_ID_uindex">
-      <Position>2</Position>
-      <ColNames>ID</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="108" parent="34" name="PK__MainData__3214EC274E7D96DB">
-      <ObjectId>1205579333</ObjectId>
+    <key id="107" parent="34" name="PK__MainData__3214EC27913223F1">
+      <ObjectId>1845581613</ObjectId>
       <NameSurrogate>1</NameSurrogate>
-      <CreatedTimestamp>2017-06-17.15:43:46.680</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:43:46.680</ModifiedTimestamp>
+      <CreatedTimestamp>2017-06-26.14:45:13.120</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.120</ModifiedTimestamp>
       <ColNames>ID</ColNames>
-      <UnderlyingIndexName>PK__MainData__3214EC274E7D96DB</UnderlyingIndexName>
+      <UnderlyingIndexName>PK__MainData__3214EC27913223F1</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="109" parent="34" name="MainData_Reviewer">
-      <ObjectId>1221579390</ObjectId>
-      <CreatedTimestamp>2017-06-17.15:43:46.683</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:43:46.683</ModifiedTimestamp>
+    <foreign-key id="108" parent="34" name="MainData_Reviewer">
+      <ObjectId>1861581670</ObjectId>
+      <CreatedTimestamp>2017-06-26.14:45:13.120</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.120</ModifiedTimestamp>
       <ColNames>ReviewerID</ColNames>
       <RefTableName>Reviewer</RefTableName>
       <RefKeyName>PK__Reviewer__3214EC27978FBCE4</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="110" parent="34" name="MainData_BUDistrict">
-      <ObjectId>1237579447</ObjectId>
-      <CreatedTimestamp>2017-06-17.15:50:39.177</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:50:39.177</ModifiedTimestamp>
+    <foreign-key id="109" parent="34" name="MainData_BUDistrict">
+      <ObjectId>1877581727</ObjectId>
+      <CreatedTimestamp>2017-06-26.14:45:13.120</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.120</ModifiedTimestamp>
       <ColNames>BUDistrictID</ColNames>
       <RefTableName>BUDistrict</RefTableName>
       <RefKeyName>PK__BUDistri__3214EC2721007DE4</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="111" parent="34" name="MainData_PipelineStatus">
-      <ObjectId>1253579504</ObjectId>
-      <CreatedTimestamp>2017-06-17.15:53:07.180</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:53:07.180</ModifiedTimestamp>
+    <foreign-key id="110" parent="34" name="MainData_PipelineStatus">
+      <ObjectId>1893581784</ObjectId>
+      <CreatedTimestamp>2017-06-26.14:45:13.123</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.123</ModifiedTimestamp>
       <ColNames>PipelineStatusID</ColNames>
       <RefTableName>PipelineStatus</RefTableName>
       <RefKeyName>PK__Pipeline__3214EC272D8318F9</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="112" parent="34" name="MainData_ContractTerm">
-      <ObjectId>1269579561</ObjectId>
-      <CreatedTimestamp>2017-06-17.15:53:07.200</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:53:07.200</ModifiedTimestamp>
+    <foreign-key id="111" parent="34" name="MainData_ContractTerm">
+      <ObjectId>1909581841</ObjectId>
+      <CreatedTimestamp>2017-06-26.14:45:13.123</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.123</ModifiedTimestamp>
       <ColNames>ContractTermID</ColNames>
       <RefTableName>ContractTerm</RefTableName>
       <RefKeyName>PK__Contract__3214EC2726367D05</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="113" parent="34" name="MainData_TargetRate">
-      <ObjectId>1285579618</ObjectId>
-      <CreatedTimestamp>2017-06-17.15:55:26.637</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:55:26.637</ModifiedTimestamp>
+    <foreign-key id="112" parent="34" name="MainData_TargetRate">
+      <ObjectId>1925581898</ObjectId>
+      <CreatedTimestamp>2017-06-26.14:45:13.123</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.123</ModifiedTimestamp>
       <ColNames>TargetRateID</ColNames>
       <RefTableName>TargetRate</RefTableName>
       <RefKeyName>PK__TargetRa__3214EC27D24BAAD5</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="114" parent="34" name="MainData_AssistCAMName">
-      <ObjectId>1301579675</ObjectId>
-      <CreatedTimestamp>2017-06-17.15:58:58.783</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.15:58:58.783</ModifiedTimestamp>
+    <foreign-key id="113" parent="34" name="MainData_AssistCAMName">
+      <ObjectId>1941581955</ObjectId>
+      <CreatedTimestamp>2017-06-26.14:45:13.127</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.127</ModifiedTimestamp>
       <ColNames>AssistCAMNameID</ColNames>
       <RefTableName>AssistCAMName</RefTableName>
       <RefKeyName>PK__AssistCA__3214EC27946F1EE2</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="115" parent="34" name="MainData_FollowingStatus">
-      <ObjectId>1317579732</ObjectId>
-      <CreatedTimestamp>2017-06-17.16:00:37.660</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.16:00:37.660</ModifiedTimestamp>
+    <foreign-key id="114" parent="34" name="MainData_FollowingStatus">
+      <ObjectId>1957582012</ObjectId>
+      <CreatedTimestamp>2017-06-26.14:45:13.127</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.127</ModifiedTimestamp>
       <ColNames>FollowingStatusID</ColNames>
       <RefTableName>FollowingStatus</RefTableName>
       <RefKeyName>PK__Followin__3214EC27975CDA1E</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="116" parent="34" name="MainData_CTCBU">
-      <ObjectId>1333579789</ObjectId>
-      <CreatedTimestamp>2017-06-17.16:00:37.667</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.16:00:37.667</ModifiedTimestamp>
+    <foreign-key id="115" parent="34" name="MainData_CTCBU">
+      <ObjectId>1973582069</ObjectId>
+      <CreatedTimestamp>2017-06-26.14:45:13.127</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.127</ModifiedTimestamp>
       <ColNames>CTCBUID</ColNames>
       <RefTableName>CTCBU</RefTableName>
       <RefKeyName>PK__CTCBU__3214EC27FD8AAF11</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="117" parent="34" name="MainData_SalesType">
-      <ObjectId>1349579846</ObjectId>
-      <CreatedTimestamp>2017-06-17.16:02:04.123</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.16:02:04.123</ModifiedTimestamp>
+    <foreign-key id="116" parent="34" name="MainData_SalesType">
+      <ObjectId>1989582126</ObjectId>
+      <CreatedTimestamp>2017-06-26.14:45:13.130</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.130</ModifiedTimestamp>
       <ColNames>SalesTypeID</ColNames>
       <RefTableName>SalesType</RefTableName>
       <RefKeyName>PK__SalesTyp__3214EC27A5D83C09</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="118" parent="34" name="MainData_MarketClassification">
-      <ObjectId>1365579903</ObjectId>
-      <CreatedTimestamp>2017-06-17.16:07:27.657</CreatedTimestamp>
-      <ModifiedTimestamp>2017-06-17.16:07:27.657</ModifiedTimestamp>
+    <foreign-key id="117" parent="34" name="MainData_MarketClassification">
+      <ObjectId>2005582183</ObjectId>
+      <CreatedTimestamp>2017-06-26.14:45:13.130</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.130</ModifiedTimestamp>
       <ColNames>MarketClassificationID</ColNames>
       <RefTableName>MarketClassification</RefTableName>
       <RefKeyName>PK__MarketCl__3214EC27FFBFA0CF</RefKeyName>
+      <RefColNames>ID</RefColNames>
+    </foreign-key>
+    <foreign-key id="118" parent="34" name="MainData_CompetitorCN">
+      <ObjectId>2021582240</ObjectId>
+      <CreatedTimestamp>2017-06-26.14:45:13.130</CreatedTimestamp>
+      <ModifiedTimestamp>2017-06-26.14:45:13.130</ModifiedTimestamp>
+      <ColNames>CompetitorCNID</ColNames>
+      <RefTableName>CompetitorCN</RefTableName>
+      <RefKeyName>PK__Competit__3214EC27EBE279AE</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
     <column id="119" parent="35" name="ID">

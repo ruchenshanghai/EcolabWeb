@@ -61,6 +61,8 @@ $(document).ready(function () {
         });
         $('#MarketClassificationInput').val(mainData.MarketClassificationID);
 
+        $('#OpportunityCodeOutput').append(mainData.OpportunityCode);
+
         $('#ProvinceInput').val(mainData.Province);
         $('#CityInput').val(mainData.City);
         $('#SiteInput').val(mainData.Site);
@@ -77,6 +79,16 @@ $(document).ready(function () {
         $('#RemarkInput').val(mainData.Remark);
 
 
+
+        $('#CompetitorCNInput').bind("change", function(){
+            if ($('#CompetitorCNInput').val() == 0) {
+                $('#CompetitorCNColumn').append(`<input type="text" id="NewCompetitorCN">`);
+            } else {
+                if ($('#NewCompetitorCN')) {
+                    $('#NewCompetitorCN').remove();
+                }
+            }
+        });
         // observe EstimatedPCO <=100%
         $('#EstimatedPCOInput').on("input propertychange", function () {
             if( $('#EstimatedPCOInput').val().slice(0, 3) === 100) {
@@ -86,13 +98,59 @@ $(document).ready(function () {
             }
         });
 
+
         $('#update-button').click(function () {
-            // alert($('#ProvinceInput').val());
-            //  alert($('#CityInput').val());
-            //  alert($('#SiteInput').val());
-            //  alert($('#ChineseNameInput').val());
-            //  alert($('#EnglishNameInput').val());
-            // alert($('#AnnualSalesInput').val());
+            let updateMessage = {};
+
+            updateMessage.ReviewerID = $('#ReviewerInput').val();
+            updateMessage.BUDistrictID = $('#BUDistrictInput').val();
+            updateMessage.Province = $('#ProvinceInput').val();
+            updateMessage.City = $('#CityInput').val();
+            updateMessage.Site = $('#SiteInput').val();
+            updateMessage.ChineseName = $('#ChineseNameInput').val();
+            updateMessage.EnglishName = $('#EnglishNameInput').val();
+            updateMessage.PipelineStatusID = $('#PipelineStatusInput').val();
+            updateMessage.ContractTermID = $('#ContractTermInput').val();
+            updateMessage.TargetRateID = $('#TargetRateInput').val();
+            updateMessage.AnnualSales = $('#AnnualSalesInput').val();
+            updateMessage.CorporateAccountChinese = $('#CorporateAccountChineseInput').val();
+            updateMessage.CorporateAccountEnglish = $('#CorporateAccountEnglishInput').val();
+            updateMessage.SalesRep = $('#SalesRepInput').val();
+            updateMessage.AssistCAMNameID = $('#AssistCAMNameInput').val();
+            updateMessage.FollowingStatusID = $('#FollowingStatusInput').val();
+            updateMessage.CTCBUID = $('#CTCBUInput').val();
+            updateMessage.CTCSales = $('#CTCSalesInput').val();
+            updateMessage.SalesTypeID = $('#SalesTypeInput').val();
+            updateMessage.FollowingStatusRemark = $('#FollowingStatusRemarkInput').val();
+            updateMessage.CompetitorCNID = $('#CompetitorCNInput').val();
+            updateMessage.FirstCollaborationDate = $('#FirstCollaborationDateInput').val();
+            updateMessage.EstimatedPCO = $('#EstimatedPCOInput').val();
+            updateMessage.Remark = $('#RemarkInput').val();
+            updateMessage.MarketClassificationID = $('#MarketClassificationInput').val();
+
+            if (updateMessage.CompetitorCNID == 0) {
+                updateMessage.NewCompetitorCN = $('#NewCompetitorCN').val();
+                // console.log($('#NewCompetitorCN').val());
+            }
+            // not change
+            updateMessage.ID = mainData.ID;
+            updateMessage.OpportunityCode = mainData.OpportunityCode;
+            updateMessage.Username = mainData.Username;
+
+
+            $.post('/update?mainData=' + JSON.stringify(updateMessage)).then(data => {
+                if (data === 'success') {
+                    window.location.href = 'http://localhost:2017/index';
+                }
+            });
         });
+
+        $('#new-button').click(function () {
+            window.location.href = 'http://localhost:2017/create';
+        });
+    });
+
+    $('#back-button').click(function () {
+       window.history.back();
     });
 });
