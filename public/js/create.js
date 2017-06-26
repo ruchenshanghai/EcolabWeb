@@ -73,53 +73,46 @@ $(document).ready(function () {
 
             let newMessage = {};
 
-            newMessage.ReviewerID = $('#ReviewerInput').val();
-            newMessage.BUDistrictID = $('#BUDistrictInput').val();
+            newMessage.ReviewerID = Number($('#ReviewerInput').val());
+            newMessage.BUDistrictID = Number($('#BUDistrictInput').val());
             newMessage.Province = $('#ProvinceInput').val();
             newMessage.City = $('#CityInput').val();
             newMessage.Site = $('#SiteInput').val();
             newMessage.ChineseName = $('#ChineseNameInput').val();
             newMessage.EnglishName = $('#EnglishNameInput').val();
-            newMessage.PipelineStatusID = $('#PipelineStatusInput').val();
-            newMessage.ContractTermID = $('#ContractTermInput').val();
-            newMessage.TargetRateID = $('#TargetRateInput').val();
-            newMessage.AnnualSales = $('#AnnualSalesInput').val();
+            newMessage.PipelineStatusID = Number($('#PipelineStatusInput').val());
+            newMessage.ContractTermID = Number($('#ContractTermInput').val());
+            newMessage.TargetRateID = Number($('#TargetRateInput').val());
+            newMessage.AnnualSales = Number($('#AnnualSalesInput').val());
             newMessage.CorporateAccountChinese = $('#CorporateAccountChineseInput').val();
             newMessage.CorporateAccountEnglish = $('#CorporateAccountEnglishInput').val();
             newMessage.SalesRep = $('#SalesRepInput').val();
-            newMessage.AssistCAMNameID = $('#AssistCAMNameInput').val();
-            newMessage.FollowingStatusID = $('#FollowingStatusInput').val();
-            newMessage.CTCBUID = $('#CTCBUInput').val();
+            newMessage.AssistCAMNameID = Number($('#AssistCAMNameInput').val());
+            newMessage.FollowingStatusID = Number($('#FollowingStatusInput').val());
+            newMessage.CTCBUID = Number($('#CTCBUInput').val());
             newMessage.CTCSales = $('#CTCSalesInput').val();
-            newMessage.SalesTypeID = $('#SalesTypeInput').val();
+            newMessage.SalesTypeID = Number($('#SalesTypeInput').val());
             newMessage.FollowingStatusRemark = $('#FollowingStatusRemarkInput').val();
-            newMessage.CompetitorCNID = $('#CompetitorCNInput').val();
+            newMessage.CompetitorCNID = Number($('#CompetitorCNInput').val());
             newMessage.FirstCollaborationDate = $('#FirstCollaborationDateInput').val();
-            newMessage.EstimatedPCO = $('#EstimatedPCOInput').val();
+            newMessage.EstimatedPCO = Number($('#EstimatedPCOInput').val());
             newMessage.Remark = $('#RemarkInput').val();
-            newMessage.MarketClassificationID = $('#MarketClassificationInput').val();
+            newMessage.MarketClassificationID = Number($('#MarketClassificationInput').val());
 
-            if (newMessage.CompetitorCNID == 0) {
-                if ($('#NewCompetitorCN').val() == '') {
-                    alert('Please input CompetitorCN');
-                    return;
-                }
+            if (newMessage.CompetitorCNID === 0 && $('#NewCompetitorCN').val() !== '') {
                 newMessage.NewCompetitorCN = $('#NewCompetitorCN').val();
             }
-
             newMessage.Username = username;
-            if (newMessage.Province != '' && newMessage.City != '' && newMessage.Site != '' && newMessage.ChineseName != ''
-                && newMessage.EnglishName != '' && newMessage.AnnualSales != '' && newMessage.CorporateAccountChinese != ''
-                && newMessage.CorporateAccountEnglish != ''&& newMessage.SalesRep != ''&& newMessage.CTCSales != ''&& newMessage.FollowingStatusRemark != ''
-                && newMessage.FirstCollaborationDate != ''&& newMessage.EstimatedPCO != ''&& newMessage.Remark != '') {
-                $.post('/create?mainData=' + JSON.stringify(newMessage)).then(status => {
-                    if (!isNaN(status)) {
-                        console.log(status);
-                        // window.location.href = 'http://localhost:2017/detail/' + dataID;
+            if (newMessage.Province !== '' && newMessage.City !== '' && newMessage.Site !== '' && newMessage.ChineseName !== '' && newMessage.FirstCollaborationDate !== ''
+                && newMessage.EnglishName !== '' && newMessage.AnnualSales !== 0 && newMessage.SalesRep !== ''&& newMessage.EstimatedPCO !== '') {
+                $.post('/create?mainData=' + JSON.stringify(newMessage)).then(mainData => {
+                    console.log(mainData);
+                    if (!isNaN(mainData.ID)) {
+                        // console.log(status);
+                        window.location.href = 'http://localhost:2017/detail/' + mainData.ID;
                     }
                 });
             }
-
         });
     });
 

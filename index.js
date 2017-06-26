@@ -35,6 +35,9 @@ app.use(function (req, res) {
     }
 });
 
+// Util.getOpportunityCode().then(count => {
+//     console.log(count);
+// });
 
 // let testData = new MainData();
 // Util.resolveMainData(testData).then(value => {

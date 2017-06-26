@@ -102,42 +102,43 @@ $(document).ready(function () {
         $('#update-button').click(function () {
             let updateMessage = {};
 
-            updateMessage.ReviewerID = $('#ReviewerInput').val();
-            updateMessage.BUDistrictID = $('#BUDistrictInput').val();
+            updateMessage.ReviewerID = Number($('#ReviewerInput').val());
+            updateMessage.BUDistrictID = Number($('#BUDistrictInput').val());
             updateMessage.Province = $('#ProvinceInput').val();
             updateMessage.City = $('#CityInput').val();
             updateMessage.Site = $('#SiteInput').val();
             updateMessage.ChineseName = $('#ChineseNameInput').val();
             updateMessage.EnglishName = $('#EnglishNameInput').val();
-            updateMessage.PipelineStatusID = $('#PipelineStatusInput').val();
-            updateMessage.ContractTermID = $('#ContractTermInput').val();
-            updateMessage.TargetRateID = $('#TargetRateInput').val();
-            updateMessage.AnnualSales = $('#AnnualSalesInput').val();
+            updateMessage.PipelineStatusID = Number($('#PipelineStatusInput').val());
+            updateMessage.ContractTermID = Number($('#ContractTermInput').val());
+            updateMessage.TargetRateID = Number($('#TargetRateInput').val());
+            updateMessage.AnnualSales = Number($('#AnnualSalesInput').val());
             updateMessage.CorporateAccountChinese = $('#CorporateAccountChineseInput').val();
             updateMessage.CorporateAccountEnglish = $('#CorporateAccountEnglishInput').val();
             updateMessage.SalesRep = $('#SalesRepInput').val();
-            updateMessage.AssistCAMNameID = $('#AssistCAMNameInput').val();
-            updateMessage.FollowingStatusID = $('#FollowingStatusInput').val();
-            updateMessage.CTCBUID = $('#CTCBUInput').val();
+            updateMessage.AssistCAMNameID = Number($('#AssistCAMNameInput').val());
+            updateMessage.FollowingStatusID = Number($('#FollowingStatusInput').val());
+            updateMessage.CTCBUID = Number($('#CTCBUInput').val());
             updateMessage.CTCSales = $('#CTCSalesInput').val();
-            updateMessage.SalesTypeID = $('#SalesTypeInput').val();
+            updateMessage.SalesTypeID = Number($('#SalesTypeInput').val());
             updateMessage.FollowingStatusRemark = $('#FollowingStatusRemarkInput').val();
-            updateMessage.CompetitorCNID = $('#CompetitorCNInput').val();
+            updateMessage.CompetitorCNID = Number($('#CompetitorCNInput').val());
             updateMessage.FirstCollaborationDate = $('#FirstCollaborationDateInput').val();
-            updateMessage.EstimatedPCO = $('#EstimatedPCOInput').val();
+            updateMessage.EstimatedPCO = Number($('#EstimatedPCOInput').val());
             updateMessage.Remark = $('#RemarkInput').val();
-            updateMessage.MarketClassificationID = $('#MarketClassificationInput').val();
+            updateMessage.MarketClassificationID = Number($('#MarketClassificationInput').val());
 
-            if (updateMessage.CompetitorCNID == 0) {
+            if (updateMessage.CompetitorCNID === 0) {
                 updateMessage.NewCompetitorCN = $('#NewCompetitorCN').val();
                 // console.log($('#NewCompetitorCN').val());
             }
             // not change
-            updateMessage.ID = mainData.ID;
+            updateMessage.ID = Number(mainData.ID);
             updateMessage.OpportunityCode = mainData.OpportunityCode;
             updateMessage.Username = mainData.Username;
 
 
+            console.log(JSON.stringify(updateMessage));
             $.post('/update?mainData=' + JSON.stringify(updateMessage)).then(data => {
                 if (data === 'success') {
                     window.location.href = 'http://localhost:2017/index';

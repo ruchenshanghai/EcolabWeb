@@ -35,8 +35,8 @@ router.post('/username', function (req, res) {
     res.send(req.connection.user);
 });
 router.post('/update', function (req, res) {
-    let mainData = JSON.parse(req.params.mainData);
-    if (mainData.CompetitorCNID == 0 && mainData.NewCompetitorCN != '') {
+    let mainData = JSON.parse(req.param('mainData'));
+    if (mainData.CompetitorCNID === 0 && mainData.NewCompetitorCN !== '') {
         Util.saveNewCompetitorCN(mainData.NewCompetitorCN).then(CompetitorCNID => {
             mainData.CompetitorCNID = CompetitorCNID;
             Util.updateMainData(mainData).then(status => {
@@ -63,10 +63,26 @@ router.post('/metaData', function (req, res) {
 });
 router.post('/create', function (req, res) {
     let mainData = JSON.parse(req.param('mainData'));
-    Util.saveNewMainData(mainData).then(dataID => {
-        // console.log(dataID);
-        res.send(dataID);
-    })
+    if (mainData.CompetitorCNID === 0 && mainData.NewCompetitorCN !== '') {
+        Util.saveNewCompetitorCN(mainData.NewCompetitorCN).then(CompetitorCNID => {
+            mainData.CompetitorCNID = CompetitorCNID;
+            Util.saveNewMainData(mainData).then(dataID => {
+                console.log(dataID);
+                res.status(200).json(mainData);
+            });
+        });
+    } else {
+        Util.saveNewMainData(mainData).then(dataID => {
+            console.log(dataID);
+            res.status(200).json(mainData);
+        });
+    }
+    // let mainData = JSON.parse(req.param('mainData'));
+    //
+    // Util.saveNewMainData(mainData).then(dataID => {
+    //     // console.log(dataID);
+    //     res.send(dataID);
+    // })
 });
 
 module.exports = router;
