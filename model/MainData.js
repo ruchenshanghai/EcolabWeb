@@ -26,7 +26,7 @@ function MainData() {
     this.CTCBUName = '';
     this.SalesTypeID = 1;
     this.SalesTypeName = '';
-    this.CompetitorCNID = 1;
+    this.CompetitorCN = '';
     this.CompetitorCNName = '';
     this.MarketClassificationID = 1;
     this.MarketClassificationName = '';
@@ -80,8 +80,8 @@ MainData.prototype.copyFromObject = function (object) {
     if (object.SalesTypeID != undefined) {
         this.SalesTypeID = object.SalesTypeID;
     };
-    if (object.CompetitorCNID != undefined) {
-        this.CompetitorCNID = object.CompetitorCNID;
+    if (object.CompetitorCN != undefined) {
+        this.CompetitorCN = object.CompetitorCN;
     };
     if (object.MarketClassificationID != undefined) {
         this.MarketClassificationID = object.MarketClassificationID;
@@ -147,7 +147,7 @@ MainData.prototype.constructTest = function () {
     this.FollowingStatusID = 1;
     this.CTCBUID = 1;
     this.SalesTypeID = 1;
-    this.CompetitorCNID = 1;
+    this.CompetitorCN = '007';
     this.MarketClassificationID = 1;
 
     this.OpportunityCode = '007';

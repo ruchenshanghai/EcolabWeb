@@ -1,0 +1,18 @@
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('一般制造业#Manufacturing');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('食品制造业#Food Manufactory');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('饮料制造业#Beverage Manufactory');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('乳品制造业#Dairy Manufactory');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('快餐业#QSR');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('餐饮业（非快餐）#FSR');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('酒店业#Hospitality');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('物流及仓储业#Logistics&Warehouse');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('物业管理#Building Management');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('食品零售#Food Retail');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('医药零售#Pharmaceutical Retail');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('医疗健康机构#Healthcare');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('医药制造#Pharmaceutical Manufactory');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('零售业#Retail');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('政府机构及其他#Others');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('教育机构#Education Institution');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('包装业#Packaging materials');
+INSERT INTO GTWPEST.dbo.MarketClassification (Name) VALUES ('食品零售业#Food Retail');

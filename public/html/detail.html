@@ -22,19 +22,19 @@
         </div>
     </div>
 
-    <div class="container" id="header-container">
-        <div class="row">
-            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-2"></div>
-            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
-                <img src="../images/header-ico.jpg">
-            </div>
-            <div class="col-xs-0 col-sm-0 col-md-1 col-lg-2"></div>
-        </div>
-    </div>
+    <!--<div class="container" id="header-container">-->
+        <!--<div class="row">-->
+            <!--<div class="col-xs-0 col-sm-0 col-md-1 col-lg-2"></div>-->
+            <!--<div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">-->
+                <!--<img src="../images/header-ico.jpg">-->
+            <!--</div>-->
+            <!--<div class="col-xs-0 col-sm-0 col-md-1 col-lg-2"></div>-->
+        <!--</div>-->
+    <!--</div>-->
 
 
     <div class="container" id="footer-container">
-        <b>Welcome! <h1 id="username"></h1>You can update the old record..</b>
+        <b>Welcome! <h1 id="username"></h1>You can update the old record.</b>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <table id="content-table">
@@ -141,21 +141,21 @@
                             <label class="label">FollowingStatusRemark/进展状态备注</label><br />
                             <input type="text" class="form-control" id="FollowingStatusRemarkInput">
                         </td>
-                        <td id="CompetitorCNColumn">
+                        <td>
                             <label class="label">CompetitorCN/竞争对手-中文</label><br />
-                            <select class="form-control" id="CompetitorCNInput">
-                                <option value="0">Add New CompetitorCN</option>
+                            <select class="form-control" id="CompetitorCNOptions">
+                                <option value="0">Options</option>
                             </select>
+                            <input type="text" placeholder="(You can edit options here)" id="CompetitorCNInput">
                         </td>
                         <td>
                             <label class="label">FirstCollaborationDate/最早合作日期</label><br />
                             <input type="date" class="form-control" id="FirstCollaborationDateInput">
                         </td>
                         <td>
-                            <label class="label">EstimatedPCO/艺康可能占客户PCO比例</label><br />
+                            <label class="label">EstimatedPCO/艺康可能占客户PCO比例(%)</label><br />
                             <div class="input-group">
                                 <input type="number" class="form-control" id="EstimatedPCOInput">
-                                <span class="input-group-addon">%</span>
                             </div>
                         </td>
                     </tr>
@@ -171,8 +171,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="1"><button class="btn btn-primary" id="new-button"><span class="glyphicon glyphicon-pencil"></span> New</button></td>
-                        <td colspan="2"><button class="btn btn-primary" id="update-button"><span class="glyphicon glyphicon-pencil"></span> Update</button></td>
+                        <td colspan="1"><button class="btn btn-primary" id="new-button"><span class="glyphicon glyphicon-pencil"></span> Create</button></td>
+                        <td colspan="1"><button class="btn btn-primary" id="delete-button"><span class="glyphicon glyphicon-pencil"></span> Delete</button></td>
+                        <td colspan="1"><button class="btn btn-primary" id="update-button"><span class="glyphicon glyphicon-pencil"></span> Update</button></td>
                         <td colspan="1"><button class="btn btn-primary" id="back-button"><span class="glyphicon glyphicon-pencil"></span> Back</button></td>
                     </tr>
                 </table>

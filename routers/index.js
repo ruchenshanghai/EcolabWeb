@@ -6,9 +6,6 @@ var Util = require('../lib/Util');
 
 router.get('/index', function (req, res) {
     res.sendFile(path.join(__dirname, '../public/html/index.html'));
-    // Util.getAllData().then(dataArray => {
-    //     res.render('index', {dataArray: dataArray});
-    // });
 });
 
 router.get('/detail/:id', function (req, res) {
@@ -22,7 +19,11 @@ router.get('/create', function (req, res) {
 // api
 router.post('/data/:id', function (req, res) {
     Util.getMainDataByID(req.params.id).then(mainData => {
-        res.send(mainData);
+        if (mainData !== null && mainData.Username.toLowerCase() === String(req.connection.user).toLowerCase()) {
+            res.send(mainData);
+        } else {
+            res.send(null);
+        }
     });
 });
 router.post('/AllData', function (req, res) {
@@ -36,17 +37,7 @@ router.post('/username', function (req, res) {
 });
 router.post('/update', function (req, res) {
     let mainData = JSON.parse(req.param('mainData'));
-    if (mainData.CompetitorCNID === 0 && mainData.NewCompetitorCN !== '') {
-        Util.saveNewCompetitorCN(mainData.NewCompetitorCN).then(CompetitorCNID => {
-            mainData.CompetitorCNID = CompetitorCNID;
-            Util.updateMainData(mainData).then(status => {
-                if (status === 'success') {
-                    console.log(status);
-                    res.send(status);
-                }
-            });
-        });
-    } else {
+    if (String(req.connection.user).toLowerCase() === mainData.Username.toLowerCase()) {
         Util.updateMainData(mainData).then(status => {
             if (status === 'success') {
                 console.log(status);
@@ -63,26 +54,22 @@ router.post('/metaData', function (req, res) {
 });
 router.post('/create', function (req, res) {
     let mainData = JSON.parse(req.param('mainData'));
-    if (mainData.CompetitorCNID === 0 && mainData.NewCompetitorCN !== '') {
-        Util.saveNewCompetitorCN(mainData.NewCompetitorCN).then(CompetitorCNID => {
-            mainData.CompetitorCNID = CompetitorCNID;
-            Util.saveNewMainData(mainData).then(dataID => {
-                console.log(dataID);
-                res.status(200).json(mainData);
-            });
-        });
-    } else {
+    if (String(req.connection.user).toLowerCase() === mainData.Username.toLowerCase()) {
         Util.saveNewMainData(mainData).then(dataID => {
             console.log(dataID);
             res.status(200).json(mainData);
         });
     }
-    // let mainData = JSON.parse(req.param('mainData'));
-    //
-    // Util.saveNewMainData(mainData).then(dataID => {
-    //     // console.log(dataID);
-    //     res.send(dataID);
-    // })
+});
+router.post('/delete', function (req, res) {
+    let mainData = JSON.parse(req.param('mainData'));
+    console.log(mainData);
+    if (String(req.connection.user).toLowerCase() === mainData.Username.toLowerCase()) {
+        Util.deleteMainData(mainData).then(status => {
+            console.log(status);
+            res.send(status);
+        });
+    }
 });
 
 module.exports = router;

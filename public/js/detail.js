@@ -15,7 +15,9 @@ $(document).ready(function () {
         $('#username').html(username);
     });
     $.post('/data/' + mainDataID).then(mainData => {
-        // console.log(mainData);
+        if (mainData === '') {
+            window.location.href = 'http://localhost:2017/index';
+        }
         mainData.ReviewerArray.forEach(function (reviewer) {
             $('#ReviewerInput').append(`<option value="` + reviewer.ID + `">` + reviewer.Name + `</option>`);
         });
@@ -53,9 +55,9 @@ $(document).ready(function () {
         });
         $('#SalesTypeInput').val(mainData.SalesTypeID);
         mainData.CompetitorCNArray.forEach(function (CompetitorCN) {
-            $('#CompetitorCNInput').append(`<option value="` + CompetitorCN.ID + `">` + CompetitorCN.Name + `</option>`);
+            $('#CompetitorCNOptions').append(`<option value="` + CompetitorCN.ID + `">` + CompetitorCN.Name + `</option>`);
         });
-        $('#CompetitorCNInput').val(mainData.CompetitorCNID);
+        $('#CompetitorCNInput').val(mainData.CompetitorCN);
         mainData.MarketClassificationArray.forEach(function (MarketClassification) {
             $('#MarketClassificationInput').append(`<option value="` + MarketClassification.ID + `">` + MarketClassification.Name + `</option>`);
         });
@@ -74,21 +76,25 @@ $(document).ready(function () {
         $('#SalesRepInput').val(mainData.SalesRep);
         $('#CTCSalesInput').val(mainData.CTCSales);
         $('#FollowingStatusRemarkInput').val(mainData.FollowingStatusRemark);
-        $('#FirstCollaborationDateInput').val(mainData.FirstCollaborationDate.substring(0, 10));
+        if (mainData.FirstCollaborationDate !== null) {
+            $('#FirstCollaborationDateInput').val(mainData.FirstCollaborationDate.substring(0, 10));
+        }
         $('#EstimatedPCOInput').val(mainData.EstimatedPCO);
         $('#RemarkInput').val(mainData.Remark);
 
 
 
-        $('#CompetitorCNInput').bind("change", function(){
-            if ($('#CompetitorCNInput').val() == 0) {
-                $('#CompetitorCNColumn').append(`<input type="text" id="NewCompetitorCN">`);
-            } else {
-                if ($('#NewCompetitorCN')) {
-                    $('#NewCompetitorCN').remove();
-                }
+        $('#CompetitorCNOptions').bind("change", function(){
+            let CompetitorCNID = Number($('#CompetitorCNOptions').val());
+            if (CompetitorCNID > 0) {
+                mainData.CompetitorCNArray.forEach(Competitor => {
+                    if (Competitor.ID === CompetitorCNID) {
+                        $('#CompetitorCNInput').val(Competitor.Name);
+                    }
+                })
             }
         });
+
         // observe EstimatedPCO <=100%
         $('#EstimatedPCOInput').on("input propertychange", function () {
             if( $('#EstimatedPCOInput').val().slice(0, 3) === 100) {
@@ -122,22 +128,57 @@ $(document).ready(function () {
             updateMessage.CTCSales = $('#CTCSalesInput').val();
             updateMessage.SalesTypeID = Number($('#SalesTypeInput').val());
             updateMessage.FollowingStatusRemark = $('#FollowingStatusRemarkInput').val();
-            updateMessage.CompetitorCNID = Number($('#CompetitorCNInput').val());
+            updateMessage.CompetitorCN = $('#CompetitorCNInput').val();
             updateMessage.FirstCollaborationDate = $('#FirstCollaborationDateInput').val();
             updateMessage.EstimatedPCO = Number($('#EstimatedPCOInput').val());
             updateMessage.Remark = $('#RemarkInput').val();
             updateMessage.MarketClassificationID = Number($('#MarketClassificationInput').val());
 
-            if (updateMessage.CompetitorCNID === 0) {
-                updateMessage.NewCompetitorCN = $('#NewCompetitorCN').val();
-                // console.log($('#NewCompetitorCN').val());
-            }
             // not change
             updateMessage.ID = Number(mainData.ID);
             updateMessage.OpportunityCode = mainData.OpportunityCode;
             updateMessage.Username = mainData.Username;
 
+            if (updateMessage.Province === '') {
+                alert('Please input Province');
+                return;
+            }
+            if (updateMessage.City === '') {
+                alert('Please input City');
+                return;
+            }
+            if (updateMessage.Site === '') {
+                alert('Please input Site');
+                return;
+            }
+            if (updateMessage.ChineseName === '') {
+                alert('Please input CineseName');
+                return;
+            }
+            if (updateMessage.EnglishName === '') {
+                alert('Please input EnglishName');
+                return;
+            }
+            if (updateMessage.AnnualSales === '') {
+                alert('Please input AnnualSales');
+                return;
+            }
+            if (updateMessage.SalesRep === '') {
+                alert('Please input SalesRep');
+                return;
+            }
+            if (updateMessage.CompetitorCN === '') {
+                alert('Please input CompetitorCN');
+                return;
+            }
+            if (updateMessage.EstimatedPCO === 0) {
+                alert('Please input EstimatedPCO');
+                return;
+            }
 
+            if (updateMessage.FirstCollaborationDate === '') {
+                updateMessage.FirstCollaborationDate = null;
+            }
             console.log(JSON.stringify(updateMessage));
             $.post('/update?mainData=' + JSON.stringify(updateMessage)).then(data => {
                 if (data === 'success') {
@@ -146,11 +187,21 @@ $(document).ready(function () {
             });
         });
 
-        $('#new-button').click(function () {
-            window.location.href = 'http://localhost:2017/create';
+        $('#delete-button').click(function () {
+            let deleteMessage = {};
+            deleteMessage.Username = mainData.Username;
+            deleteMessage.ID = mainData.ID;
+            $.post('/delete?mainData=' + JSON.stringify(deleteMessage)).then(status => {
+                if (status === 'success') {
+                    console.log(status);
+                    window.location.href = 'http://localhost:2017/index';
+                }
+            });
         });
     });
-
+    $('#new-button').click(function () {
+        window.location.href = 'http://localhost:2017/create';
+    });
     $('#back-button').click(function () {
        window.history.back();
     });

@@ -1,0 +1,1 @@
+INSERT INTO GTWPEST.dbo.CompetitorCN (Name) VALUES ('能多洁-Rentokil');
