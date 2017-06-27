@@ -46,7 +46,6 @@ $(document).ready(function () {
 
         $('#CompetitorCNOptions').bind("change", function(){
             let CompetitorCNID = Number($('#CompetitorCNOptions').val());
-            console.log(CompetitorCNID);
             if (CompetitorCNID > 0) {
                 metaData.CompetitorCNArray.forEach(Competitor => {
                     if (Competitor.ID === CompetitorCNID) {
@@ -122,7 +121,7 @@ $(document).ready(function () {
                 alert('Please input EnglishName');
                 return;
             }
-            if (newMessage.AnnualSales === '') {
+            if (newMessage.AnnualSales === 0) {
                 alert('Please input AnnualSales');
                 return;
             }
@@ -154,7 +153,7 @@ $(document).ready(function () {
     });
 
     $('#back-button').click(function () {
-        window.history.back();
+        window.location.href = 'http://localhost:2017/index';
     });
 
 });

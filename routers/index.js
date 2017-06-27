@@ -5,15 +5,28 @@ var router = express.Router();
 var Util = require('../lib/Util');
 
 router.get('/index', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/html/index.html'));
+    // res.sendFile(path.join(__dirname, '../public/html/index.html'));
+    let username = req.connection.user;
+    Util.getAllData(username).then(records => {
+        res.render('index', {
+            records: records
+        });
+    });
 });
 
 router.get('/detail/:id', function (req, res) {
+    // let username = req.connection.user;
+    // let dataID = req.params.id;
+    // Util.getMainDataByID(dataID).then(mainData => {
+    //     res.render('detail', {
+    //         mainData: mainData
+    //     });
+    // });
     res.sendFile(path.join(__dirname, '../public/html/detail.html'));
 });
 
 router.get('/create', function (req, res) {
-   res.sendFile(path.join(__dirname, '../public/html/create.html'));
+    res.sendFile(path.join(__dirname, '../public/html/create.html'));
 });
 
 // api

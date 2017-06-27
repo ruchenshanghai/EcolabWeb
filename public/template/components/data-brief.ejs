@@ -1,19 +1,5 @@
-<div class="brief-data">
-  <ul>
-    <li>
-      <%= data.ID %>
-    </li>
-    <li>
-      <%= data.ReviewerName %>
-    </li>
-    <li>
-      <%= data.BUDistrictName %>
-    </li>
-    <li>
-      <%= data.OpportunityCode %>
-    </li>
-    <li>
-      <%= data.Province %>
-    </li>
-  </ul>
-</div>
+<tr id="<%= record.ID %>">
+    <td><a href="/detail/<%= record.ID%>" target="_self"><%= record.ReviewerName %></a></td>
+        <td><a href="/detail/<%= record.ID%>" target="_self"><%= record.EnglishName + '/' + record.ChineseName %></a></td>
+        <td><a href="/detail/<%= record.ID%>" target="_self"><%= record.SalesRep %></a></td>
+</tr>

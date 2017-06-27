@@ -10,7 +10,10 @@ module.exports = {
     options: {
         port:1433,
         database: 'GTWPEST',
-        encrypt: true
+        encrypt: true,
+        // connectTimeout: 50000,
+        // requestTimeout: 50000,
+        // cancelTimeout: 10000
     }
 
     // userName: 'Wenja',
