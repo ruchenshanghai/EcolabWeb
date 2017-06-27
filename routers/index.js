@@ -8,26 +8,77 @@ router.get('/index', function (req, res) {
     // res.sendFile(path.join(__dirname, '../public/html/index.html'));
     let username = req.connection.user;
     Util.getAllData(username).then(records => {
-        res.render('index', {
-            records: records
-        });
+        if (JSON.stringify(records) !== "{}") {
+            // console.log(records);
+            let recordLength = records.length;
+            let promiseArray = new Array();
+            for (let i = 0; i < recordLength; i++) {
+                promiseArray[i] = Util.getReviewer(records[i]);
+            }
+            Promise.all(promiseArray).then(data => {
+                // console.log(data);
+                res.render('index', {
+                    records: records
+                });
+            });
+        }
     });
 });
 
+Date.prototype.Format = function (fmt) {
+    var o = {
+        "M+": this.getMonth() + 1,
+        "d+": this.getDate(),
+        "h+": this.getHours(),
+        "m+": this.getMinutes(),
+        "s+": this.getSeconds(),
+        "q+": Math.floor((this.getMonth() + 3) / 3),
+        "S": this.getMilliseconds()
+    };
+    if (/(y+)/.test(fmt))
+        fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt))
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
 router.get('/detail/:id', function (req, res) {
-    // let username = req.connection.user;
-    // let dataID = req.params.id;
-    // Util.getMainDataByID(dataID).then(mainData => {
-    //     res.render('detail', {
-    //         mainData: mainData
-    //     });
-    // });
-    res.sendFile(path.join(__dirname, '../public/html/detail.html'));
+    let username = req.connection.user;
+    let dataID = req.params.id;
+    Util.getMainDataByID(dataID).then(mainData => {
+        // purify Date
+        if (mainData !== null) {
+            if (mainData.FirstCollaborationDate !== null) {
+                let tempDate = new Date();
+                tempDate.setFullYear(mainData.FirstCollaborationDate.getFullYear());
+                tempDate.setMonth(mainData.FirstCollaborationDate.getMonth());
+                tempDate.setDate(mainData.FirstCollaborationDate.getDate());
+                mainData.FirstCollaborationDate = tempDate.Format("yyyy-MM-dd");
+            }
+            res.render('detail', {
+                mainData: mainData
+            });
+        } else {
+            res.redirect('/index');
+        }
+    });
+    // res.sendFile(path.join(__dirname, '../public/html/detail.html'));
 });
 
 router.get('/create', function (req, res) {
-    res.sendFile(path.join(__dirname, '../public/html/create.html'));
+    // res.sendFile(path.join(__dirname, '../public/html/index.html'));
+    let username = req.connection.user;
+    let metaData = {};
+    metaData.Username = username;
+    Util.getMetaData(metaData).then(metaData => {
+        // console.log(data);
+        res.render('create', {
+            metaData: metaData
+        });
+    });
+    // res.sendFile(path.join(__dirname, '../public/html/create.html'));
 });
+
 
 // api
 router.post('/data/:id', function (req, res) {
@@ -50,14 +101,12 @@ router.post('/username', function (req, res) {
 });
 router.post('/update', function (req, res) {
     let mainData = JSON.parse(req.param('mainData'));
-    if (String(req.connection.user).toLowerCase() === mainData.Username.toLowerCase()) {
-        Util.updateMainData(mainData).then(status => {
-            if (status === 'success') {
-                console.log(status);
-                res.send(status);
-            }
-        });
-    }
+    Util.updateMainData(mainData).then(status => {
+        if (status === 'success') {
+            console.log(status);
+            res.send(status);
+        }
+    });
 });
 router.post('/metaData', function (req, res) {
     let metaData = {};
@@ -67,22 +116,19 @@ router.post('/metaData', function (req, res) {
 });
 router.post('/create', function (req, res) {
     let mainData = JSON.parse(req.param('mainData'));
-    if (String(req.connection.user).toLowerCase() === mainData.Username.toLowerCase()) {
-        Util.saveNewMainData(mainData).then(dataID => {
-            console.log(dataID);
-            res.status(200).json(mainData);
-        });
-    }
+    mainData.Username = req.connection.user;
+    Util.saveNewMainData(mainData).then(dataID => {
+        console.log(dataID);
+        res.status(200).json(mainData);
+    });
 });
 router.post('/delete', function (req, res) {
     let mainData = JSON.parse(req.param('mainData'));
-    console.log(mainData);
-    if (String(req.connection.user).toLowerCase() === mainData.Username.toLowerCase()) {
-        Util.deleteMainData(mainData).then(status => {
-            console.log(status);
-            res.send(status);
-        });
-    }
+    // console.log(mainData);
+    Util.deleteMainData(mainData).then(status => {
+        console.log(status);
+        res.send(status);
+    });
 });
 
 module.exports = router;

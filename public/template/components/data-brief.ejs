@@ -1,4 +1,4 @@
-<tr id="<%= record.ID %>">
+<tr id="<%= record.ID %>" onclick="window.location.href = 'http://localhost:2017/detail/<%= record.ID %>';">
     <td><a href="/detail/<%= record.ID%>" target="_self"><%= record.ReviewerName %></a></td>
         <td><a href="/detail/<%= record.ID%>" target="_self"><%= record.EnglishName + '/' + record.ChineseName %></a></td>
         <td><a href="/detail/<%= record.ID%>" target="_self"><%= record.SalesRep %></a></td>

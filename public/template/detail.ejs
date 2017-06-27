@@ -22,181 +22,251 @@
         </div>
     </div>
     <div class="container" id="footer-container">
-        <b>Welcome! <h1 id="username"></h1>You can update the old record.</b>
+        <b>Welcome! <h1 id="username"><%= mainData.Username %></h1>You can update the old record.</b>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <table id="content-table">
                     <tr>
                         <td>
-                            <label class="label">Reviewer/区域负责人</label><br />
+                            <label class="label">Reviewer/区域负责人</label><br/>
                             <select class="form-control" id="ReviewerInput">
                                 <% mainData.ReviewerArray.forEach(function (Reviewer) { %>
-                                <option value="<%= Reviewer.ID%>"><%= Reviewer.Name %></option>
+                                <option value="<%= Reviewer.ID %>"
+                                        <% if (Reviewer.ID == mainData.ReviewerID) { %>
+                                        selected="selected"
+                                        <% } %>
+                                ><%= Reviewer.Name %></option>
                                 <% }); %>
                             </select>
                         </td>
                         <td>
-                            <label class="label">BU District/BU区属</label><br />
+                            <label class="label">BU District/BU区属</label><br/>
                             <select class="form-control" id="BUDistrictInput">
                                 <% mainData.BUDistrictArray.forEach(function (BUDistrict) { %>
-                                <option value="<%= BUDistrict.ID%>"><%= BUDistrict.Name %></option>
+                                <option value="<%= BUDistrict.ID %>"
+                                        <% if (BUDistrict.ID == mainData.BUDistrictID) { %>
+                                        selected="selected"
+                                        <% } %>
+                                ><%= BUDistrict.Name %></option>
                                 <% }); %>
                             </select>
                         </td>
                         <td id="OpportunityCode">
-                            <label class="label">OpportunityCode/机会客户编码</label><br />
+                            <label class="label">OpportunityCode/机会客户编码</label><br/>
                             <label class="label" id="OpportunityCodeOutput"><%= mainData.OpportunityCode %></label>
                         </td>
                         <td>
-                            <label class="label">Province/省级</label><br />
-                            <input type="text" class="form-control" id="ProvinceInput" value="<%= mainData.Province %>">
+                            <label class="label">Province/省级</label><br/>
+                            <input type="text" class="form-control" id="ProvinceInput" value="<%= mainData.Province %>"
+                                   placeholder="Must Input!">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label class="label">City/市级</label><br />
-                            <input type="text" class="form-control" id="CityInput" value="<%= mainData.City %>">
+                            <label class="label">City/市级</label><br/>
+                            <input type="text" class="form-control" id="CityInput" value="<%= mainData.City %>"
+                                   placeholder="Must Input!">
                         </td>
                         <td>
-                            <label class="label">Site/县级</label><br />
-                            <input type="text" class="form-control" id="SiteInput" value="<%= mainData.Site %>">
+                            <label class="label">Site/县级</label><br/>
+                            <input type="text" class="form-control" id="SiteInput" value="<%= mainData.Site %>"
+                                   placeholder="Must Input!">
                         </td>
                         <td>
-                            <label class="label">ChineseName/客户中文名</label><br />
-                            <input type="text" class="form-control" id="ChineseNameInput" value="<%= mainData.ChineseName %>">
+                            <label class="label">ChineseName/客户中文名</label><br/>
+                            <input type="text" class="form-control" id="ChineseNameInput"
+                                   value="<%= mainData.ChineseName %>" placeholder="Must Input!">
                         </td>
                         <td>
-                            <label class="label">EnglishName/客户英文名</label><br />
-                            <input type="text" class="form-control" id="EnglishNameInput" value="<%= mainData.EnglishName %>">
+                            <label class="label">EnglishName/客户英文名</label><br/>
+                            <input type="text" class="form-control" id="EnglishNameInput"
+                                   value="<%= mainData.EnglishName %>" placeholder="Must Input!">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label class="label">PipelineStatus/Pipeline进度</label><br />
+                            <label class="label">PipelineStatus/Pipeline进度</label><br/>
                             <select class="form-control" id="PipelineStatusInput">
                                 <% mainData.PipelineStatusArray.forEach(function (PipelineStatus) { %>
-                                <option value="<%= PipelineStatus.ID%>"><%= PipelineStatus.Detail %></option>
+                                <option value="<%= PipelineStatus.ID %>"
+                                        <% if (PipelineStatus.ID == mainData.PipelineStatusID) { %>
+                                        selected="selected"
+                                        <% } %>
+                                ><%= PipelineStatus.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
                         <td>
-                            <label class="label">ContractTerm/合同有效期</label><br />
+                            <label class="label">ContractTerm/合同有效期</label><br/>
                             <select class="form-control" id="ContractTermInput">
                                 <% mainData.ContractTermArray.forEach(function (ContractTerm) { %>
-                                <option value="<%= ContractTerm.ID%>"><%= ContractTerm.Detail %></option>
+                                <option value="<%= ContractTerm.ID %>"
+                                        <% if (ContractTerm.ID == mainData.ContractTermID) { %>
+                                        selected="selected"
+                                        <% } %>
+                                ><%= ContractTerm.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
                         <td>
-                            <label class="label">TargetRate/成功几率</label><br />
+                            <label class="label">TargetRate/成功几率</label><br/>
                             <select class="form-control" id="TargetRateInput">
                                 <% mainData.TargetRateArray.forEach(function (TargetRate) { %>
-                                <option value="<%= TargetRate.ID%>"><%= TargetRate.Detail %></option>
+                                <option value="<%= TargetRate.ID %>"
+                                        <% if (TargetRate.ID == mainData.TargetRateID) { %>
+                                        selected="selected"
+                                        <% } %>
+                                ><%= TargetRate.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
                         <td>
-                            <label class="label">AnnualSales/年度金额(RMB)</label><br />
-                            <input type="number" class="form-control" id="AnnualSalesInput" value="<%= mainData.AnnualSales %>">
+                            <label class="label">AnnualSales/年度金额(RMB)</label><br/>
+                            <input type="number" class="form-control" id="AnnualSalesInput"
+                                   value="<%= mainData.AnnualSales %>" placeholder="Must Input!">
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label class="label">CorporateAccountChinese/集团客户-中文</label><br />
-                            <input type="text" class="form-control" id="CorporateAccountChineseInput" value="<%= mainData.CorporateAccountChinese %>">
+                            <label class="label">CorporateAccountChinese/集团客户-中文</label><br/>
+                            <input type="text" class="form-control" id="CorporateAccountChineseInput"
+                                   value="<%= mainData.CorporateAccountChinese %>">
                         </td>
                         <td>
-                            <label class="label">CorporateAccountEnglish/集团客户-英文</label><br />
-                            <input type="text" class="form-control" id="CorporateAccountEnglishInput" value="<%= mainData.CorporateAccountEnglish %>">
+                            <label class="label">CorporateAccountEnglish/集团客户-英文</label><br/>
+                            <input type="text" class="form-control" id="CorporateAccountEnglishInput"
+                                   value="<%= mainData.CorporateAccountEnglish %>">
                         </td>
                         <td>
-                            <label class="label">SalesRep/销售代表</label><br />
-                            <input type="text" class="form-control" id="SalesRepInput" value="<%= mainData.SalesRep %>">
+                            <label class="label">SalesRep/销售代表</label><br/>
+                            <input type="text" class="form-control" id="SalesRepInput" value="<%= mainData.SalesRep %>"
+                                   placeholder="Must Input!">
                         </td>
                         <td>
-                            <label class="label">AssistCAMName/协助CAM姓名</label><br />
+                            <label class="label">AssistCAMName/协助CAM姓名</label><br/>
                             <select class="form-control" id="AssistCAMNameInput">
                                 <% mainData.AssistCAMNameArray.forEach(function (AssistCAMName) { %>
-                                <option value="<%= AssistCAMName.ID%>"><%= AssistCAMName.Detail %></option>
+                                <option value="<%= AssistCAMName.ID %>"
+                                        <% if (AssistCAMName.ID == mainData.AssistCAMNameID) { %>
+                                        selected="selected"
+                                        <% } %>
+                                ><%= AssistCAMName.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label class="label">FollowingStatus/进展状态</label><br />
+                            <label class="label">FollowingStatus/进展状态</label><br/>
                             <select class="form-control" id="FollowingStatusInput">
                                 <% mainData.FollowingStatusArray.forEach(function (FollowingStatus) { %>
-                                <option value="<%= FollowingStatus.ID%>"><%= FollowingStatus.Detail %></option>
+                                <option value="<%= FollowingStatus.ID %>"
+                                        <% if (FollowingStatus.ID == mainData.FollowingStatusID) { %>
+                                        selected="selected"
+                                        <% } %>
+                                ><%= FollowingStatus.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
                         <td>
-                            <label class="label">CTCBU/CTC业务部</label><br />
+                            <label class="label">CTCBU/CTC业务部</label><br/>
                             <select class="form-control" id="CTCBUInput">
                                 <% mainData.CTCBUArray.forEach(function (CTCBU) { %>
-                                <option value="<%= CTCBU.ID%>"><%= CTCBU.Name %></option>
+                                <option value="<%= CTCBU.ID %>"
+                                        <% if (CTCBU.ID == mainData.CTCBUID) { %>
+                                        selected="selected"
+                                        <% } %>
+                                ><%= CTCBU.Name %></option>
                                 <% }); %>
                             </select>
                         </td>
                         <td>
-                            <label class="label">CTCSales/CTC销售负责人</label><br />
+                            <label class="label">CTCSales/CTC销售负责人</label><br/>
                             <input type="text" class="form-control" id="CTCSalesInput" value="<%= mainData.CTCSales %>">
                         </td>
                         <td>
-                            <label class="label">SalesType/销售类型</label><br />
+                            <label class="label">SalesType/销售类型</label><br/>
                             <select class="form-control" id="SalesTypeInput">
                                 <% mainData.SalesTypeArray.forEach(function (SalesType) { %>
-                                <option value="<%= SalesType.ID%>"><%= SalesType.Name %></option>
+                                <option value="<%= SalesType.ID %>"
+                                        <% if (SalesType.ID == mainData.SalesTypeID) { %>
+                                        selected="selected"
+                                        <% } %>
+                                ><%= SalesType.Name %></option>
                                 <% }); %>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label class="label">FollowingStatusRemark/进展状态备注</label><br />
-                            <input type="text" class="form-control" id="FollowingStatusRemarkInput" value="<%= mainData.FollowingStatusRemark %>">
+                            <label class="label">FollowingStatusRemark/进展状态备注</label><br/>
+                            <input type="text" class="form-control" id="FollowingStatusRemarkInput"
+                                   value="<%= mainData.FollowingStatusRemark %>">
                         </td>
                         <td>
-                            <label class="label">CompetitorCN/竞争对手-中文</label><br />
+                            <label class="label">CompetitorCN/竞争对手-中文</label><br/>
                             <select class="form-control" id="CompetitorCNOptions">
                                 <option value="0">Options</option>
                                 <% mainData.CompetitorCNArray.forEach(function (CompetitorCN) { %>
-                                <option value="<%= CompetitorCN.ID%>"><%= CompetitorCN.Name %></option>
+                                <option value="<%= CompetitorCN.ID %>"
+                                        id="CompetitorCN-<%= CompetitorCN.ID %>"><%= CompetitorCN.Name %></option>
                                 <% }); %>
                             </select>
-                            <input type="text" placeholder="(You can edit options here)" id="CompetitorCNInput" value="<%= mainData.CompetitorCN %>">
+                            <input type="text" placeholder="(You can edit options here)" id="CompetitorCNInput"
+                                   value="<%= mainData.CompetitorCN %>">
                         </td>
                         <td>
-                            <label class="label">FirstCollaborationDate/最早合作日期</label><br />
-                            <input type="date" class="form-control" id="FirstCollaborationDateInput" value="<%= mainData.FirstCollaborationDate.substring(0, 10) %>">
+                            <label class="label">FirstCollaborationDate/最早合作日期</label><br/>
+                            <input type="date" class="form-control" id="FirstCollaborationDateInput"
+                                   value="<%= mainData.FirstCollaborationDate %>">
                         </td>
                         <td>
-                            <label class="label">EstimatedPCO/艺康可能占客户PCO比例(%)</label><br />
+                            <label class="label">EstimatedPCO/艺康可能占客户PCO比例(%)</label><br/>
                             <div class="input-group">
-                                <input type="number" class="form-control" id="EstimatedPCOInput" value="<%= mainData.EstimatedPCO %>">
+                                <input type="number" class="form-control" id="EstimatedPCOInput"
+                                       value="<%= mainData.EstimatedPCO %>" placeholder="Must Input!">
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label class="label">Remark/备注</label><br />
+                            <label class="label">Remark/备注</label><br/>
                             <input type="text" class="form-control" id="RemarkInput" value="<%= mainData.Remark %>">
                         </td>
                         <td>
-                            <label class="label">MarketClassification/市场分类-中文</label><br />
+                            <label class="label">MarketClassification/市场分类-中文</label><br/>
                             <select class="form-control" id="MarketClassificationInput">
                                 <% mainData.MarketClassificationArray.forEach(function (MarketClassification) { %>
-                                <option value="<%= MarketClassification.ID%>"><%= MarketClassification.Name %></option>
+                                <option value="<%= MarketClassification.ID %>"
+                                        <% if (MarketClassification.ID == mainData.MarketClassificationID) { %>
+                                        selected="selected"
+                                        <% } %>
+                                ><%= MarketClassification.Name %></option>
                                 <% }); %>
                             </select>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="1"><button class="btn btn-primary" id="new-button"><span class="glyphicon glyphicon-pencil"></span> Create</button></td>
-                        <td colspan="1"><button class="btn btn-primary" id="delete-button"><span class="glyphicon glyphicon-pencil"></span> Delete</button></td>
-                        <td colspan="1"><button class="btn btn-primary" id="update-button"><span class="glyphicon glyphicon-pencil"></span> Update</button></td>
-                        <td colspan="1"><button class="btn btn-primary" id="back-button"><span class="glyphicon glyphicon-pencil"></span> Back</button></td>
+                        <td colspan="1">
+                            <button class="btn btn-primary" id="new-button"><span
+                                        class="glyphicon glyphicon-pencil"></span> Create
+                            </button>
+                        </td>
+                        <td colspan="1">
+                            <button class="btn btn-primary" id="delete-button"><span
+                                        class="glyphicon glyphicon-pencil"></span> Delete
+                            </button>
+                        </td>
+                        <td colspan="1">
+                            <button class="btn btn-primary" id="update-button"><span
+                                        class="glyphicon glyphicon-pencil"></span> Update
+                            </button>
+                        </td>
+                        <td colspan="1">
+                            <button class="btn btn-primary" id="back-button"><span
+                                        class="glyphicon glyphicon-pencil"></span> Back
+                            </button>
+                        </td>
                     </tr>
                 </table>
             </div>
