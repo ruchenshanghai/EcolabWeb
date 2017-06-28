@@ -4,22 +4,26 @@ var express = require('express');
 var router = express.Router();
 var Util = require('../lib/Util');
 
+
 router.get('/index', function (req, res) {
     // res.sendFile(path.join(__dirname, '../public/html/index.html'));
     let username = req.connection.user;
     Util.getAllData(username).then(records => {
         if (JSON.stringify(records) !== "{}") {
             // console.log(records);
-            let recordLength = records.length;
-            let promiseArray = new Array();
-            for (let i = 0; i < recordLength; i++) {
-                promiseArray[i] = Util.getReviewer(records[i]);
-            }
-            Promise.all(promiseArray).then(data => {
-                // console.log(data);
-                res.render('index', {
-                    records: records
-                });
+            // let recordLength = records.length;
+            // let promiseArray = new Array();
+            // for (let i = 0; i < recordLength; i++) {
+            //     promiseArray[i] = Util.getReviewer(records[i]);
+            // }
+            // Promise.all(promiseArray).then(data => {
+            //     // console.log(data);
+            //     res.render('index', {
+            //         records: records
+            //     });
+            // });
+            res.render('index', {
+                records: records
             });
         }
     });
@@ -129,6 +133,10 @@ router.post('/delete', function (req, res) {
         console.log(status);
         res.send(status);
     });
+});
+
+router.get('*', function (req, res) {
+   res.redirect('/index');
 });
 
 module.exports = router;

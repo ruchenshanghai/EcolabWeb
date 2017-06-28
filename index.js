@@ -29,12 +29,16 @@ app.use(function (req, res, next) {
 
 
 app.use('/', indexRouter);
-// 404 page
-app.use(function (req, res) {
-    if (!res.headersSent) {
-        res.redirect('/index');
-    }
+// // 404 page
+// app.use(function (req, res) {
+//     if (!res.headersSent) {
+//         res.redirect('/index');
+//     }
+// });
+app.get('*', function (req, res) {
+    res.redirect('/index');
 });
+
 
 // let mockData =  {"ReviewerID":1,"BUDistrictID":1,"Province":"上海","City":"浦东","Site":"Site","ChineseName":"Chinese","EnglishName":"English","PipelineStatusID":1,"ContractTermID":1,"TargetRateID":3,"AnnualSales":233,"CorporateAccountChinese":"Chinese","CorporateAccountEnglish":"English","SalesRep":"代笔","AssistCAMNameID":1,"FollowingStatusID":1,"CTCBUID":4,"CTCSales":"负责人","SalesTypeID":1,"FollowingStatusRemark":"备注","CompetitorCN":"能多洁-Rentokil","FirstCollaborationDate":"2017-06-16","EstimatedPCO":13,"Remark":"无","MarketClassificationID":14,"Username":"GLOBAL\\Wenja"}
 // //
@@ -57,37 +61,6 @@ app.use(function (req, res) {
 //     Util.updateMainData(testData).then(value => {
 //         console.log(value);
 //     });
-// });
-
-// Util.updateMainData({ ReviewerID: 2,
-//     BUDistrictID: '3',
-//     Province: '上海市',
-//     City: '浦东新区',
-//     Site: '金桥',
-//     ChineseName: '中文名',
-//     EnglishName: '英文名',
-//     PipelineStatusID: '2',
-//     ContractTermID: '2',
-//     TargetRateID: '3',
-//     AnnualSales: '998',
-//     CorporateAccountChinese: '中文',
-//     CorporateAccountEnglish: '英文',
-//     SalesRep: '销售代表',
-//     AssistCAMNameID: '2',
-//     CTCBUID: '2',
-//     CTCSales: '负责人',
-//     SalesTypeID: '2',
-//     FollowingStatusRemark: '无',
-//     CompetitorCNID: 3,
-//     FirstCollaborationDate: '2017-06-22',
-//     EstimatedPCO: '9',
-//     Remark: '无233',
-//     MarketClassificationID: '5',
-//     NewCompetitorCN: '测试',
-//     ID: 2,
-//     OpportunityCode: '6000-20170625-1',
-//     Username: 'GLOBAL\\Wenja' }).then(data => {
-//         console.log(data);
 // });
 
 // let testData = new MainData();
