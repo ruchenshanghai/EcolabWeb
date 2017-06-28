@@ -34,7 +34,7 @@ $(document).ready(function () {
         $.post('/delete?mainData=' + JSON.stringify(deleteMessage)).then(status => {
             if (status === 'success') {
                 console.log(status);
-                window.location.href = 'http://localhost:2017/index';
+                window.location.href = 'http://cnshafinaap01p:2017/index';
             }
         });
     });
@@ -114,86 +114,17 @@ $(document).ready(function () {
         console.log(JSON.stringify(updateMessage));
         $.post('/update?mainData=' + JSON.stringify(updateMessage)).then(data => {
             if (data === 'success') {
-                window.location.href = 'http://localhost:2017/index';
+                window.location.href = 'http://cnshafinaap01p:2017/index';
             }
         });
     });
 
 
     $('#new-button').click(function () {
-        window.location.href = 'http://localhost:2017/create';
+        window.location.href = 'http://cnshafinaap01p:2017/create';
     });
 
     $('#back-button').click(function () {
-        window.location.href = 'http://localhost:2017/index';
+        window.location.href = 'http://cnshafinaap01p:2017/index';
     });
-
-    // $.post('/data/' + mainDataID).then(mainData => {
-    //     if (mainData === '') {
-    //         window.location.href = 'http://localhost:2017/index';
-    //     }
-    //     mainData.ReviewerArray.forEach(function (reviewer) {
-    //         $('#ReviewerInput').append(`<option value="` + reviewer.ID + `">` + reviewer.Name + `</option>`);
-    //     });
-    //     $('#ReviewerInput').val(mainData.ReviewerID);
-    //     mainData.BUDistrictArray.forEach(function (BUDistrict) {
-    //         $('#BUDistrictInput').append(`<option value="` + BUDistrict.ID + `">` + BUDistrict.Name + `</option>`);
-    //     });
-    //     $('#BUDistrictInput').val(mainData.BUDistrictID);
-    //     mainData.PipelineStatusArray.forEach(function (PipelineStatus) {
-    //         $('#PipelineStatusInput').append(`<option value="` + PipelineStatus.ID + `">` + PipelineStatus.Detail + `</option>`);
-    //     });
-    //     $('#PipelineStatusInput').val(mainData.PipelineStatusID);
-    //     mainData.ContractTermArray.forEach(function (ContractTerm) {
-    //         $('#ContractTermInput').append(`<option value="` + ContractTerm.ID + `">` + ContractTerm.Detail + `</option>`);
-    //     });
-    //     $('#ContractTermInput').val(mainData.ContractTermID);
-    //     mainData.TargetRateArray.forEach(function (TargetRate) {
-    //         $('#TargetRateInput').append(`<option value="` + TargetRate.ID + `">` + TargetRate.Detail + `</option>`);
-    //     });
-    //     $('#TargetRateInput').val(mainData.TargetRateID);
-    //     mainData.AssistCAMNameArray.forEach(function (AssistCAMName) {
-    //         $('#AssistCAMNameInput').append(`<option value="` + AssistCAMName.ID + `">` + AssistCAMName.Detail + `</option>`);
-    //     });
-    //     $('#AssistCAMNameInput').val(mainData.AssistCAMNameID);
-    //     mainData.FollowingStatusArray.forEach(function (FollowingStatus) {
-    //         $('#FollowingStatusInput').append(`<option value="` + FollowingStatus.ID + `">` + FollowingStatus.Detail + `</option>`);
-    //     });
-    //     $('#FollowingStatusInput').val(mainData.FollowingStatusID);
-    //     mainData.CTCBUArray.forEach(function (CTCBU) {
-    //         $('#CTCBUInput').append(`<option value="` + CTCBU.ID + `">` + CTCBU.Name + `</option>`);
-    //     });
-    //     $('#CTCBUInput').val(mainData.CTCBUID);
-    //     mainData.SalesTypeArray.forEach(function (SalesType) {
-    //         $('#SalesTypeInput').append(`<option value="` + SalesType.ID + `">` + SalesType.Name + `</option>`);
-    //     });
-    //     $('#SalesTypeInput').val(mainData.SalesTypeID);
-    //     mainData.CompetitorCNArray.forEach(function (CompetitorCN) {
-    //         $('#CompetitorCNOptions').append(`<option value="` + CompetitorCN.ID + `">` + CompetitorCN.Name + `</option>`);
-    //     });
-    //     $('#CompetitorCNInput').val(mainData.CompetitorCN);
-    //     mainData.MarketClassificationArray.forEach(function (MarketClassification) {
-    //         $('#MarketClassificationInput').append(`<option value="` + MarketClassification.ID + `">` + MarketClassification.Name + `</option>`);
-    //     });
-    //     $('#MarketClassificationInput').val(mainData.MarketClassificationID);
-    //
-    //     $('#OpportunityCodeOutput').append(mainData.OpportunityCode);
-    //
-    //     $('#ProvinceInput').val(mainData.Province);
-    //     $('#CityInput').val(mainData.City);
-    //     $('#SiteInput').val(mainData.Site);
-    //     $('#ChineseNameInput').val(mainData.ChineseName);
-    //     $('#EnglishNameInput').val(mainData.EnglishName);
-    //     $('#AnnualSalesInput').val(mainData.AnnualSales);
-    //     $('#CorporateAccountChineseInput').val(mainData.CorporateAccountChinese);
-    //     $('#CorporateAccountEnglishInput').val(mainData.CorporateAccountEnglish);
-    //     $('#SalesRepInput').val(mainData.SalesRep);
-    //     $('#CTCSalesInput').val(mainData.CTCSales);
-    //     $('#FollowingStatusRemarkInput').val(mainData.FollowingStatusRemark);
-    //     if (mainData.FirstCollaborationDate !== null) {
-    //         $('#FirstCollaborationDateInput').val(mainData.FirstCollaborationDate.substring(0, 10));
-    //     }
-    //     $('#EstimatedPCOInput').val(mainData.EstimatedPCO);
-    //     $('#RemarkInput').val(mainData.Remark);
-    // });
 });

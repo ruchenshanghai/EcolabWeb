@@ -101,13 +101,13 @@ $(document).ready(function () {
             console.log(mainData);
             if (!isNaN(mainData.ID)) {
                 // console.log(status);
-                window.location.href = 'http://localhost:2017/detail/' + mainData.ID;
+                window.location.href = 'http://cnshafinaap01p:2017/detail/' + mainData.ID;
             }
         });
     });
 
     $('#back-button').click(function () {
-        window.location.href = 'http://localhost:2017/index';
+        window.location.href = 'http://cnshafinaap01p:2017/index';
     });
 
 });

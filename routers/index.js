@@ -10,6 +10,7 @@ router.get('/index', function (req, res) {
     let username = req.connection.user;
     Util.getAllData(username).then(records => {
         if (JSON.stringify(records) !== "{}") {
+            records.Username = username;
             res.render('index', {
                 records: records
             });
