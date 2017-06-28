@@ -10,18 +10,6 @@ router.get('/index', function (req, res) {
     let username = req.connection.user;
     Util.getAllData(username).then(records => {
         if (JSON.stringify(records) !== "{}") {
-            // console.log(records);
-            // let recordLength = records.length;
-            // let promiseArray = new Array();
-            // for (let i = 0; i < recordLength; i++) {
-            //     promiseArray[i] = Util.getReviewer(records[i]);
-            // }
-            // Promise.all(promiseArray).then(data => {
-            //     // console.log(data);
-            //     res.render('index', {
-            //         records: records
-            //     });
-            // });
             res.render('index', {
                 records: records
             });
