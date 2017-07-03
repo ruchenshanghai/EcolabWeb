@@ -4,168 +4,64 @@
 // var Util = require('lib/Util');
 
 function MainData() {
-    this.ID = 1;
-    this.ReviewerID = 1;
-    this.ReviewerName = '';
-    this.BUDistrictID = 1;
-    this.BUDistrictName = '';
-    this.PipelineStatusID = 1;
-    this.PipelineStatusDetail = '';
-    this.ContractTermID = 1;
-    this.ContractTermDetail = '';
-    this.TargetRateID = 1;
-    this.TargetRateDetail = '';
-
-    // 选填
-    this.AssistCAMNameID = 1;
-    this.AssistCAMNameDetail = '';
-
-    this.FollowingStatusID = 1;
-    this.FollowingStatusDetail = '';
-    this.CTCBUID = 1;
-    this.CTCBUName = '';
-    this.SalesTypeID = 1;
-    this.SalesTypeName = '';
-    this.CompetitorCN = '';
-    this.CompetitorCNName = '';
-    this.MarketClassificationID = 1;
-    this.MarketClassificationName = '';
-
-    this.OpportunityCode = '';
-    this.Province = '';
-    this.City = '';
-    this.Site = '';
-    this.ChineseName = '';
-    this.EnglishName = '';
-    this.AnnualSales = 0;
-    this.CorporateAccountChinese = '';
-    this.CorporateAccountEnglish = '';
-    this.SalesRep = '';
-    this.CTCSales = '';
-    this.FollowingStatusRemark = '';
-    this.FirstCollaborationDate = '';
-    this.EstimatedPCO = '';
-    this.Remark = '';
-
-};
-
-MainData.prototype.copyFromObject = function (object) {
-    if (object.ID != undefined) {
-        this.ID = object.ID;
-    };
-    if (object.ReviewerID != undefined) {
-        this.ReviewerID = object.ReviewerID;
-    };
-    if (object.BUDistrictID != undefined) {
-        this.BUDistrictID = object.BUDistrictID;
-    };
-    if (object.PipelineStatusID != undefined) {
-        this.PipelineStatusID = object.PipelineStatusID;
-    };
-    if (object.ContractTermID != undefined) {
-        this.ContractTermID = object.ContractTermID;
-    };
-    if (object.TargetRateID != undefined) {
-        this.TargetRateID = object.TargetRateID;
-    };
-    if (object.AssistCAMNameID != undefined) {
-        this.AssistCAMNameID = object.AssistCAMNameID;
-    };
-    if (object.FollowingStatusID != undefined) {
-        this.FollowingStatusID = object.FollowingStatusID;
-    };
-    if (object.CTCBUID != undefined) {
-        this.CTCBUID = object.CTCBUID;
-    };
-    if (object.SalesTypeID != undefined) {
-        this.SalesTypeID = object.SalesTypeID;
-    };
-    if (object.CompetitorCN != undefined) {
-        this.CompetitorCN = object.CompetitorCN;
-    };
-    if (object.MarketClassificationID != undefined) {
-        this.MarketClassificationID = object.MarketClassificationID;
-    };
-    if (object.OpportunityCode != undefined) {
-        this.OpportunityCode = object.OpportunityCode;
-    };
-    if (object.Province != undefined) {
-        this.Province = object.Province;
-    };
-    if (object.City != undefined) {
-        this.City = object.City;
-    };
-    if (object.Site != undefined) {
-        this.Site = object.Site;
-    };
-    if (object.ChineseName != undefined) {
-        this.ChineseName = object.ChineseName;
-    };
-    if (object.EnglishName != undefined) {
-        this.EnglishName = object.EnglishName;
-    };
-    if (object.AnnualSales != undefined) {
-        this.AnnualSales = object.AnnualSales;
-    };
-    if (object.CorporateAccountChinese != undefined) {
-        this.CorporateAccountChinese = object.CorporateAccountChinese;
-    };
-    if (object.CorporateAccountEnglish != undefined) {
-        this.CorporateAccountEnglish = object.CorporateAccountEnglish;
-    };
-    if (object.SalesRep != undefined) {
-        this.SalesRep = object.SalesRep;
-    };
-    if (object.CTCSales != undefined) {
-        this.CTCSales = object.CTCSales;
-    };
-    if (object.FollowingStatusRemark != undefined) {
-        this.FollowingStatusRemark = object.FollowingStatusRemark;
-    };
-    if (object.FirstCollaborationDate != undefined) {
-        this.FirstCollaborationDate = object.FirstCollaborationDate;
-    };
-    if (object.EstimatedPCO != undefined) {
-        this.EstimatedPCO = object.EstimatedPCO;
-    };
-    if (object.Remark != undefined) {
-        this.Remark = object.Remark;
-    };
+    this.ID = null;
+    this.Reviewer = null;
+    this.BUDistrict = null;
+    this.OpportunityCode = null;
+    this.Province = null;
+    this.City = null;
+    this.Site = null;
+    this.ChineseName = null;
+    this.EnglishName = null;
+    this.PipelineStatus = null;
+    this.ContractTerm = null;
+    this.TargetRate = null;
+    this.AnnualSales = null;
+    this.CorporateAccountChinese = null;
+    this.CorporateAccountEnglish = null;
+    this.SalesRep = null;
+    this.AssistCAM = null;
+    this.FollowingStatus = null;
+    this.CTCBU = null;
+    this.CTCSales = null;
+    this.SalesType = null;
+    this.FollowingStatusRemark = null;
+    this.CompetitorCN = null;
+    this.FirstCollaborationDate = null;
+    this.EstimatedPCO = null;
+    this.Remark = null;
+    this.MarketClassification = null;
+    this.RecordOwner = null;
 };
 
 MainData.prototype.constructTest = function () {
-    this.ID = 1;
-    this.ReviewerID = 1;
-    this.BUDistrictID = 1;
-    this.PipelineStatusID = 1;
-    this.ContractTermID = 1;
-    this.TargetRateID = 1;
-
-    // 选填
-    this.AssistCAMNameID = 1;
-
-    this.FollowingStatusID = 1;
-    this.CTCBUID = 1;
-    this.SalesTypeID = 1;
-    this.CompetitorCN = '007';
-    this.MarketClassificationID = 1;
-
-    this.OpportunityCode = '007';
-    this.Province = '香港';
-    this.City = '007';
-    this.Site = '007';
-    this.ChineseName = '007';
-    this.EnglishName = '007';
-    this.AnnualSales = '007';
-    this.CorporateAccountChinese = '007';
-    this.CorporateAccountEnglish = '007';
-    this.SalesRep = '007';
-    this.CTCSales = '007';
-    this.FollowingStatusRemark = '007';
-    this.FirstCollaborationDate = '1997-01-17';
-    this.EstimatedPCO = 0;
-    this.Remark = '007';
-    this.Username = '';
-};
+    this.Reviewer = 'Norman Li';
+    this.BUDistrict = '东南向西北中';
+    // this.OpportunityCode = ''; generated by express backend
+    this.Province = '上海市';
+    this.City = '浦东新区';
+    this.Site = '金桥';
+    this.ChineseName = '黄鹤';
+    this.EnglishName = 'Huanghe';
+    this.PipelineStatus = '>90Day';
+    this.ContractTerm = '123年';
+    this.TargetRate = '不确定';
+    this.AnnualSales = 2333;
+    this.CorporateAccountChinese = null;
+    this.CorporateAccountEnglish = null;
+    this.SalesRep = '葫芦娃';
+    this.AssistCAM = null;
+    this.FollowingStatus = '123321';
+    this.CTCBU = '不适用';
+    this.CTCSales = null;
+    this.SalesType = '基础四害';
+    this.FollowingStatusRemark = null;
+    this.CompetitorCN = '竞争者';
+    this.FirstCollaborationDate = '2017-07-03';
+    this.EstimatedPCO = 17;
+    this.Remark = null;
+    this.MarketClassification = '市场分类';
+    this.RecordOwner = 'GLOBAL/wenja';
+}
 
 module.exports = MainData;

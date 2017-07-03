@@ -9,32 +9,28 @@ $(document).ready(function () {
     let mainDataID = Number(paramArray[length - 1]);
     // console.log(mainDataID);
 
-    $('#CompetitorCNOptions').bind("click", function(){
-        let CompetitorCNID = Number($('#CompetitorCNOptions').val());
-        if (CompetitorCNID > 0) {
-            $('#CompetitorCNInput').val($('#CompetitorCN-' + CompetitorCNID).html());
-
+    $('#CompetitorCNOptions').bind("click", function () {
+        if ($('#CompetitorCNOptions').val() !== '0') {
+            $('#CompetitorCNInput').val($('#CompetitorCNOptions').val());
         } else {
             $('#CompetitorCNInput').val('');
         }
     });
 
-    // observe EstimatedPCO <=100%
+    // observe EstimatedPCO <=100%, two numbers
     $('#EstimatedPCOInput').on("input propertychange", function () {
-        if( $('#EstimatedPCOInput').val().slice(0, 3) === 100) {
-            $('#EstimatedPCOInput').val( $('#EstimatedPCOInput').val().slice(0, 3));
+        if ($('#EstimatedPCOInput').val().slice(0, 3) === 100) {
+            $('#EstimatedPCOInput').val($('#EstimatedPCOInput').val().slice(0, 3));
         } else {
-            $('#EstimatedPCOInput').val( $('#EstimatedPCOInput').val().slice(0, 2));
+            $('#EstimatedPCOInput').val($('#EstimatedPCOInput').val().slice(0, 2));
         }
     });
 
     $('#delete-button').click(function () {
-        let deleteMessage = {};
-        deleteMessage.ID = mainDataID;
-        $.post('/delete?mainData=' + JSON.stringify(deleteMessage)).then(status => {
+        $.post('/delete?ID=' + mainDataID).then(status => {
             if (status === 'success') {
                 console.log(status);
-                window.location.href = 'http://cnshafinaap01p:2017/index';
+                window.location.href = 'http://localhost:2017/index';
             }
         });
     });
@@ -42,31 +38,31 @@ $(document).ready(function () {
     $('#update-button').click(function () {
         let updateMessage = {};
 
-        updateMessage.ReviewerID = Number($('#ReviewerInput').val());
-        updateMessage.BUDistrictID = Number($('#BUDistrictInput').val());
+        updateMessage.Reviewer = $('#ReviewerInput').val();
+        updateMessage.BUDistrict = $('#BUDistrictInput').val();
         updateMessage.Province = $('#ProvinceInput').val();
         updateMessage.City = $('#CityInput').val();
         updateMessage.Site = $('#SiteInput').val();
         updateMessage.ChineseName = $('#ChineseNameInput').val();
         updateMessage.EnglishName = $('#EnglishNameInput').val();
-        updateMessage.PipelineStatusID = Number($('#PipelineStatusInput').val());
-        updateMessage.ContractTermID = Number($('#ContractTermInput').val());
-        updateMessage.TargetRateID = Number($('#TargetRateInput').val());
+        updateMessage.PipelineStatus = $('#PipelineStatusInput').val();
+        updateMessage.ContractTerm = $('#ContractTermInput').val();
+        updateMessage.TargetRate = $('#TargetRateInput').val();
         updateMessage.AnnualSales = Number($('#AnnualSalesInput').val());
         updateMessage.CorporateAccountChinese = $('#CorporateAccountChineseInput').val();
         updateMessage.CorporateAccountEnglish = $('#CorporateAccountEnglishInput').val();
         updateMessage.SalesRep = $('#SalesRepInput').val();
-        updateMessage.AssistCAMNameID = Number($('#AssistCAMNameInput').val());
-        updateMessage.FollowingStatusID = Number($('#FollowingStatusInput').val());
-        updateMessage.CTCBUID = Number($('#CTCBUInput').val());
+        updateMessage.AssistCAMName = $('#AssistCAMNameInput').val();
+        updateMessage.FollowingStatus = $('#FollowingStatusInput').val();
+        updateMessage.CTCBU = $('#CTCBUInput').val();
         updateMessage.CTCSales = $('#CTCSalesInput').val();
-        updateMessage.SalesTypeID = Number($('#SalesTypeInput').val());
+        updateMessage.SalesType = $('#SalesTypeInput').val();
         updateMessage.FollowingStatusRemark = $('#FollowingStatusRemarkInput').val();
         updateMessage.CompetitorCN = $('#CompetitorCNInput').val();
         updateMessage.FirstCollaborationDate = $('#FirstCollaborationDateInput').val();
         updateMessage.EstimatedPCO = Number($('#EstimatedPCOInput').val());
         updateMessage.Remark = $('#RemarkInput').val();
-        updateMessage.MarketClassificationID = Number($('#MarketClassificationInput').val());
+        updateMessage.MarketClassification = $('#MarketClassificationInput').val();
 
         // not change
         updateMessage.ID = mainDataID;
@@ -111,20 +107,33 @@ $(document).ready(function () {
         if (updateMessage.FirstCollaborationDate === '') {
             updateMessage.FirstCollaborationDate = null;
         }
+
         console.log(JSON.stringify(updateMessage));
-        $.post('/update?mainData=' + JSON.stringify(updateMessage)).then(data => {
-            if (data === 'success') {
-                window.location.href = 'http://cnshafinaap01p:2017/index';
+        $.ajax({
+            type: 'POST',
+            url: '/update',
+            data: JSON.stringify(updateMessage),
+            contentType: 'application/json',
+            dataType : 'json',
+            timeout: 10000,
+            success: function(result){
+                console.log(result.status);
+                if (result.status === 'success') {
+                    window.location.href = 'http://localhost:2017/index';
+                }
+            },
+            error: function(xhr, type, errerThrown){
+                console.log(errerThrown);
             }
         });
     });
 
 
     $('#new-button').click(function () {
-        window.location.href = 'http://cnshafinaap01p:2017/create';
+        window.location.href = 'http://localhost:2017/create';
     });
 
     $('#back-button').click(function () {
-        window.location.href = 'http://cnshafinaap01p:2017/index';
+        window.location.href = 'http://localhost:2017/index';
     });
 });

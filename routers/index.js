@@ -6,11 +6,10 @@ var Util = require('../lib/Util');
 
 
 router.get('/index', function (req, res) {
-    // res.sendFile(path.join(__dirname, '../public/html/index.html'));
     let username = req.connection.user;
     Util.getAllData(username).then(records => {
         if (JSON.stringify(records) !== "{}") {
-            records.Username = username;
+            records.RecordOwner = username;
             res.render('index', {
                 records: records
             });
@@ -39,8 +38,8 @@ router.get('/detail/:id', function (req, res) {
     let username = req.connection.user;
     let dataID = req.params.id;
     Util.getMainDataByID(dataID).then(mainData => {
-        // purify Date
-        if (mainData !== null) {
+        if (mainData !== null && mainData.RecordOwner.toLowerCase() === String(req.connection.user).toLowerCase()) {
+            // purify Date
             if (mainData.FirstCollaborationDate !== null) {
                 let tempDate = new Date();
                 tempDate.setFullYear(mainData.FirstCollaborationDate.getFullYear());
@@ -48,8 +47,25 @@ router.get('/detail/:id', function (req, res) {
                 tempDate.setDate(mainData.FirstCollaborationDate.getDate());
                 mainData.FirstCollaborationDate = tempDate.Format("yyyy-MM-dd");
             }
-            res.render('detail', {
-                mainData: mainData
+
+            // get meta data
+            let promiseArray = new Array();
+            promiseArray.push(Util.getMetaDataByTableName(mainData, 'Reviewer'));
+            promiseArray.push(Util.getMetaDataByTableName(mainData, 'BUDistrict'));
+            promiseArray.push(Util.getMetaDataByTableName(mainData, 'PipelineStatus'));
+            promiseArray.push(Util.getMetaDataByTableName(mainData, 'ContractTerm'));
+            promiseArray.push(Util.getMetaDataByTableName(mainData, 'TargetRate'));
+            promiseArray.push(Util.getMetaDataByTableName(mainData, 'AssistCAM'));
+            promiseArray.push(Util.getMetaDataByTableName(mainData, 'FollowingStatus'));
+            promiseArray.push(Util.getMetaDataByTableName(mainData, 'CTCBU'));
+            promiseArray.push(Util.getMetaDataByTableName(mainData, 'SalesType'));
+            promiseArray.push(Util.getMetaDataByTableName(mainData, 'CompetitorCN'));
+            promiseArray.push(Util.getMetaDataByTableName(mainData, 'MarketClassification'));
+            Promise.all(promiseArray).then(status => {
+                // console.log(status);
+                res.render('detail', {
+                    mainData: mainData
+                });
             });
         } else {
             res.redirect('/index');
@@ -72,6 +88,10 @@ router.get('/create', function (req, res) {
     // res.sendFile(path.join(__dirname, '../public/html/create.html'));
 });
 
+router.get('*', function (req, res) {
+    console.log('redirect');
+    res.redirect('/index');
+});
 
 // api
 router.post('/data/:id', function (req, res) {
@@ -92,15 +112,21 @@ router.post('/AllData', function (req, res) {
 router.post('/username', function (req, res) {
     res.send(req.connection.user);
 });
+
 router.post('/update', function (req, res) {
-    let mainData = JSON.parse(req.param('mainData'));
+    // console.log(req.body);
+    let mainData = req.body;
+    mainData.RecordOwner = req.connection.user;
     Util.updateMainData(mainData).then(status => {
         if (status === 'success') {
             console.log(status);
-            res.send(status);
+            res.json({
+                status: status
+            });
         }
     });
 });
+
 router.post('/metaData', function (req, res) {
     let metaData = {};
     Util.getMetaData(metaData).then(metaData => {
@@ -116,16 +142,16 @@ router.post('/create', function (req, res) {
     });
 });
 router.post('/delete', function (req, res) {
-    let mainData = JSON.parse(req.param('mainData'));
+    let mainData = {};
+    mainData.ID = Number(req.param('ID'));
+    mainData.RecordOwner = req.connection.user;
     // console.log(mainData);
+    // need to validate identity
     Util.deleteMainData(mainData).then(status => {
         console.log(status);
         res.send(status);
     });
 });
 
-router.get('*', function (req, res) {
-   res.redirect('/index');
-});
 
 module.exports = router;
