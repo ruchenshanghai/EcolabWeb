@@ -3,58 +3,52 @@
  */
 $(document).ready(function () {
 
-    // let username;
-    // $.post('/username').then(name => {
-    //     username = name;
-    //     $('#username').html(username);
-    // });
-    $('#CompetitorCNOptions').bind("click", function(){
-        let CompetitorCNID = Number($('#CompetitorCNOptions').val());
-        if (CompetitorCNID > 0) {
-            $('#CompetitorCNInput').val($('#CompetitorCN-' + CompetitorCNID).html());
-
+    $('#CompetitorCNOptions').bind("click", function () {
+        if ($('#CompetitorCNOptions').val() !== '0') {
+            $('#CompetitorCNInput').val($('#CompetitorCNOptions').val());
         } else {
             $('#CompetitorCNInput').val('');
         }
     });
 
-    // // observe EstimatedPCO <=100%
+    // observe EstimatedPCO <=100%, two numbers
     $('#EstimatedPCOInput').on("input propertychange", function () {
-        if( $('#EstimatedPCOInput').val().slice(0, 3) === 100) {
-            $('#EstimatedPCOInput').val( $('#EstimatedPCOInput').val().slice(0, 3));
+        if ($('#EstimatedPCOInput').val().slice(0, 3) === 100) {
+            $('#EstimatedPCOInput').val($('#EstimatedPCOInput').val().slice(0, 3));
         } else {
-            $('#EstimatedPCOInput').val( $('#EstimatedPCOInput').val().slice(0, 2));
+            $('#EstimatedPCOInput').val($('#EstimatedPCOInput').val().slice(0, 2));
         }
     });
 
     $('#new-button').click(function () {
         let newMessage = {};
 
-        newMessage.ReviewerID = Number($('#ReviewerInput').val());
-        newMessage.BUDistrictID = Number($('#BUDistrictInput').val());
+        newMessage.Reviewer = $('#ReviewerInput').val();
+        newMessage.BUDistrict = $('#BUDistrictInput').val();
         newMessage.Province = $('#ProvinceInput').val();
         newMessage.City = $('#CityInput').val();
         newMessage.Site = $('#SiteInput').val();
         newMessage.ChineseName = $('#ChineseNameInput').val();
         newMessage.EnglishName = $('#EnglishNameInput').val();
-        newMessage.PipelineStatusID = Number($('#PipelineStatusInput').val());
-        newMessage.ContractTermID = Number($('#ContractTermInput').val());
-        newMessage.TargetRateID = Number($('#TargetRateInput').val());
+        newMessage.PipelineStatus = $('#PipelineStatusInput').val();
+        newMessage.ContractTerm = $('#ContractTermInput').val();
+        newMessage.TargetRate = $('#TargetRateInput').val();
         newMessage.AnnualSales = Number($('#AnnualSalesInput').val());
         newMessage.CorporateAccountChinese = $('#CorporateAccountChineseInput').val();
         newMessage.CorporateAccountEnglish = $('#CorporateAccountEnglishInput').val();
         newMessage.SalesRep = $('#SalesRepInput').val();
-        newMessage.AssistCAMNameID = Number($('#AssistCAMNameInput').val());
-        newMessage.FollowingStatusID = Number($('#FollowingStatusInput').val());
-        newMessage.CTCBUID = Number($('#CTCBUInput').val());
+        newMessage.AssistCAMName = $('#AssistCAMNameInput').val();
+        newMessage.FollowingStatus = $('#FollowingStatusInput').val();
+        newMessage.CTCBU = $('#CTCBUInput').val();
         newMessage.CTCSales = $('#CTCSalesInput').val();
-        newMessage.SalesTypeID = Number($('#SalesTypeInput').val());
+        newMessage.SalesType = $('#SalesTypeInput').val();
         newMessage.FollowingStatusRemark = $('#FollowingStatusRemarkInput').val();
         newMessage.CompetitorCN = $('#CompetitorCNInput').val();
         newMessage.FirstCollaborationDate = $('#FirstCollaborationDateInput').val();
         newMessage.EstimatedPCO = Number($('#EstimatedPCOInput').val());
         newMessage.Remark = $('#RemarkInput').val();
-        newMessage.MarketClassificationID = Number($('#MarketClassificationInput').val());
+        newMessage.MarketClassification = $('#MarketClassificationInput').val();
+
 
         if (newMessage.Province === '') {
             alert('Please input Province');
@@ -97,11 +91,22 @@ $(document).ready(function () {
             newMessage.FirstCollaborationDate = null;
         }
         console.log(JSON.stringify(newMessage));
-        $.post('/create?mainData=' + JSON.stringify(newMessage)).then(mainData => {
-            console.log(mainData);
-            if (!isNaN(mainData.ID)) {
-                // console.log(status);
-                window.location.href = 'http://localhost:2017/detail/' + mainData.ID;
+        $.ajax({
+            type: 'POST',
+            url: '/create',
+            data: JSON.stringify(newMessage),
+            contentType: 'application/json',
+            dataType : 'json',
+            timeout: 10000,
+            success: function(result){
+                console.log(result.ID);
+                    if (!isNaN(result.ID)) {
+                        // console.log(status);
+                        window.location.href = 'http://localhost:2017/detail/' + result.ID;
+                    }
+            },
+            error: function(xhr, type, errerThrown){
+                console.log(errerThrown);
             }
         });
     });

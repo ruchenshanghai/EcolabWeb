@@ -75,17 +75,27 @@ router.get('/detail/:id', function (req, res) {
 });
 
 router.get('/create', function (req, res) {
-    // res.sendFile(path.join(__dirname, '../public/html/index.html'));
-    let username = req.connection.user;
     let metaData = {};
-    metaData.Username = username;
-    Util.getMetaData(metaData).then(metaData => {
-        // console.log(data);
+    metaData.RecordOwner = req.connection.user;
+    // get meta data
+    let promiseArray = new Array();
+    promiseArray.push(Util.getMetaDataByTableName(metaData, 'Reviewer'));
+    promiseArray.push(Util.getMetaDataByTableName(metaData, 'BUDistrict'));
+    promiseArray.push(Util.getMetaDataByTableName(metaData, 'PipelineStatus'));
+    promiseArray.push(Util.getMetaDataByTableName(metaData, 'ContractTerm'));
+    promiseArray.push(Util.getMetaDataByTableName(metaData, 'TargetRate'));
+    promiseArray.push(Util.getMetaDataByTableName(metaData, 'AssistCAM'));
+    promiseArray.push(Util.getMetaDataByTableName(metaData, 'FollowingStatus'));
+    promiseArray.push(Util.getMetaDataByTableName(metaData, 'CTCBU'));
+    promiseArray.push(Util.getMetaDataByTableName(metaData, 'SalesType'));
+    promiseArray.push(Util.getMetaDataByTableName(metaData, 'CompetitorCN'));
+    promiseArray.push(Util.getMetaDataByTableName(metaData, 'MarketClassification'));
+    Promise.all(promiseArray).then(status => {
+        // console.log(status);
         res.render('create', {
             metaData: metaData
         });
     });
-    // res.sendFile(path.join(__dirname, '../public/html/create.html'));
 });
 
 router.get('*', function (req, res) {
@@ -94,24 +104,6 @@ router.get('*', function (req, res) {
 });
 
 // api
-router.post('/data/:id', function (req, res) {
-    Util.getMainDataByID(req.params.id).then(mainData => {
-        if (mainData !== null && mainData.Username.toLowerCase() === String(req.connection.user).toLowerCase()) {
-            res.send(mainData);
-        } else {
-            res.send(null);
-        }
-    });
-});
-router.post('/AllData', function (req, res) {
-    let username = req.connection.user;
-    Util.getAllData(username).then(dataArray => {
-        res.send(dataArray);
-    });
-});
-router.post('/username', function (req, res) {
-    res.send(req.connection.user);
-});
 
 router.post('/update', function (req, res) {
     // console.log(req.body);
@@ -127,18 +119,14 @@ router.post('/update', function (req, res) {
     });
 });
 
-router.post('/metaData', function (req, res) {
-    let metaData = {};
-    Util.getMetaData(metaData).then(metaData => {
-        res.send(metaData);
-    });
-});
 router.post('/create', function (req, res) {
-    let mainData = JSON.parse(req.param('mainData'));
-    mainData.Username = req.connection.user;
+    let mainData = req.body;
+    mainData.RecordOwner = req.connection.user;
     Util.saveNewMainData(mainData).then(dataID => {
         console.log(dataID);
-        res.status(200).json(mainData);
+        res.json({
+            ID: dataID
+        });
     });
 });
 router.post('/delete', function (req, res) {

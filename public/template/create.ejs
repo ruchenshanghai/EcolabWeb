@@ -32,7 +32,7 @@
                             <label class="label">Reviewer/区域负责人</label><br />
                             <select class="form-control" id="ReviewerInput">
                                 <% metaData.ReviewerArray.forEach(function (Reviewer) { %>
-                                <option value="<%= Reviewer.ID%>"><%= Reviewer.Name %></option>
+                                <option value="<%= Reviewer.Detail%>"><%= Reviewer.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
@@ -40,7 +40,7 @@
                             <label class="label">BU District/BU区属</label><br />
                             <select class="form-control" id="BUDistrictInput">
                                 <% metaData.BUDistrictArray.forEach(function (BUDistrict) { %>
-                                <option value="<%= BUDistrict.ID%>"><%= BUDistrict.Name %></option>
+                                <option value="<%= BUDistrict.Detail%>"><%= BUDistrict.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
@@ -76,7 +76,7 @@
                             <label class="label">PipelineStatus/Pipeline进度</label><br />
                             <select class="form-control" id="PipelineStatusInput">
                                 <% metaData.PipelineStatusArray.forEach(function (PipelineStatus) { %>
-                                <option value="<%= PipelineStatus.ID%>"><%= PipelineStatus.Detail %></option>
+                                <option value="<%= PipelineStatus.Detail%>"><%= PipelineStatus.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
@@ -84,7 +84,7 @@
                             <label class="label">ContractTerm/合同有效期</label><br />
                             <select class="form-control" id="ContractTermInput">
                                 <% metaData.ContractTermArray.forEach(function (ContractTerm) { %>
-                                <option value="<%= ContractTerm.ID%>"><%= ContractTerm.Detail %></option>
+                                <option value="<%= ContractTerm.Detail%>"><%= ContractTerm.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
@@ -92,7 +92,7 @@
                             <label class="label">TargetRate/成功几率</label><br />
                             <select class="form-control" id="TargetRateInput">
                                 <% metaData.TargetRateArray.forEach(function (TargetRate) { %>
-                                <option value="<%= TargetRate.ID%>"><%= TargetRate.Detail %></option>
+                                <option value="<%= TargetRate.Detail%>"><%= TargetRate.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
@@ -117,8 +117,8 @@
                         <td>
                             <label class="label">AssistCAMName/协助CAM姓名</label><br />
                             <select class="form-control" id="AssistCAMNameInput">
-                                <% metaData.AssistCAMNameArray.forEach(function (AssistCAMName) { %>
-                                <option value="<%= AssistCAMName.ID%>"><%= AssistCAMName.Detail %></option>
+                                <% metaData.AssistCAMArray.forEach(function (AssistCAM) { %>
+                                <option value="<%= AssistCAM.Detail%>"><%= AssistCAM.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
@@ -128,7 +128,7 @@
                             <label class="label">FollowingStatus/进展状态</label><br />
                             <select class="form-control" id="FollowingStatusInput">
                                 <% metaData.FollowingStatusArray.forEach(function (FollowingStatus) { %>
-                                <option value="<%= FollowingStatus.ID%>"><%= FollowingStatus.Detail %></option>
+                                <option value="<%= FollowingStatus.Detail%>"><%= FollowingStatus.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
@@ -136,7 +136,7 @@
                             <label class="label">CTCBU/CTC业务部</label><br />
                             <select class="form-control" id="CTCBUInput">
                                 <% metaData.CTCBUArray.forEach(function (CTCBU) { %>
-                                <option value="<%= CTCBU.ID%>"><%= CTCBU.Name %></option>
+                                <option value="<%= CTCBU.Detail%>"><%= CTCBU.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
@@ -148,7 +148,7 @@
                             <label class="label">SalesType/销售类型</label><br />
                             <select class="form-control" id="SalesTypeInput">
                                 <% metaData.SalesTypeArray.forEach(function (SalesType) { %>
-                                <option value="<%= SalesType.ID%>"><%= SalesType.Name %></option>
+                                <option value="<%= SalesType.Detail%>"><%= SalesType.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
@@ -163,7 +163,7 @@
                             <select class="form-control" id="CompetitorCNOptions">
                                 <option value="0">Options</option>
                                 <% metaData.CompetitorCNArray.forEach(function (CompetitorCN) { %>
-                                <option value="<%= CompetitorCN.ID%>" id="CompetitorCN-<%= CompetitorCN.ID%>"><%= CompetitorCN.Name %></option>
+                                <option value="<%= CompetitorCN.Detail%>"><%= CompetitorCN.Detail %></option>
                                 <% }); %>
                             </select>
                             <input type="text" placeholder="(You can edit options here)" id="CompetitorCNInput">
@@ -188,7 +188,7 @@
                             <label class="label">MarketClassification/市场分类-中文</label><br />
                             <select class="form-control" id="MarketClassificationInput">
                                 <% metaData.MarketClassificationArray.forEach(function (MarketClassification) { %>
-                                <option value="<%= MarketClassification.ID%>"><%= MarketClassification.Name %></option>
+                                <option value="<%= MarketClassification.Detail%>"><%= MarketClassification.Detail %></option>
                                 <% }); %>
                             </select>
                         </td>
