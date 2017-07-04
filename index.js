@@ -60,10 +60,10 @@ app.use('/', indexRouter);
 //     console.log(tempMeta);
 // });
 
-// test Util.saveNewMainData
+// test Util.insertNewMainData
 // let testData = new MainData();
 // testData.constructTest();
-// Util.saveNewMainData(testData).then(dataID => {
+// Util.insertNewMainData(testData).then(dataID => {
 //     console.log(dataID);
 // });
 

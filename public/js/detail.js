@@ -27,7 +27,7 @@ $(document).ready(function () {
     });
 
     $('#delete-button').click(function () {
-        $.post('/delete?ID=' + mainDataID).then(status => {
+        $.post('/delete/' + mainDataID).then(status => {
             if (status === 'success') {
                 console.log(status);
                 window.location.href = 'http://localhost:2017/index';

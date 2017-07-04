@@ -93,7 +93,7 @@ $(document).ready(function () {
         console.log(JSON.stringify(newMessage));
         $.ajax({
             type: 'POST',
-            url: '/create',
+            url: '/insert',
             data: JSON.stringify(newMessage),
             contentType: 'application/json',
             dataType : 'json',

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Ecolab!</title>
+    <link href="../styles/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/admin-edit.css">
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/admin-edit.js"></script>
+</head>
+<body>
+
+<div id="main-container">
+
+    <div class="container" id="nav-container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <a href="http://www.ecolab.com.cn/" target="_blank">
+                    <img src="../images/nav-ico.png">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <table class="table table-hover">
+                    <caption><b>Welcome!<br /><span><%= masterTable.Username %></span><br />All <%= masterTable.tableName %>'s Records Is Here. Click to view detail.</b></caption>
+                    <thead>
+                    <tr>
+                        <th>Number</th>
+                        <th>ID</th>
+                        <th>Detail</th>
+                        <th>Delete</th>
+                        <th>Update</th>
+                    </tr>
+                    </thead>
+                    <tbody id="content-container">
+                    <% let count = 1;%>
+                    <% masterTable[masterTable.tableName + 'Array'].forEach(function (record) { %>
+                    <tr id="<%= masterTable.tableName%>-<%= record.ID%>">
+                        <td><%= count%></td>
+                        <td><%= record.ID%></td>
+                        <td><input type="text" value="<%= record.Detail %>" class="<%= masterTable.tableName%>-input" id="input-<%= record.ID %>"/></td>
+                        <td><button class="<%=masterTable.tableName%>-Delete btn btn-primary" value="<%= record.ID %>" id="delete-<%= record.ID %>">Delete</button></td>
+                        <td><button class="<%=masterTable.tableName%>-Update btn btn-primary"  value="<%= record.ID %>" id="update-<%= record.ID %>">Update</button></td>
+                    </tr>
+                    <% count++; %>
+                    <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container horizon-center">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <a id="<%= masterTable.tableName%>-Insert">
+                    <p>Click me to add new record.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container horizon-center">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <a href="http://localhost:2017/index">
+                    <p>Click me to back to index.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" id="footer-container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 horizon-center">
+                <a href="http://www.ecolab.com.cn/" target="_blank">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

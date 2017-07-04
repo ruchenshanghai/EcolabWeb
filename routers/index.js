@@ -4,6 +4,41 @@ var express = require('express');
 var router = express.Router();
 var Util = require('../lib/Util');
 
+let Tables = [
+    {
+        Name: 'Reviewer'
+    },
+    {
+        Name: 'BUDistrict'
+    },
+    {
+        Name: 'PipelineStatus'
+    },
+    {
+        Name: 'ContractTerm'
+    },
+    {
+        Name: 'TargetRate'
+    },
+    {
+        Name: 'AssistCAM'
+    },
+    {
+        Name: 'FollowingStatus'
+    },
+    {
+        Name: 'CTCBU'
+    },
+    {
+        Name: 'SalesType'
+    },
+    {
+        Name: 'CompetitorCN'
+    },
+    {
+        Name: 'MarketClassification'
+    }
+];
 
 router.get('/index', function (req, res) {
     let username = req.connection.user;
@@ -98,13 +133,47 @@ router.get('/create', function (req, res) {
     });
 });
 
+router.get('/admin', function (req, res) {
+    let masterData = {};
+    masterData.Username = req.connection.user;
+    Util.checkAdminIdentity(masterData.Username).then(result => {
+        if (result) {
+            masterData.tables = Tables;
+            res.render('admin', {
+                masterData: masterData
+            });
+        } else {
+            res.redirect('/index');
+        }
+    });
+});
+
+router.get('/admin/:tableName', function (req, res) {
+    let masterTable = {};
+    masterTable.Username = req.connection.user;
+    Util.checkAdminIdentity(masterTable.Username).then(result => {
+        if (result) {
+            masterTable.tableName = req.params.tableName;
+            Util.getMetaDataByTableName(masterTable, masterTable.tableName).then(() => {
+                // console.log(masterTable);
+                res.render('admin-edit', {
+                    masterTable: masterTable
+                })
+            });
+        } else {
+            res.redirect('/index');
+        }
+    });
+
+});
+
 router.get('*', function (req, res) {
     console.log('redirect');
     res.redirect('/index');
 });
 
-// api
 
+// api
 router.post('/update', function (req, res) {
     // console.log(req.body);
     let mainData = req.body;
@@ -118,20 +187,19 @@ router.post('/update', function (req, res) {
         }
     });
 });
-
-router.post('/create', function (req, res) {
+router.post('/insert', function (req, res) {
     let mainData = req.body;
     mainData.RecordOwner = req.connection.user;
-    Util.saveNewMainData(mainData).then(dataID => {
+    Util.insertNewMainData(mainData).then(dataID => {
         console.log(dataID);
         res.json({
             ID: dataID
         });
     });
 });
-router.post('/delete', function (req, res) {
+router.post('/delete/:ID', function (req, res) {
     let mainData = {};
-    mainData.ID = Number(req.param('ID'));
+    mainData.ID = Number(req.params.ID);
     mainData.RecordOwner = req.connection.user;
     // console.log(mainData);
     // need to validate identity
@@ -140,6 +208,33 @@ router.post('/delete', function (req, res) {
         res.send(status);
     });
 });
-
+router.post('/delete/:tableName/:ID', function (req, res) {
+    let tableName = req.params.tableName;
+    let ID = Number(req.params.ID);
+    Util.deleteMetaDataByTableNameAndID(tableName, ID).then(status => {
+        console.log(status);
+        res.send(status);
+    });
+});
+router.post('/update/:tableName', function (req, res) {
+    let tableName = req.params.tableName;
+    let record = req.body;
+    Util.updateMetaDataByTableNameAndID(tableName, record).then(status => {
+        console.log(status);
+        res.json({
+            status: status
+        });
+    });
+});
+router.post('/insert/:tableName', function (req, res) {
+    let tableName = req.params.tableName;
+    let insertRecord = req.body;
+    Util.insertMetaDataByTableName(tableName, insertRecord).then(status => {
+        console.log(status);
+        res.json({
+            status: status
+        });
+    });
+});
 
 module.exports = router;
