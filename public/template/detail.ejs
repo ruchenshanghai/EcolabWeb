@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Detail</title>
+    <title>Detail!</title>
     <link href="../styles/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../styles/detail.css">
 
@@ -21,249 +21,400 @@
             </div>
         </div>
     </div>
-    <div class="container" id="footer-container">
+
+    <div class="container" id="content-container">
         <b>Welcome!<h1 id="RecordOwner"><%= mainData.RecordOwner %></h1>You can update the old record.</b>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <table id="content-table">
+                <table>
                     <tr>
                         <td>
-                            <label class="label">Reviewer/区域负责人</label><br/>
-                            <select class="form-control" id="ReviewerInput">
-                                <% mainData.ReviewerArray.forEach(function (Reviewer) { %>
-                                <option value="<%= Reviewer.Detail %>"
-                                        <% if (Reviewer.Detail === mainData.Reviewer) { %>
-                                        selected="selected"
-                                        <% } %>
-                                ><%= Reviewer.Detail %></option>
-                                <% }); %>
-                            </select>
+                            <div class="single-container">
+                                <label class="label">Reviewer/区域负责人</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 单选<br/>
+                                    <label class="label">名词解释</label>请填写您的大区经理或集团客户经理<br/>
+                                </div>
+                                <select class="form-control" id="ReviewerInput">
+                                    <% mainData.ReviewerArray.forEach(function (Reviewer) { %>
+                                    <option value="<%= Reviewer.Detail %>"
+                                            <% if (Reviewer.Detail === mainData.Reviewer) { %>
+                                            selected="selected"
+                                            <% } %>
+                                    ><%= Reviewer.Detail %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
                         </td>
                         <td>
-                            <label class="label">BU District/BU区属</label><br/>
-                            <select class="form-control" id="BUDistrictInput">
-                                <% mainData.BUDistrictArray.forEach(function (BUDistrict) { %>
-                                <option value="<%= BUDistrict.Detail %>"
-                                        <% if (BUDistrict.Detail === mainData.BUDistrict) { %>
-                                        selected="selected"
-                                        <% } %>
-                                ><%= BUDistrict.Detail %></option>
-                                <% }); %>
-                            </select>
-                        </td>
-                        <td id="OpportunityCode">
-                            <label class="label">OpportunityCode/机会客户编码</label><br/>
-                            <label class="label" id="OpportunityCodeOutput"><%= mainData.OpportunityCode %></label>
-                        </td>
-                        <td>
-                            <label class="label">Province/省级</label><br/>
-                            <input type="text" class="form-control" id="ProvinceInput" value="<%= mainData.Province %>"
-                                   placeholder="Must Input!">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label class="label">City/市级</label><br/>
-                            <input type="text" class="form-control" id="CityInput" value="<%= mainData.City %>"
-                                   placeholder="Must Input!">
+                            <div class="single-container">
+                                <label class="label">BU District/BU区属</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 单选<br/>
+                                    <label class="label">名词解释</label>请填写该客户所属区域-业务部自己划分的区域<br/>
+                                </div>
+                                <select class="form-control" id="BUDistrictInput">
+                                    <% mainData.BUDistrictArray.forEach(function (BUDistrict) { %>
+                                    <option value="<%= BUDistrict.Detail %>"
+                                            <% if (BUDistrict.Detail === mainData.BUDistrict) { %>
+                                            selected="selected"
+                                            <% } %>
+                                    ><%= BUDistrict.Detail %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
                         </td>
                         <td>
-                            <label class="label">Site/县级</label><br/>
-                            <input type="text" class="form-control" id="SiteInput" value="<%= mainData.Site %>"
-                                   placeholder="Must Input!">
+                            <div class="single-container">
+                                <label class="label">OpportunityCode/机会客户编码</label><br/>
+                                <label class="label" id="OpportunityCodeOutput"><%= mainData.OpportunityCode %></label>
+                            </div>
                         </td>
                         <td>
-                            <label class="label">ChineseName/客户中文名</label><br/>
-                            <input type="text" class="form-control" id="ChineseNameInput"
-                                   value="<%= mainData.ChineseName %>" placeholder="Must Input!">
-                        </td>
-                        <td>
-                            <label class="label">EnglishName/客户英文名</label><br/>
-                            <input type="text" class="form-control" id="EnglishNameInput"
-                                   value="<%= mainData.EnglishName %>" placeholder="Must Input!">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label class="label">PipelineStatus/Pipeline进度</label><br/>
-                            <select class="form-control" id="PipelineStatusInput">
-                                <% mainData.PipelineStatusArray.forEach(function (PipelineStatus) { %>
-                                <option value="<%= PipelineStatus.Detail %>"
-                                        <% if (PipelineStatus.Detail === mainData.PipelineStatus) { %>
-                                        selected="selected"
-                                        <% } %>
-                                ><%= PipelineStatus.Detail %></option>
-                                <% }); %>
-                            </select>
-                        </td>
-                        <td>
-                            <label class="label">ContractTerm/合同有效期</label><br/>
-                            <select class="form-control" id="ContractTermInput">
-                                <% mainData.ContractTermArray.forEach(function (ContractTerm) { %>
-                                <option value="<%= ContractTerm.Detail %>"
-                                        <% if (ContractTerm.Detail === mainData.ContractTerm) { %>
-                                        selected="selected"
-                                        <% } %>
-                                ><%= ContractTerm.Detail %></option>
-                                <% }); %>
-                            </select>
-                        </td>
-                        <td>
-                            <label class="label">TargetRate/成功几率</label><br/>
-                            <select class="form-control" id="TargetRateInput">
-                                <% mainData.TargetRateArray.forEach(function (TargetRate) { %>
-                                <option value="<%= TargetRate.Detail %>"
-                                        <% if (TargetRate.Detail === mainData.TargetRate) { %>
-                                        selected="selected"
-                                        <% } %>
-                                ><%= TargetRate.Detail %></option>
-                                <% }); %>
-                            </select>
-                        </td>
-                        <td>
-                            <label class="label">AnnualSales/年度金额(RMB)</label><br/>
-                            <input type="number" class="form-control" id="AnnualSalesInput"
-                                   value="<%= mainData.AnnualSales %>" placeholder="Must Input!">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label class="label">CorporateAccountChinese/集团客户-中文</label><br/>
-                            <input type="text" class="form-control" id="CorporateAccountChineseInput"
-                                   value="<%= mainData.CorporateAccountChinese %>">
-                        </td>
-                        <td>
-                            <label class="label">CorporateAccountEnglish/集团客户-英文</label><br/>
-                            <input type="text" class="form-control" id="CorporateAccountEnglishInput"
-                                   value="<%= mainData.CorporateAccountEnglish %>">
-                        </td>
-                        <td>
-                            <label class="label">SalesRep/销售代表</label><br/>
-                            <input type="text" class="form-control" id="SalesRepInput" value="<%= mainData.SalesRep %>"
-                                   placeholder="Must Input!">
-                        </td>
-                        <td>
-                            <label class="label">AssistCAMName/协助CAM姓名</label><br/>
-                            <select class="form-control" id="AssistCAMNameInput">
-                                <% mainData.AssistCAMArray.forEach(function (AssistCAM) { %>
-                                <option value="<%= AssistCAM.Detail %>"
-                                        <% if (AssistCAM.Detail === mainData.AssistCAM) { %>
-                                        selected="selected"
-                                        <% } %>
-                                ><%= AssistCAM.Detail %></option>
-                                <% }); %>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label class="label">FollowingStatus/进展状态</label><br/>
-                            <select class="form-control" id="FollowingStatusInput">
-                                <% mainData.FollowingStatusArray.forEach(function (FollowingStatus) { %>
-                                <option value="<%= FollowingStatus.Detail %>"
-                                        <% if (FollowingStatus.Detail === mainData.FollowingStatus) { %>
-                                        selected="selected"
-                                        <% } %>
-                                ><%= FollowingStatus.Detail %></option>
-                                <% }); %>
-                            </select>
-                        </td>
-                        <td>
-                            <label class="label">CTCBU/CTC业务部</label><br/>
-                            <select class="form-control" id="CTCBUInput">
-                                <% mainData.CTCBUArray.forEach(function (CTCBU) { %>
-                                <option value="<%= CTCBU.Detail %>"
-                                        <% if (CTCBU.Detail === mainData.CTCBU) { %>
-                                        selected="selected"
-                                        <% } %>
-                                ><%= CTCBU.Detail %></option>
-                                <% }); %>
-                            </select>
-                        </td>
-                        <td>
-                            <label class="label">CTCSales/CTC销售负责人</label><br/>
-                            <input type="text" class="form-control" id="CTCSalesInput" value="<%= mainData.CTCSales %>">
-                        </td>
-                        <td>
-                            <label class="label">SalesType/销售类型</label><br/>
-                            <select class="form-control" id="SalesTypeInput">
-                                <% mainData.SalesTypeArray.forEach(function (SalesType) { %>
-                                <option value="<%= SalesType.Detail %>"
-                                        <% if (SalesType.Detail === mainData.SalesType) { %>
-                                        selected="selected"
-                                        <% } %>
-                                ><%= SalesType.Detail %></option>
-                                <% }); %>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label class="label">FollowingStatusRemark/进展状态备注</label><br/>
-                            <input type="text" class="form-control" id="FollowingStatusRemarkInput"
-                                   value="<%= mainData.FollowingStatusRemark %>">
-                        </td>
-                        <td>
-                            <label class="label">CompetitorCN/竞争对手-中文</label><br/>
-                            <select class="form-control" id="CompetitorCNOptions">
-                                <option value="0">Options</option>
-                                <% mainData.CompetitorCNArray.forEach(function (CompetitorCN) { %>
-                                <option value="<%= CompetitorCN.Detail %>"><%= CompetitorCN.Detail %></option>
-                                <% }); %>
-                            </select>
-                            <input type="text" placeholder="(You can edit options here)" id="CompetitorCNInput"
-                                   value="<%= mainData.CompetitorCN %>">
-                        </td>
-                        <td>
-                            <label class="label">FirstCollaborationDate/最早合作日期</label><br/>
-                            <input type="date" class="form-control" id="FirstCollaborationDateInput"
-                                   value="<%= mainData.FirstCollaborationDate %>">
-                        </td>
-                        <td>
-                            <label class="label">EstimatedPCO/艺康可能占客户PCO比例(%)</label><br/>
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="EstimatedPCOInput"
-                                       value="<%= mainData.EstimatedPCO %>" placeholder="Must Input!">
+                            <div class="single-container" id="province-container">
+                                <label class="label">Province/省级</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写该客户所属省份-国家法定名称<br/>
+                                </div>
+                                <input type="text" class="form-control" id="ProvinceInput" placeholder="Must Input!" value="<%= mainData.Province %>">
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label class="label">Remark/备注</label><br/>
-                            <input type="text" class="form-control" id="RemarkInput" value="<%= mainData.Remark %>">
+                            <div class="single-container" id="city-container">
+                                <label class="label">City/市级</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写该客户所属城市-国家法定名称<br/>
+                                </div>
+                                <input type="text" class="form-control" id="CityInput" placeholder="Must Input!" value="<%= mainData.City %>">
+                            </div>
                         </td>
                         <td>
-                            <label class="label">MarketClassification/市场分类-中文</label><br/>
-                            <select class="form-control" id="MarketClassificationInput">
-                                <% mainData.MarketClassificationArray.forEach(function (MarketClassification) { %>
-                                <option value="<%= MarketClassification.Detail %>"
-                                        <% if (MarketClassification.Detail === mainData.MarketClassification) { %>
-                                        selected="selected"
-                                        <% } %>
-                                ><%= MarketClassification.Detail %></option>
-                                <% }); %>
-                            </select>
+                            <div class="single-container" id="site-container">
+                                <label class="label">Site/县级</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写该客户所属城市-国家法定区名<br/>
+                                </div>
+                                <input type="text" class="form-control" id="SiteInput" placeholder="Must Input!" value="<%= mainData.Site %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="single-container" id="ChineseName-container">
+                                <label class="label">ChineseName/客户中文名</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写该客户中文名称<br/>
+                                </div>
+                                <input type="text" class="form-control" id="ChineseNameInput" placeholder="Must Input!" value="<%= mainData.ChineseName %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="single-container" id="EnglishName-container">
+                                <label class="label">EnglishName/客户英文名</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写该客户英文名称<br/>
+                                </div>
+                                <input type="text" class="form-control" id="EnglishNameInput" placeholder="Must Input!" value="<%= mainData.EnglishName %>">
+                            </div>
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="1">
-                            <button class="btn btn-primary" id="new-button"><span
-                                        class="glyphicon glyphicon-pencil"></span> Create
-                            </button>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">PipelineStatus/Pipeline进度</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 单选<br/>
+                                    <label class="label">名词解释</label>请填写该客户跟踪进度-注意该项目需每月更新,比如上个月的60天客户本月可能变更为30天<br/>
+                                </div>
+                                <select class="form-control" id="PipelineStatusInput">
+                                    <% mainData.PipelineStatusArray.forEach(function (PipelineStatus) { %>
+                                    <option value="<%= PipelineStatus.Detail %>"
+                                            <% if (PipelineStatus.Detail === mainData.PipelineStatus) { %>
+                                            selected="selected"
+                                            <% } %>
+                                    ><%= PipelineStatus.Detail %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
                         </td>
-                        <td colspan="1">
-                            <button class="btn btn-primary" id="delete-button"><span
-                                        class="glyphicon glyphicon-pencil"></span> Delete
-                            </button>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">ContractTerm/合同有效期</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 单选<br/>
+                                    <label class="label">名词解释</label>请填写客户有效期<br/>
+                                </div>
+                                <select class="form-control" id="ContractTermInput">
+                                    <% mainData.ContractTermArray.forEach(function (ContractTerm) { %>
+                                    <option value="<%= ContractTerm.Detail %>"
+                                            <% if (ContractTerm.Detail === mainData.ContractTerm) { %>
+                                            selected="selected"
+                                            <% } %>
+                                    ><%= ContractTerm.Detail %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
                         </td>
-                        <td colspan="1">
-                            <button class="btn btn-primary" id="update-button"><span
-                                        class="glyphicon glyphicon-pencil"></span> Update
-                            </button>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">TargetRate/成功几率</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 单选<br/>
+                                    <label class="label">名词解释</label>请填写客户签约成功几率-已确认(合同已拟好,只差签字);高(签约成功率在70%~80%);中(签约成功率在50%~60%);低(签约成功率在50%以下);不确定(多数用于>90天客户,可能还在追踪探索阶段所以不确定)<br/>
+                                </div>
+                                <select class="form-control" id="TargetRateInput">
+                                    <% mainData.TargetRateArray.forEach(function (TargetRate) { %>
+                                    <option value="<%= TargetRate.Detail %>"
+                                            <% if (TargetRate.Detail === mainData.TargetRate) { %>
+                                            selected="selected"
+                                            <% } %>
+                                    ><%= TargetRate.Detail %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
                         </td>
-                        <td colspan="1">
+                        <td>
+                            <div class="single-container" id="AnnualSales-container">
+                                <label class="label">AnnualSales/年度金额(RMB)</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写该客户年化后的合同金额-年化意味着12个月的合同金额<br/>
+                                </div>
+                                <input type="number" class="form-control" id="AnnualSalesInput"
+                                       placeholder="Must Input!" value="<%= mainData.AnnualSales %>">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">CorporateAccountChinese/集团客户-中文</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>选填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写该客户所属集团中文名-此处集团以客户是否有连锁店或分厂为准,而非业务部自己的集团客户定义<br/>
+                                </div>
+                                <input type="text" class="form-control" id="CorporateAccountChineseInput" value="<%= mainData.CorporateAccountChinese %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">CorporateAccountEnglish/集团客户-英文</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>选填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写该客户所属集团英文名-此处集团以客户是否有连锁店或分厂为准,而非业务部自己的集团客户定义<br/>
+                                </div>
+                                <input type="text" class="form-control" id="CorporateAccountEnglishInput" value="<%= mainData.CorporateAccountEnglish %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="single-container" id="SalesRep-container">
+                                <label class="label">SalesRep/销售代表</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写追踪该客户的销售姓名<br/>
+                                </div>
+                                <input type="text" class="form-control" id="SalesRepInput" placeholder="Must Input!" value="<%= mainData.SalesRep %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">AssistCAMName/协助CAM姓名</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>选填 单选<br/>
+                                    <label class="label">名词解释</label>该项为地区销售填写,CAM无需填写;地区销售同事请填写您所辅助的CAM姓名,如果适用的话<br/>
+                                </div>
+                                <select class="form-control" id="AssistCAMNameInput">
+                                    <% mainData.AssistCAMArray.forEach(function (AssistCAM) { %>
+                                    <option value="<%= AssistCAM.Detail %>"
+                                            <% if (AssistCAM.Detail === mainData.AssistCAM) { %>
+                                            selected="selected"
+                                            <% } %>
+                                    ><%= AssistCAM.Detail %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">FollowingStatus/进展状态</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 单选<br/>
+                                    <label class="label">名词解释</label>请填写该客户目前所处状态<br/>
+                                </div>
+                                <select class="form-control" id="FollowingStatusInput">
+                                    <% mainData.FollowingStatusArray.forEach(function (FollowingStatus) { %>
+                                    <option value="<%= FollowingStatus.Detail %>"
+                                            <% if (FollowingStatus.Detail === mainData.FollowingStatus) { %>
+                                            selected="selected"
+                                            <% } %>
+                                    ><%= FollowingStatus.Detail %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">CTCBU/CTC业务部</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>选填 单选<br/>
+                                    <label class="label">名词解释</label>请填写该客户ctc的部门,如果适用的话<br/>
+                                </div>
+                                <select class="form-control" id="CTCBUInput">
+                                    <% mainData.CTCBUArray.forEach(function (CTCBU) { %>
+                                    <option value="<%= CTCBU.Detail %>"
+                                            <% if (CTCBU.Detail === mainData.CTCBU) { %>
+                                            selected="selected"
+                                            <% } %>
+                                    ><%= CTCBU.Detail %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">CTCSales/CTC销售负责人</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>选填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写该客户ctc的部门销售,如果适用的话<br/>
+                                </div>
+                                <input type="text" class="form-control" id="CTCSalesInput" value="<%= mainData.CTCSales %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="single-container" id="SalesType-container">
+                                <label class="label">SalesType/销售类型</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 多选<br/>
+                                    <label class="label">名词解释</label>请填写该客户销售种类<br/>
+                                </div>
+                                <div class="checkbox">
+                                    <% mainData.SalesTypeArray.forEach(function (SalesType) { %>
+                                    <label><input type="checkbox" name="SalesTypeInput"
+                                                  value="<%= SalesType.Detail %>"
+                                                <% if (mainData.SalesType.indexOf(SalesType.Detail) > -1) { %>
+                                                  checked="checked"
+                                                <% } %>
+                                        >
+                                        <%= SalesType.Detail %></label>
+                                    <% }); %>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">FollowingStatusRemark/进展状态备注</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>选填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写有关该客户的其他进展状态备注<br/>
+                                </div>
+                                <input type="text" class="form-control" id="FollowingStatusRemarkInput" value="<%= mainData.FollowingStatusRemark %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="single-container" id="CompetitorCN-container">
+                                <label class="label">CompetitorCN/竞争对手-中文</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 多选 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写该客户的主要竞争对手<br/>
+                                </div>
+                                <div class="checkbox" id="CompetitorCNInput-container">
+                                    <% mainData.CompetitorCNArray.forEach(function (CompetitorCN) { %>
+                                    <span class="input-group-addon">
+						                <input type="checkbox" name="CompetitorCNCheck"
+                                                <% if (mainData.CompetitorCN.indexOf(CompetitorCN.Detail) > -1) { %>
+                                               checked="checked"
+                                               <% mainData.CompetitorCN.splice(mainData.CompetitorCN.indexOf(CompetitorCN.Detail), 1)%>
+                                                <% } %>
+                                        >
+                                    <input type="text" class="form-control" name="CompetitorCNInput"
+                                           value="<%= CompetitorCN.Detail %>">
+					                </span>
+                                    <% }); %>
+                                    <% mainData.CompetitorCN.forEach(function (CompetitorCN) { %>
+                                    <span class="input-group-addon">
+						                <input type="checkbox" name="CompetitorCNCheck" checked="checked">
+                                    <input type="text" class="form-control" name="CompetitorCNInput"
+                                           value="<%= CompetitorCN %>">
+					                </span>
+                                    <% }); %>
+                                </div>
+                                <button type="button" class="btn btn-default btn-sm" id="add-CompetitorCN">Add
+                                    CompetitorCN
+                                </button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">FirstCollaborationDate/最早合作日期</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>选填 可编辑<br/>
+                                    <label class="label">名词解释</label>如该客户是老客户,请填写其与艺康合作的最早日期<br/>
+                                </div>
+                                <input type="date" class="form-control" id="FirstCollaborationDateInput"value="<%= mainData.FirstCollaborationDate %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="single-container" id="EstimatedPCO-container">
+                                <label class="label">EstimatedPCO/艺康可能占客户PCO比例(%)</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写艺康占该客户PCO的比例,例如某集团客户有一半PCO划给艺康,一半PCO划给能多洁,则艺康所占比例为50%;<br/>
+                                </div>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="EstimatedPCOInput"
+                                           placeholder="Must Input!"value="<%= mainData.EstimatedPCO %>">
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">Remark/备注</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>选填 可编辑<br/>
+                                    <label class="label">名词解释</label>请填写您希望您的老板了解的其他任何和该客户有关的备注信息<br/>
+                                </div>
+                                <input type="text" class="form-control" id="RemarkInput"value="<%= mainData.Remark %>">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="single-container">
+                                <label class="label">MarketClassification/市场分类-中文</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>必填 单选<br/>
+                                    <label class="label">名词解释</label>请填写该客户的市场分类<br/>
+                                </div>
+                                <select class="form-control" id="MarketClassificationInput">
+                                    <% mainData.MarketClassificationArray.forEach(function (MarketClassification) { %>
+                                    <option value="<%= MarketClassification.Detail %>"
+                                            <% if (MarketClassification.Detail === mainData.MarketClassification) { %>
+                                            selected="selected"
+                                            <% } %>
+                                    ><%= MarketClassification.Detail %></option>
+                                    <% }); %>
+                                </select>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
                             <button class="btn btn-primary" id="back-button"><span
                                         class="glyphicon glyphicon-pencil"></span> Back
+                            </button>
+                        </td>
+                        <td colspan="2">
+                            <button class="btn btn-primary" id="new-button"><span
+                                        class="glyphicon glyphicon-pencil"></span> Submit
                             </button>
                         </td>
                     </tr>

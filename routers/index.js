@@ -82,7 +82,8 @@ router.get('/detail/:id', function (req, res) {
                 tempDate.setDate(mainData.FirstCollaborationDate.getDate());
                 mainData.FirstCollaborationDate = tempDate.Format("yyyy-MM-dd");
             }
-
+            mainData.SalesType = JSON.parse(mainData.SalesType);
+            mainData.CompetitorCN = JSON.parse(mainData.CompetitorCN);
             // get meta data
             let promiseArray = new Array();
             promiseArray.push(Util.getMetaDataByTableName(mainData, 'Reviewer'));
@@ -190,6 +191,7 @@ router.post('/update', function (req, res) {
 router.post('/insert', function (req, res) {
     let mainData = req.body;
     mainData.RecordOwner = req.connection.user;
+    console.log(mainData);
     Util.insertNewMainData(mainData).then(dataID => {
         console.log(dataID);
         res.json({

@@ -30,42 +30,6 @@ app.use(function (req, res, next) {
 
 app.use(bodyParser.json());
 app.use('/', indexRouter);
-// // 404 page
-// app.use(function (req, res) {
-//     if (!res.headersSent) {
-//         res.redirect('/index');
-//     }
-// });
-// app.get('*', function (req, res) {
-//     console.log('app redirect');
-//     res.redirect('/index');
-//     // console.log(req.connection.user);
-// });
-
-// let tempMeta = {};
-// let promiseArray = new Array();
-// promiseArray.push(Util.getMetaDataByTableName(tempMeta, 'Reviewer'));
-// promiseArray.push(Util.getMetaDataByTableName(tempMeta, 'BUDistrict'));
-// promiseArray.push(Util.getMetaDataByTableName(tempMeta, 'PipelineStatus'));
-// promiseArray.push(Util.getMetaDataByTableName(tempMeta, 'ContractTerm'));
-// promiseArray.push(Util.getMetaDataByTableName(tempMeta, 'TargetRate'));
-// promiseArray.push(Util.getMetaDataByTableName(tempMeta, 'AssistCAM'));
-// promiseArray.push(Util.getMetaDataByTableName(tempMeta, 'FollowingStatus'));
-// promiseArray.push(Util.getMetaDataByTableName(tempMeta, 'CTCBU'));
-// promiseArray.push(Util.getMetaDataByTableName(tempMeta, 'SalesType'));
-// promiseArray.push(Util.getMetaDataByTableName(tempMeta, 'CompetitorCN'));
-// promiseArray.push(Util.getMetaDataByTableName(tempMeta, 'MarketClassification'));
-// Promise.all(promiseArray).then(data => {
-//     console.log(data);
-//     console.log(tempMeta);
-// });
-
-// test Util.insertNewMainData
-// let testData = new MainData();
-// testData.constructTest();
-// Util.insertNewMainData(testData).then(dataID => {
-//     console.log(dataID);
-// });
 
 
 
