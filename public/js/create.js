@@ -3,14 +3,6 @@
  */
 $(document).ready(function () {
 
-    // $('#CompetitorCNOptions').bind("click", function () {
-    //     if ($('#CompetitorCNOptions').val() !== '0') {
-    //         $('#CompetitorCNInput').val($('#CompetitorCNOptions').val());
-    //     } else {
-    //         $('#CompetitorCNInput').val('');
-    //     }
-    // });
-
     // observe EstimatedPCO <=100%, two numbers
     $('#EstimatedPCOInput').on("input propertychange", function () {
         if ($('#EstimatedPCOInput').val().slice(0, 3) === 100) {
@@ -30,9 +22,7 @@ $(document).ready(function () {
     });
 
     $('#new-button').click(function () {
-
         let newMessage = {};
-
         newMessage.Reviewer = $('#ReviewerInput').val();
         newMessage.BUDistrict = $('#BUDistrictInput').val();
         newMessage.Province = $('#ProvinceInput').val();
