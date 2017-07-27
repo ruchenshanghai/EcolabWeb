@@ -61,7 +61,6 @@ $(document).ready(function () {
         updateMessage.FirstCollaborationDate = $('#FirstCollaborationDateInput').val();
         updateMessage.EstimatedPCO = Number($('#EstimatedPCOInput').val());
         updateMessage.Remark = $('#RemarkInput').val();
-        updateMessage.MarketClassification = $('#MarketClassificationInput').val();
         // not change
         updateMessage.ID = mainDataID;
 
@@ -146,6 +145,18 @@ $(document).ready(function () {
         } else {
             $('#CompetitorCN-container').removeClass('error-container');
             updateMessage.CompetitorCN = JSON.stringify(competitorCNArray);
+        }
+        let marketClassificationArray = new Array();
+        $('input[name="MarketClassificationRadio"]:checked').each(function () {
+            marketClassificationArray.push($(this).next().val());
+        });
+        if (marketClassificationArray.length !== 1) {
+            $('#MarketClassification-container').addClass('error-container');
+            alert('Please input MarketClassification.');
+            return;
+        } else {
+            $('#MarketClassification-container').removeClass('error-container');
+            updateMessage.MarketClassification = marketClassificationArray[0];
         }
 
         if (updateMessage.FirstCollaborationDate === '') {

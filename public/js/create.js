@@ -22,6 +22,7 @@ $(document).ready(function () {
     });
 
     $('#new-button').click(function () {
+
         let newMessage = {};
         newMessage.Reviewer = $('#ReviewerInput').val();
         newMessage.BUDistrict = $('#BUDistrictInput').val();
@@ -47,7 +48,6 @@ $(document).ready(function () {
         newMessage.FirstCollaborationDate = $('#FirstCollaborationDateInput').val();
         newMessage.EstimatedPCO = Number($('#EstimatedPCOInput').val());
         newMessage.Remark = $('#RemarkInput').val();
-        newMessage.MarketClassification = $('#MarketClassificationInput').val();
 
 
         if (newMessage.Province === '') {
@@ -131,6 +131,18 @@ $(document).ready(function () {
         } else {
             $('#CompetitorCN-container').removeClass('error-container');
             newMessage.CompetitorCN = JSON.stringify(competitorCNArray);
+        }
+        let marketClassificationArray = new Array();
+        $('input[name="MarketClassificationRadio"]:checked').each(function () {
+            marketClassificationArray.push($(this).next().val());
+        });
+        if (marketClassificationArray.length !== 1) {
+            $('#MarketClassification-container').addClass('error-container');
+            alert('Please input MarketClassification.');
+            return;
+        } else {
+            $('#MarketClassification-container').removeClass('error-container');
+            newMessage.MarketClassification = marketClassificationArray[0];
         }
 
         if (newMessage.FirstCollaborationDate === '') {

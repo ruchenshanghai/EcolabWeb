@@ -343,14 +343,16 @@
                             <div class="single-container">
                                 <label class="label">MarketClassification/市场分类-中文</label><br/>
                                 <div class="help-label">
-                                    <label class="label">格式要求</label>必填 单选<br/>
+                                    <label class="label">格式要求</label>必填 单选 可编辑<br/>
                                     <label class="label">名词解释</label>请填写该客户的市场分类<br/>
                                 </div>
-                                <select class="form-control" id="MarketClassificationInput">
+                                <div class="radio" id="MarketClassification-container">
                                     <% metaData.MarketClassificationArray.forEach(function (MarketClassification) { %>
-                                    <option value="<%= MarketClassification.Detail %>"><%= MarketClassification.Detail %></option>
+                                    <input type="radio" name="MarketClassificationRadio">
+                                    <input type="text" class="form-control" name="MarketClassificationInput"
+                                           value="<%= MarketClassification.Detail %>">
                                     <% }); %>
-                                </select>
+                                </div>
                             </div>
                         </td>
                     </tr>
