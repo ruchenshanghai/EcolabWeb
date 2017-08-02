@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="GTWPEST@CNSHASQLSDB01P">
-  <database-model serializer="dbm" rdbms="MSSQL" format-version="4.2">
+  <database-model serializer="dbm" rdbms="MSSQL" format-version="4.3">
     <root id="1"/>
     <database id="2" parent="1" name="GTWPEST">
       <ObjectId>13</ObjectId>
