@@ -31,6 +31,7 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json());
 app.use('/', indexRouter);
 
+console.log(Util.checkAdminIdentity("GLOBAL\\wenja"));
 
 
 server.listen(config.port, function () {
