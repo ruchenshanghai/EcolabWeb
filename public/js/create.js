@@ -149,7 +149,7 @@ $(document).ready(function () {
             newMessage.FirstCollaborationDate = null;
         }
 
-        console.log(JSON.stringify(newMessage));
+        // console.log(JSON.stringify(newMessage));
         $.ajax({
             type: 'POST',
             url: '/insert',

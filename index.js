@@ -5,11 +5,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var app = express();
 var server = require('http').createServer(app);
+var fs = require('fs');
 
 var indexRouter = require('./routers/index');
 var config = require('./config/default');
-var MainData = require('./model/MainData');
-var Util = require('./lib/Util');
 
 
 app.set('views', path.join(__dirname, 'public/template'));
@@ -31,7 +30,6 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json());
 app.use('/', indexRouter);
 
-console.log(Util.checkAdminIdentity("GLOBAL\\wenja"));
 
 
 server.listen(config.port, function () {

@@ -14,6 +14,11 @@
     text-align: center;
 }
 
+#download-button-container {
+    align-content: center;
+    text-align: center;
+}
+
 #footer-container {
     padding-left: 20px;
     padding-top: 10px;

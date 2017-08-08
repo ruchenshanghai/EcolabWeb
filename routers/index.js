@@ -1,5 +1,8 @@
 var path = require('path');
 var express = require('express');
+var xlsx = require('node-xlsx');
+var fs = require('fs');
+var path = require('path');
 
 var router = express.Router();
 var Util = require('../lib/Util');
@@ -39,6 +42,15 @@ let Tables = [
         Name: 'MarketClassification'
     }
 ];
+
+function checkAdminTableName(tableName) {
+    for (var index in Tables) {
+        if (Tables[index].Name === tableName) {
+            return true;
+        }
+    }
+    return false;
+}
 
 router.get('/index', function (req, res) {
     let username = req.connection.user;
@@ -149,16 +161,16 @@ router.get('/admin', function (req, res) {
 router.get('/admin/:tableName', function (req, res) {
     let masterTable = {};
     masterTable.Username = req.connection.user;
-    if (Util.checkAdminIdentity(masterTable.Username)) {
-        masterTable.tableName = req.params.tableName;
+    masterTable.tableName = req.params.tableName;
+    if (!checkAdminTableName(masterTable.tableName) || !Util.checkAdminIdentity(masterTable.Username)) {
+        res.redirect('/index');
+    } else {
         Util.getMetaDataByTableName(masterTable, masterTable.tableName).then(() => {
             // console.log(masterTable);
             res.render('admin-edit', {
                 masterTable: masterTable
             })
         });
-    } else {
-        res.redirect('/index');
     }
 });
 
@@ -237,5 +249,27 @@ router.post('/insert/:tableName', function (req, res) {
         });
     });
 });
+router.post('/download', function (req, res) {
+    let username = req.connection.user;
+    Util.getAllData(username).then(records => {
+        if (JSON.stringify(records) !== "{}") {
+            let data = new Array();
+            let tempArray = new Array();
+            for (let index in records[0]) {
+                tempArray.push(index);
+            }
+            data.push(tempArray);
+            for (let index in records) {
+                tempArray = new Array();
+                for (let key in records[index]) {
+                    tempArray.push(records[index][key]);
+                }
+                data.push(tempArray);
+            }
 
+            let buffer = xlsx.build([{name: 'report', data: data}]);
+            fs.writeFileSync( 'report.xlsx', buffer);
+        }
+    });
+});
 module.exports = router;
