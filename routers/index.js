@@ -174,6 +174,36 @@ router.get('/admin/:tableName', function (req, res) {
     }
 });
 
+router.get('/download', function (req, res) {
+    let username = req.connection.user;
+    Util.getAllData(username).then(records => {
+        if (JSON.stringify(records) !== "{}") {
+            let data = new Array();
+            let tempArray = new Array();
+            for (let index in records[0]) {
+                tempArray.push(index);
+            }
+            data.push(tempArray);
+            for (let index in records) {
+                tempArray = new Array();
+                for (let key in records[index]) {
+                    tempArray.push(records[index][key]);
+                }
+                data.push(tempArray);
+            }
+
+            res.setHeader("Content-type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+            res.setHeader("Content-Disposition", "attachment;filename*=utf-8''" + encodeURIComponent(username) + ".xlsx");
+            res.setHeader("Expires", "0");
+            res.setHeader("Cache-Control", "no-cache, must-revalidate");
+            res.setHeader("Pragma", "no-cache");
+
+            let buffer = xlsx.build([{name: 'report', data: data}]);
+            res.send(buffer);
+        }
+    });
+});
+
 router.get('*', function (req, res) {
     console.log('redirect');
     res.redirect('/index');
@@ -249,27 +279,5 @@ router.post('/insert/:tableName', function (req, res) {
         });
     });
 });
-router.post('/download', function (req, res) {
-    let username = req.connection.user;
-    Util.getAllData(username).then(records => {
-        if (JSON.stringify(records) !== "{}") {
-            let data = new Array();
-            let tempArray = new Array();
-            for (let index in records[0]) {
-                tempArray.push(index);
-            }
-            data.push(tempArray);
-            for (let index in records) {
-                tempArray = new Array();
-                for (let key in records[index]) {
-                    tempArray.push(records[index][key]);
-                }
-                data.push(tempArray);
-            }
 
-            let buffer = xlsx.build([{name: 'report', data: data}]);
-            fs.writeFileSync( 'report.xlsx', buffer);
-        }
-    });
-});
 module.exports = router;
