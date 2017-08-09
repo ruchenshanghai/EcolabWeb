@@ -81,11 +81,13 @@ Date.prototype.Format = function (fmt) {
             fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
+
 router.get('/detail/:id', function (req, res) {
     let username = req.connection.user;
     let dataID = req.params.id;
     Util.getMainDataByID(dataID).then(mainData => {
         if (mainData !== null && Util.checkReviewRight(username, mainData.RecordOwner)) {
+            mainData.username = username;
             // purify Date
             if (mainData.FirstCollaborationDate !== null) {
                 let tempDate = new Date();
@@ -145,35 +147,6 @@ router.get('/create', function (req, res) {
     });
 });
 
-router.get('/admin', function (req, res) {
-    let masterData = {};
-    masterData.Username = req.connection.user;
-    if (Util.checkAdminIdentity(masterData.Username)) {
-        masterData.tables = Tables;
-        res.render('admin', {
-            masterData: masterData
-        });
-    } else {
-        res.redirect('/index');
-    }
-});
-
-router.get('/admin/:tableName', function (req, res) {
-    let masterTable = {};
-    masterTable.Username = req.connection.user;
-    masterTable.tableName = req.params.tableName;
-    if (!checkAdminTableName(masterTable.tableName) || !Util.checkAdminIdentity(masterTable.Username)) {
-        res.redirect('/index');
-    } else {
-        Util.getMetaDataByTableName(masterTable, masterTable.tableName).then(() => {
-            // console.log(masterTable);
-            res.render('admin-edit', {
-                masterTable: masterTable
-            })
-        });
-    }
-});
-
 router.get('/download', function (req, res) {
     let username = req.connection.user;
     Util.getAllData(username).then(records => {
@@ -203,6 +176,36 @@ router.get('/download', function (req, res) {
         }
     });
 });
+
+router.get('/admin', function (req, res) {
+    let masterData = {};
+    masterData.Username = req.connection.user;
+    if (Util.checkAdminIdentity(masterData.Username)) {
+        masterData.tables = Tables;
+        res.render('admin', {
+            masterData: masterData
+        });
+    } else {
+        res.redirect('/index');
+    }
+});
+
+router.get('/admin/:tableName', function (req, res) {
+    let masterTable = {};
+    masterTable.Username = req.connection.user;
+    masterTable.tableName = req.params.tableName;
+    if (!checkAdminTableName(masterTable.tableName) || !Util.checkAdminIdentity(masterTable.Username)) {
+        res.redirect('/index');
+    } else {
+        Util.getMetaDataByTableName(masterTable, masterTable.tableName).then(() => {
+            // console.log(masterTable);
+            res.render('admin-edit', {
+                masterTable: masterTable
+            })
+        });
+    }
+});
+
 
 router.get('*', function (req, res) {
     console.log('redirect');
