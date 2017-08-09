@@ -206,6 +206,51 @@ router.get('/admin/:tableName', function (req, res) {
     }
 });
 
+router.get('/manage', function (req, res) {
+    let managerData = {};
+    managerData.username = req.connection.user;
+    if (Util.checkAdminIdentity(managerData.username)) {
+        let managerConfigs = Util.getManagerConfigs();
+        managerData.managerConfigs = managerConfigs;
+        res.render('manage', {
+            managerData: managerData
+        });
+    }
+});
+router.get('/manage/:managerName', function (req, res) {
+    let username = req.connection.user;
+    let managerName = decodeURI(req.params.managerName);
+    console.log(managerName);
+    if (Util.checkAdminIdentity(username) ||
+        (Util.checkManagerIdentity(username) && String(managerName).toLowerCase() === String(username))) {
+        if (Util.checkManagerIdentity(managerName)) {
+            let managerConfig = Util.getSingleManagerConfig(managerName);
+            if (managerConfig !== null) {
+                managerConfig.username = username;
+                res.render('manage-edit', {
+                    managerConfig: managerConfig
+                });
+            }
+        } else {
+            res.redirect('/index');
+        }
+    } else {
+        res.redirect('/index');
+    }
+});
+router.get('/manager-create', function (req, res) {
+    let managerConfig = {};
+    managerConfig.username = req.connection.user;
+    if (Util.checkAdminIdentity(managerConfig.username)) {
+        managerConfig.manager = '';
+        managerConfig.staff = [];
+        res.render('manage-edit', {
+            managerConfig: managerConfig
+        });
+    } else {
+        res.redirect('/index');
+    }
+});
 
 router.get('*', function (req, res) {
     console.log('redirect');
@@ -281,6 +326,21 @@ router.post('/insert/:tableName', function (req, res) {
             status: status
         });
     });
+});
+
+router.post('/staff/delete/:managerName/:index', function (req, res) {
+    let managerName = decodeURI(req.params.managerName);
+    let managerConfigs = Util.getManagerConfigs();
+    let deleteIndex = req.params.index;
+    for (var index in managerConfigs) {
+        if (managerName === managerConfigs[index].manager) {
+            managerConfigs[index].staff.splice(deleteIndex, 1);
+            Util.saveManagerConfigs(managerConfigs);
+            res.send('success');
+            return;
+        }
+    }
+    res.send('fail');
 });
 
 module.exports = router;

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to Ecolab!</title>
+    <link href="../styles/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/manage-edit.css">
+
+    <script src="../js/jquery-3.2.1.min.js"></script>
+    <script src="../js/manage-edit.js"></script>
+</head>
+<body>
+
+<div id="main-container">
+
+    <div class="container" id="nav-container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <a href="http://www.ecolab.com.cn/" target="_blank">
+                    <img src="../images/nav-ico.png">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <table class="table table-hover">
+                    <caption><b>Welcome! <br/><span><%= managerConfig.username %></span><br/></b></caption>
+                    <thead>
+                    <tr>
+                        <th>Status/身份（Manager or Staff）</th>
+                        <th>Domain Name/域账号名称（'GLOBAL\'开头）</th>
+                        <th>Delete</th>
+                        <th>Update</th>
+                    </tr>
+                    <tr>
+                        <td>Manager</td>
+                        <td><input type="text" value="<%= managerConfig.manager %>" id="manager-input"></td>
+                        <td>Can't delete this.</td>
+                        <td><button id="manager-update btn btn-primary">Update</button></td>
+                    </tr>
+                    </thead>
+                    <tbody id="content-container">
+                    <% for (var index in managerConfig.staff) { %>
+                    <tr>
+                        <td>Staff</td>
+                        <td><input type="text" value="<%= managerConfig.staff[index] %>" class="staff-input" id="staff-input-<%= index %>"/></td>
+                        <td>
+                            <button class="staff-delete btn btn-primary" id="staff-delete-<%= index %>">Delete</button>
+                        </td>
+                        <td><button class="staff-update btn btn-primary" id="staff-update-<%= index %>">Update</button></td>
+                    </tr>
+                    <% } %>
+
+                    <!--<% managerConfig.staff.forEach(function (staffName) { %>-->
+                    <!--<tr>-->
+                        <!--<td>Staff</td>-->
+                        <!--<td><input type="text" value="<%= staffName %>" class="staff-input"/></td>-->
+                        <!--<td>-->
+                            <!--<button class="staff-delete btn btn-primary">Delete</button>-->
+                        <!--</td>-->
+                        <!--&lt;!&ndash;<td><button class="staff-update btn btn-primary">Update</button></td>&ndash;&gt;-->
+                    <!--</tr>-->
+                    <!--<% }) %>-->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container horizon-center">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 button-container" id="staff-insert">
+                <a href="#">
+                    <p>Click me to add new staff.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container horizon-center">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 button-container" id="config-save">
+                <a href="#">
+                    <p>Click me to save all the config.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container horizon-center">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <a href="http://localhost:2017/index">
+                    <p>Click me to back to index.</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" id="footer-container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 horizon-center">
+                <a href="http://www.ecolab.com.cn/" target="_blank">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

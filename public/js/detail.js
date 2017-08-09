@@ -31,7 +31,7 @@ $(document).ready(function () {
         $.post('/delete/' + mainDataID).then(status => {
             if (status === 'success') {
                 console.log(status);
-                window.location.href = 'http://cnshafinaap01p:2017/index';
+                window.location.href = 'http://localhost:2017/index';
             }
         });
     });
@@ -174,7 +174,7 @@ $(document).ready(function () {
             success: function(result){
                 console.log(result.status);
                 if (result.status === 'success') {
-                    window.location.href = 'http://cnshafinaap01p:2017/index';
+                    window.location.href = 'http://localhost:2017/index';
                 }
             },
             error: function(xhr, type, errerThrown){
@@ -185,10 +185,10 @@ $(document).ready(function () {
 
 
     $('#back-button').click(function () {
-        window.location.href = 'http://cnshafinaap01p:2017/index';
+        window.location.href = 'http://localhost:2017/index';
     });
 
     $('#new-button').click(function () {
-        window.location.href = 'http://cnshafinaap01p:2017/create';
+        window.location.href = 'http://localhost:2017/create';
     });
 });

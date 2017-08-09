@@ -25,7 +25,7 @@
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <table class="table table-hover">
-                    <caption><b>Welcome!<br /><span><%= masterData.Username %></span><br />All Master Table Is Here. Click to view detail.</b></caption>
+                    <caption><b>Welcome!<br /><span><%= masterData.Username %></span><br />All Master Tables Are Here. Click to view detail.</b></caption>
                     <thead>
                     <tr>
                         <th>Master Table Name/主数据表</th>
@@ -33,7 +33,7 @@
                     </thead>
                     <tbody id="content-container">
                     <% masterData.tables.forEach(function (table) { %>
-                    <tr id="<%= table.Name %>" onclick="window.location.href = 'http://cnshafinaap01p:2017/admin/<%= table.Name %>';">
+                    <tr id="<%= table.Name %>" onclick="window.location.href = 'http://localhost:2017/admin/<%= table.Name %>';">
                         <td><%= table.Name %></td>
                         <td><a href="/admin/<%= table.Name%>" target="_self">Details</a></td>
                     </tr>
@@ -47,7 +47,7 @@
     <div class="container" id="add-button-container">
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                <a href="http://cnshafinaap01p:2017/index">
+                <a href="http://localhost:2017/index">
                     <p>Click me to back to index.</p>
                 </a>
             </div>
