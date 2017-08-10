@@ -20,7 +20,7 @@ function MainData() {
     this.CorporateAccountChinese = null;
     this.CorporateAccountEnglish = null;
     this.SalesRep = null;
-    this.AssistCAM = null;
+    this.AssistCAMName = null;
     this.FollowingStatus = null;
     this.CTCBU = null;
     this.CTCSales = null;
@@ -50,7 +50,7 @@ MainData.prototype.constructTest = function () {
     this.CorporateAccountChinese = null;
     this.CorporateAccountEnglish = null;
     this.SalesRep = '葫芦娃';
-    this.AssistCAM = null;
+    this.AssistCAMName = null;
     this.FollowingStatus = '123321';
     this.CTCBU = '不适用';
     this.CTCSales = null;

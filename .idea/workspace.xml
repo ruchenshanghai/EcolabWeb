@@ -4,18 +4,13 @@
     <bookmark url="file://$PROJECT_DIR$/lib/Util.js" line="38" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="192f9458-f924-46f1-8fcf-b4880326304e" name="Default" comment="check admin right bug">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/manage-config.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/manage-config11.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/manage-edit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/js/manage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/manage-edit.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/styles/manage.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/template/manage-edit.ejs" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/template/manage.ejs" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="192f9458-f924-46f1-8fcf-b4880326304e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/9badfac2-8b96-473e-949c-708e5de98eb6.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/9badfac2-8b96-473e-949c-708e5de98eb6.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Util.js" afterPath="$PROJECT_DIR$/lib/Util.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/MainData.js" afterPath="$PROJECT_DIR$/model/MainData.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/create.js" afterPath="$PROJECT_DIR$/public/js/create.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/template/create.ejs" afterPath="$PROJECT_DIR$/public/template/create.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/template/detail.ejs" afterPath="$PROJECT_DIR$/public/template/detail.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routers/index.js" afterPath="$PROJECT_DIR$/routers/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -77,8 +72,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>updateMessage</find>
-      <find>CompetitorCN</find>
       <find>newMessage</find>
       <find>EstimatedPCOInput</find>
       <find>MarketClassification</find>
@@ -107,6 +100,8 @@
       <find>checkAdminTableName</find>
       <find>AssistCAMNameInput</find>
       <find>assist</find>
+      <find>AssistCAMArray</find>
+      <find>AssistCAM</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\wenja\Desktop\Project\Ecolab\EcolabWeb</dir>
@@ -136,7 +131,6 @@
         <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/views/detail.ejs" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/fe0cdc21-da1f-4e2c-a393-020185e30091/console.sql" />
-        <option value="$PROJECT_DIR$/model/MainData.js" />
         <option value="dbtable:/1596e2b9/fe0cdc21-da1f-4e2c-a393-020185e30091/GTWPEST.dbo.MarketClassification" />
         <option value="$PROJECT_DIR$/public/js/admin.js" />
         <option value="$PROJECT_DIR$/public/styles/admin.css" />
@@ -144,7 +138,6 @@
         <option value="$PROJECT_DIR$/config/default.js" />
         <option value="$PROJECT_DIR$/public/styles/create.css" />
         <option value="$PROJECT_DIR$/public/styles/detail.css" />
-        <option value="$PROJECT_DIR$/public/template/create.ejs" />
         <option value="$PROJECT_DIR$/note.txt" />
         <option value="$PROJECT_DIR$/review-limit.json" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/9badfac2-8b96-473e-949c-708e5de98eb6/console.sql" />
@@ -154,7 +147,6 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/index.js" />
         <option value="$PROJECT_DIR$/public/js/index.js" />
-        <option value="$PROJECT_DIR$/public/template/detail.ejs" />
         <option value="$PROJECT_DIR$/public/template/components/data-brief.ejs" />
         <option value="$PROJECT_DIR$/public/template/index.ejs" />
         <option value="$PROJECT_DIR$/public/template/admin-edit.ejs" />
@@ -173,6 +165,9 @@
         <option value="$PROJECT_DIR$/public/js/manage-edit.js" />
         <option value="$PROJECT_DIR$/public/js/create.js" />
         <option value="$PROJECT_DIR$/lib/Util.js" />
+        <option value="$PROJECT_DIR$/model/MainData.js" />
+        <option value="$PROJECT_DIR$/public/template/detail.ejs" />
+        <option value="$PROJECT_DIR$/public/template/create.ejs" />
         <option value="$PROJECT_DIR$/routers/index.js" />
       </list>
     </option>
@@ -237,6 +232,11 @@
               <item name="EcolabWeb" type="b2602c69:ProjectViewProjectNode" />
               <item name="EcolabWeb" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="EcolabWeb" type="b2602c69:ProjectViewProjectNode" />
+              <item name="EcolabWeb" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="EcolabWeb" type="b2602c69:ProjectViewProjectNode" />
@@ -727,7 +727,7 @@
       <workItem from="1502250664220" duration="1924000" />
       <workItem from="1502259713744" duration="8204000" />
       <workItem from="1502328228157" duration="4792000" />
-      <workItem from="1502349888044" duration="1721000" />
+      <workItem from="1502349888044" duration="2707000" />
     </task>
     <task id="LOCAL-00001" summary="convert to ultimate version">
       <created>1497602088584</created>
@@ -743,11 +743,18 @@
       <option name="project" value="LOCAL" />
       <updated>1502124151450</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="requirement change&#10;review control by reviewer data&#10;store the review &amp; domain name by json">
+      <created>1502351662980</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1502351662980</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="268437000" />
+    <option name="totallyTimeSpent" value="269423000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -766,16 +773,16 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969433" sideWeight="0.5028694" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5028694" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23111111" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23111111" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22765957" sideWeight="0.2817919" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1283688" sideWeight="0.27888888" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32666665" sideWeight="0.49713057" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22765957" sideWeight="0.7182081" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10992908" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1283688" sideWeight="0.7211111" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29148936" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -838,7 +845,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="convert to ultimate version" />
     <MESSAGE value="check admin right bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="check admin right bug" />
+    <MESSAGE value="requirement change&#10;review control by reviewer data&#10;store the review &amp; domain name by json" />
+    <option name="LAST_COMMIT_MESSAGE" value="requirement change&#10;review control by reviewer data&#10;store the review &amp; domain name by json" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -851,20 +859,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/template/index.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="50" column="43" lean-forward="false" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/template/admin-edit.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1292">
-          <caret line="68" column="51" lean-forward="false" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -900,22 +894,19 @@
         <state relative-caret-position="817">
           <caret line="195" column="109" lean-forward="false" selection-start-line="195" selection-start-column="109" selection-end-line="195" selection-end-column="109" />
           <folding>
-            <element signature="e#228#684#0" expanded="false" />
+            <element signature="e#228#688#0" expanded="false" />
             <element signature="n#!!block;n#checkAdminTableName#0" expanded="false" />
-            <element signature="e#910#1512#0" expanded="false" />
-            <element signature="e#1554#1831#0" expanded="false" />
-            <element signature="e#1880#3975#0" expanded="false" />
-            <element signature="e#4020#5162#0" expanded="false" />
-            <element signature="e#5209#6334#0" expanded="false" />
-            <element signature="e#6379#6674#0" expanded="false" />
-            <element signature="e#6729#7245#0" expanded="false" />
-            <element signature="e#7285#7345#0" expanded="false" />
-            <element signature="e#7400#7683#0" expanded="false" />
-            <element signature="e#7729#7981#0" expanded="false" />
-            <element signature="e#8031#8276#0" expanded="false" />
-            <element signature="e#8337#8553#0" expanded="false" />
-            <element signature="e#8610#8853#0" expanded="false" />
-            <element signature="e#8910#9160#0" expanded="false" />
+            <element signature="e#914#1516#0" expanded="false" />
+            <element signature="e#1558#1835#0" expanded="false" />
+            <element signature="e#5221#6346#0" expanded="false" />
+            <element signature="e#6391#6686#0" expanded="false" />
+            <element signature="e#6741#7257#0" expanded="false" />
+            <element signature="e#7297#7357#0" expanded="false" />
+            <element signature="e#7412#7695#0" expanded="false" />
+            <element signature="e#8043#8288#0" expanded="false" />
+            <element signature="e#8349#8565#0" expanded="false" />
+            <element signature="e#8622#8865#0" expanded="false" />
+            <element signature="e#8922#9172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -947,22 +938,19 @@
         <state relative-caret-position="1045">
           <caret line="263" column="0" lean-forward="false" selection-start-line="263" selection-start-column="0" selection-end-line="263" selection-end-column="0" />
           <folding>
-            <element signature="e#228#684#0" expanded="false" />
+            <element signature="e#228#688#0" expanded="false" />
             <element signature="n#!!block;n#checkAdminTableName#0" expanded="false" />
-            <element signature="e#910#1512#0" expanded="false" />
-            <element signature="e#1554#1831#0" expanded="false" />
-            <element signature="e#1880#3975#0" expanded="false" />
-            <element signature="e#4020#5162#0" expanded="false" />
-            <element signature="e#5209#6334#0" expanded="false" />
-            <element signature="e#6379#6674#0" expanded="false" />
-            <element signature="e#6729#7245#0" expanded="false" />
-            <element signature="e#7285#7345#0" expanded="false" />
-            <element signature="e#7400#7683#0" expanded="false" />
-            <element signature="e#7729#7981#0" expanded="false" />
-            <element signature="e#8031#8276#0" expanded="false" />
-            <element signature="e#8337#8553#0" expanded="false" />
-            <element signature="e#8610#8853#0" expanded="false" />
-            <element signature="e#8910#9160#0" expanded="false" />
+            <element signature="e#914#1516#0" expanded="false" />
+            <element signature="e#1558#1835#0" expanded="false" />
+            <element signature="e#5221#6346#0" expanded="false" />
+            <element signature="e#6391#6686#0" expanded="false" />
+            <element signature="e#6741#7257#0" expanded="false" />
+            <element signature="e#7297#7357#0" expanded="false" />
+            <element signature="e#7412#7695#0" expanded="false" />
+            <element signature="e#8043#8288#0" expanded="false" />
+            <element signature="e#8349#8565#0" expanded="false" />
+            <element signature="e#8622#8865#0" expanded="false" />
+            <element signature="e#8922#9172#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1057,13 +1045,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/template/detail.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1206,13 +1187,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/1596e2b9/9badfac2-8b96-473e-949c-708e5de98eb6/GTWPEST.dbo.MainData">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/manage-config.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="741">
@@ -1221,66 +1195,93 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routers/index.js">
+    <entry file="file://$PROJECT_DIR$/public/template/create.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="202" column="0" lean-forward="true" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
+        <state relative-caret-position="320">
+          <caret line="213" column="45" lean-forward="true" selection-start-line="213" selection-start-column="45" selection-end-line="213" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/MainData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="36" column="47" lean-forward="false" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
           <folding>
-            <element signature="e#228#684#0" expanded="false" />
-            <element signature="n#!!block;n#checkAdminTableName#0" expanded="false" />
-            <element signature="e#910#1512#0" expanded="false" />
-            <element signature="e#1554#1831#0" expanded="false" />
-            <element signature="e#1880#3975#0" expanded="false" />
-            <element signature="e#4020#5162#0" expanded="false" />
-            <element signature="e#5209#6334#0" expanded="false" />
-            <element signature="e#6379#6674#0" expanded="false" />
-            <element signature="e#6729#7245#0" expanded="false" />
-            <element signature="e#7285#7345#0" expanded="false" />
-            <element signature="e#7400#7683#0" expanded="false" />
-            <element signature="e#7729#7981#0" expanded="false" />
-            <element signature="e#8031#8276#0" expanded="false" />
-            <element signature="e#8337#8553#0" expanded="false" />
-            <element signature="e#8610#8853#0" expanded="false" />
-            <element signature="e#8910#9160#0" expanded="false" />
+            <element signature="n#!!block;n#MainData#0" expanded="false" />
+            <element signature="e#983#1881#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/1596e2b9/9badfac2-8b96-473e-949c-708e5de98eb6/GTWPEST.dbo.AssistCAMName">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/1596e2b9/9badfac2-8b96-473e-949c-708e5de98eb6/GTWPEST.dbo.MainData">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/create.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="40" column="27" lean-forward="false" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
           <folding>
-            <marker date="1502350102762" expanded="true" signature="625:966" ph="..." />
-            <marker date="1502350102762" expanded="true" signature="839:937" ph="..." />
+            <marker date="1502351853487" expanded="true" signature="625:966" ph="..." />
+            <marker date="1502351853487" expanded="true" signature="839:937" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/template/create.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="210" column="83" lean-forward="false" selection-start-line="210" selection-start-column="65" selection-end-line="210" selection-end-column="83" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/Util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="324" column="0" lean-forward="true" selection-start-line="324" selection-start-column="0" selection-end-line="324" selection-end-column="0" />
+        <state relative-caret-position="307">
+          <caret line="187" column="22" lean-forward="false" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
           <folding>
             <element signature="e#765#1987#0" expanded="false" />
-            <element signature="e#2032#4787#0" expanded="false" />
-            <element signature="e#4833#8384#0" expanded="false" />
-            <element signature="e#8431#9583#0" expanded="false" />
-            <element signature="e#9626#10376#0" expanded="false" />
-            <element signature="e#10439#11530#0" expanded="false" />
-            <element signature="e#11594#12213#0" expanded="false" />
-            <element signature="e#12281#13016#0" expanded="false" />
-            <element signature="e#13079#13767#0" expanded="false" />
-            <element signature="e#13808#14807#0" expanded="false" />
+            <element signature="e#9643#10393#0" expanded="false" />
+            <element signature="e#10456#11547#0" expanded="false" />
+            <element signature="e#11611#12230#0" expanded="false" />
+            <element signature="e#12298#13033#0" expanded="false" />
+            <element signature="e#13096#13784#0" expanded="false" />
+            <element signature="e#13825#14824#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="141" column="12" lean-forward="false" selection-start-line="141" selection-start-column="12" selection-end-line="141" selection-end-column="12" />
+          <folding>
+            <element signature="e#228#688#0" expanded="false" />
+            <element signature="n#!!block;n#checkAdminTableName#0" expanded="false" />
+            <element signature="e#914#1516#0" expanded="false" />
+            <element signature="e#1558#1835#0" expanded="false" />
+            <element signature="e#5221#6346#0" expanded="false" />
+            <element signature="e#6391#6686#0" expanded="false" />
+            <element signature="e#6741#7257#0" expanded="false" />
+            <element signature="e#7297#7357#0" expanded="false" />
+            <element signature="e#7412#7695#0" expanded="false" />
+            <element signature="e#8043#8288#0" expanded="false" />
+            <element signature="e#8349#8565#0" expanded="false" />
+            <element signature="e#8622#8865#0" expanded="false" />
+            <element signature="e#8922#9172#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/template/detail.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="241" column="61" lean-forward="false" selection-start-line="241" selection-start-column="61" selection-end-line="241" selection-end-column="61" />
+          <folding />
         </state>
       </provider>
     </entry>

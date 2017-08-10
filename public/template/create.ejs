@@ -209,8 +209,8 @@
                                     <label class="label">名词解释</label>该项为地区销售填写,CAM无需填写;地区销售同事请填写您所辅助的CAM姓名,如果适用的话<br/>
                                 </div>
                                 <select class="form-control" id="AssistCAMNameInput">
-                                    <% metaData.AssistCAMArray.forEach(function (AssistCAM) { %>
-                                    <option value="<%= AssistCAM.Detail %>"><%= AssistCAM.Detail %></option>
+                                    <% metaData.AssistCAMNameArray.forEach(function (AssistCAMName) { %>
+                                    <option value="<%= AssistCAMName.Detail %>"><%= AssistCAMName.Detail %></option>
                                     <% }); %>
                                 </select>
                             </div>

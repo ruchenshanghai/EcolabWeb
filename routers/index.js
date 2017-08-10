@@ -24,7 +24,7 @@ let Tables = [
         Name: 'TargetRate'
     },
     {
-        Name: 'AssistCAM'
+        Name: 'AssistCAMName'
     },
     {
         Name: 'FollowingStatus'
@@ -103,7 +103,7 @@ router.get('/detail/:id', function (req, res) {
             promiseArray.push(Util.getMetaDataByTableName(mainData, 'PipelineStatus'));
             promiseArray.push(Util.getMetaDataByTableName(mainData, 'ContractTerm'));
             promiseArray.push(Util.getMetaDataByTableName(mainData, 'TargetRate'));
-            promiseArray.push(Util.getMetaDataByTableName(mainData, 'AssistCAM'));
+            promiseArray.push(Util.getMetaDataByTableName(mainData, 'AssistCAMName'));
             promiseArray.push(Util.getMetaDataByTableName(mainData, 'FollowingStatus'));
             promiseArray.push(Util.getMetaDataByTableName(mainData, 'CTCBU'));
             promiseArray.push(Util.getMetaDataByTableName(mainData, 'SalesType'));
@@ -130,7 +130,7 @@ router.get('/create', function (req, res) {
     promiseArray.push(Util.getMetaDataByTableName(metaData, 'PipelineStatus'));
     promiseArray.push(Util.getMetaDataByTableName(metaData, 'ContractTerm'));
     promiseArray.push(Util.getMetaDataByTableName(metaData, 'TargetRate'));
-    promiseArray.push(Util.getMetaDataByTableName(metaData, 'AssistCAM'));
+    promiseArray.push(Util.getMetaDataByTableName(metaData, 'AssistCAMName'));
     promiseArray.push(Util.getMetaDataByTableName(metaData, 'FollowingStatus'));
     promiseArray.push(Util.getMetaDataByTableName(metaData, 'CTCBU'));
     promiseArray.push(Util.getMetaDataByTableName(metaData, 'SalesType'));
