@@ -149,25 +149,25 @@ $(document).ready(function () {
             newMessage.FirstCollaborationDate = null;
         }
 
-        // console.log(JSON.stringify(newMessage));
-        $.ajax({
-            type: 'POST',
-            url: '/insert',
-            data: JSON.stringify(newMessage),
-            contentType: 'application/json',
-            dataType : 'json',
-            timeout: 10000,
-            success: function(result){
-                console.log(result.ID);
-                    if (!isNaN(result.ID)) {
-                        // console.log(status);
-                        window.location.href = 'http://localhost:2017/detail/' + result.ID;
-                    }
-            },
-            error: function(xhr, type, errerThrown){
-                console.log(errerThrown);
-            }
-        });
+        console.log(JSON.stringify(newMessage));
+        // $.ajax({
+        //     type: 'POST',
+        //     url: '/insert',
+        //     data: JSON.stringify(newMessage),
+        //     contentType: 'application/json',
+        //     dataType : 'json',
+        //     timeout: 10000,
+        //     success: function(result){
+        //         console.log(result.ID);
+        //             if (!isNaN(result.ID)) {
+        //                 // console.log(status);
+        //                 window.location.href = 'http://localhost:2017/detail/' + result.ID;
+        //             }
+        //     },
+        //     error: function(xhr, type, errerThrown){
+        //         console.log(errerThrown);
+        //     }
+        // });
     });
 
     $('#back-button').click(function () {

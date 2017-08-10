@@ -52,18 +52,6 @@ function checkAdminTableName(tableName) {
     return false;
 }
 
-router.get('/index', function (req, res) {
-    let username = req.connection.user;
-    Util.getAllData(username).then(records => {
-        if (JSON.stringify(records) !== "{}") {
-            records.user = username;
-            res.render('index', {
-                records: records
-            });
-        }
-    });
-});
-
 Date.prototype.Format = function (fmt) {
     var o = {
         "M+": this.getMonth() + 1,
@@ -81,12 +69,22 @@ Date.prototype.Format = function (fmt) {
             fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
     return fmt;
 }
-
+router.get('/index', function (req, res) {
+    let username = req.connection.user;
+    Util.getAllData(username).then(records => {
+        if (JSON.stringify(records) !== "{}") {
+            records.user = username;
+            res.render('index', {
+                records: records
+            });
+        }
+    });
+});
 router.get('/detail/:id', function (req, res) {
     let username = req.connection.user;
     let dataID = req.params.id;
     Util.getMainDataByID(dataID).then(mainData => {
-        if (mainData !== null && Util.checkReviewRight(username, mainData.RecordOwner)) {
+        if (mainData !== null) {
             mainData.username = username;
             // purify Date
             if (mainData.FirstCollaborationDate !== null) {
@@ -122,7 +120,6 @@ router.get('/detail/:id', function (req, res) {
         }
     });
 });
-
 router.get('/create', function (req, res) {
     let metaData = {};
     metaData.RecordOwner = req.connection.user;
@@ -146,7 +143,6 @@ router.get('/create', function (req, res) {
         });
     });
 });
-
 router.get('/download', function (req, res) {
     let username = req.connection.user;
     Util.getAllData(username).then(records => {
@@ -189,7 +185,6 @@ router.get('/admin', function (req, res) {
         res.redirect('/index');
     }
 });
-
 router.get('/admin/:tableName', function (req, res) {
     let masterTable = {};
     masterTable.Username = req.connection.user;
@@ -206,52 +201,6 @@ router.get('/admin/:tableName', function (req, res) {
     }
 });
 
-router.get('/manage', function (req, res) {
-    let managerData = {};
-    managerData.username = req.connection.user;
-    if (Util.checkAdminIdentity(managerData.username)) {
-        let managerConfigs = Util.getManagerConfigs();
-        managerData.managerConfigs = managerConfigs;
-        res.render('manage', {
-            managerData: managerData
-        });
-    }
-});
-router.get('/manage/:managerName', function (req, res) {
-    let username = req.connection.user;
-    let managerName = decodeURI(req.params.managerName);
-    console.log(managerName);
-    if (Util.checkAdminIdentity(username) ||
-        (Util.checkManagerIdentity(username) && String(managerName).toLowerCase() === String(username))) {
-        if (Util.checkManagerIdentity(managerName)) {
-            let managerConfig = Util.getSingleManagerConfig(managerName);
-            if (managerConfig !== null) {
-                managerConfig.username = username;
-                res.render('manage-edit', {
-                    managerConfig: managerConfig
-                });
-            }
-        } else {
-            res.redirect('/index');
-        }
-    } else {
-        res.redirect('/index');
-    }
-});
-router.get('/manager-create', function (req, res) {
-    let managerConfig = {};
-    managerConfig.username = req.connection.user;
-    if (Util.checkAdminIdentity(managerConfig.username)) {
-        managerConfig.manager = '';
-        managerConfig.staff = [];
-        res.render('manage-edit', {
-            managerConfig: managerConfig
-        });
-    } else {
-        res.redirect('/index');
-    }
-});
-
 router.get('*', function (req, res) {
     console.log('redirect');
     res.redirect('/index');
@@ -262,20 +211,14 @@ router.get('*', function (req, res) {
 router.post('/update', function (req, res) {
     // console.log(req.body);
     let mainData = req.body;
-    if (Util.checkReviewRight(req.connection.user, mainData.RecordOwner)) {
-        Util.updateMainData(mainData).then(status => {
-            if (status === 'success') {
-                console.log('update: ' + status);
-                res.json({
-                    status: status
-                });
-            }
-        });
-    } else {
-        res.json({
-            status: 'right error'
-        })
-    }
+    Util.updateMainData(mainData).then(status => {
+        if (status === 'success') {
+            console.log('update: ' + status);
+            res.json({
+                status: status
+            });
+        }
+    });
 });
 router.post('/insert', function (req, res) {
     let mainData = req.body;
@@ -328,19 +271,5 @@ router.post('/insert/:tableName', function (req, res) {
     });
 });
 
-router.post('/staff/delete/:managerName/:index', function (req, res) {
-    let managerName = decodeURI(req.params.managerName);
-    let managerConfigs = Util.getManagerConfigs();
-    let deleteIndex = req.params.index;
-    for (var index in managerConfigs) {
-        if (managerName === managerConfigs[index].manager) {
-            managerConfigs[index].staff.splice(deleteIndex, 1);
-            Util.saveManagerConfigs(managerConfigs);
-            res.send('success');
-            return;
-        }
-    }
-    res.send('fail');
-});
 
 module.exports = router;
