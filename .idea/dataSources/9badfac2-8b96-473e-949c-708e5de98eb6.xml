@@ -50,7 +50,7 @@
     </database>
     <schema id="16" parent="2" name="dbo">
       <ObjectId>1</ObjectId>
-      <IntrospectionTimestamp>2017-08-10.16:03:35.767</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2017-08-12.19:42:50.190</IntrospectionTimestamp>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -138,7 +138,7 @@
     <table id="38" parent="16" name="Reviewer">
       <ObjectId>370100359</ObjectId>
       <CreatedTimestamp>2017-07-03.14:02:34.917</CreatedTimestamp>
-      <ModifiedTimestamp>2017-07-03.14:02:34.940</ModifiedTimestamp>
+      <ModifiedTimestamp>2017-08-12.19:42:49.490</ModifiedTimestamp>
     </table>
     <table id="39" parent="16" name="SalesType">
       <ObjectId>626101271</ObjectId>
@@ -667,24 +667,34 @@
       <DataType>nvarchar(1024)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="130" parent="38" name="PK__Reviewer__3214EC27794DBA89">
+    <column id="130" parent="38" name="DomainName">
+      <Position>3</Position>
+      <DataType>nvarchar(1024)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="131" parent="38" name="PK__Reviewer__3214EC27794DBA89">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="131" parent="38" name="Reviewer_ID_uindex">
+    <index id="132" parent="38" name="Reviewer_ID_uindex">
       <Position>2</Position>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="132" parent="38" name="Reviewer_Detail_uindex">
+    <index id="133" parent="38" name="Reviewer_Detail_uindex">
       <Position>3</Position>
       <ColNames>Detail</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="133" parent="38" name="PK__Reviewer__3214EC27794DBA89">
+    <index id="134" parent="38" name="Reviewer_DomainName_uindex">
+      <Position>4</Position>
+      <ColNames>DomainName</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="135" parent="38" name="PK__Reviewer__3214EC27794DBA89">
       <ObjectId>386100416</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2017-07-03.14:02:34.920</CreatedTimestamp>
@@ -693,35 +703,35 @@
       <UnderlyingIndexName>PK__Reviewer__3214EC27794DBA89</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="134" parent="39" name="ID">
+    <column id="136" parent="39" name="ID">
       <Position>1</Position>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="135" parent="39" name="Detail">
+    <column id="137" parent="39" name="Detail">
       <Position>2</Position>
       <DataType>nvarchar(1024)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="136" parent="39" name="PK__SalesTyp__3214EC27503F07B0">
+    <index id="138" parent="39" name="PK__SalesTyp__3214EC27503F07B0">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="137" parent="39" name="SalesType_ID_uindex">
+    <index id="139" parent="39" name="SalesType_ID_uindex">
       <Position>2</Position>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="138" parent="39" name="SalesType_Detail_uindex">
+    <index id="140" parent="39" name="SalesType_Detail_uindex">
       <Position>3</Position>
       <ColNames>Detail</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="139" parent="39" name="PK__SalesTyp__3214EC27503F07B0">
+    <key id="141" parent="39" name="PK__SalesTyp__3214EC27503F07B0">
       <ObjectId>642101328</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2017-07-03.14:07:55.160</CreatedTimestamp>
@@ -730,35 +740,35 @@
       <UnderlyingIndexName>PK__SalesTyp__3214EC27503F07B0</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="140" parent="40" name="ID">
+    <column id="142" parent="40" name="ID">
       <Position>1</Position>
       <DataType>int|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="141" parent="40" name="Detail">
+    <column id="143" parent="40" name="Detail">
       <Position>2</Position>
       <DataType>nvarchar(1024)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="142" parent="40" name="PK__TargetRa__3214EC274C016FFB">
+    <index id="144" parent="40" name="PK__TargetRa__3214EC274C016FFB">
       <Position>1</Position>
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Clustering>1</Clustering>
       <Unique>1</Unique>
     </index>
-    <index id="143" parent="40" name="TargetRate_ID_uindex">
+    <index id="145" parent="40" name="TargetRate_ID_uindex">
       <Position>2</Position>
       <ColNames>ID</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="144" parent="40" name="TargetRate_Detail_uindex">
+    <index id="146" parent="40" name="TargetRate_Detail_uindex">
       <Position>3</Position>
       <ColNames>Detail</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="145" parent="40" name="PK__TargetRa__3214EC274C016FFB">
+    <key id="147" parent="40" name="PK__TargetRa__3214EC274C016FFB">
       <ObjectId>514100872</ObjectId>
       <NameSurrogate>1</NameSurrogate>
       <CreatedTimestamp>2017-07-03.14:05:51.427</CreatedTimestamp>
@@ -767,59 +777,59 @@
       <UnderlyingIndexName>PK__TargetRa__3214EC274C016FFB</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <argument id="146" parent="41">
+    <argument id="148" parent="41">
       <ArgumentDirection>R</ArgumentDirection>
       <DataType>int|0</DataType>
     </argument>
-    <argument id="147" parent="42" name="@diagramname">
+    <argument id="149" parent="42" name="@diagramname">
       <DataType>sysname|0</DataType>
     </argument>
-    <argument id="148" parent="42" name="@owner_id">
+    <argument id="150" parent="42" name="@owner_id">
       <DataType>int|0</DataType>
     </argument>
-    <argument id="149" parent="42" name="@version">
+    <argument id="151" parent="42" name="@version">
       <DataType>int|0</DataType>
     </argument>
-    <argument id="150" parent="42" name="@definition">
+    <argument id="152" parent="42" name="@definition">
       <DataType>varbinary|0</DataType>
     </argument>
-    <argument id="151" parent="43" name="@diagramname">
+    <argument id="153" parent="43" name="@diagramname">
       <DataType>sysname|0</DataType>
     </argument>
-    <argument id="152" parent="43" name="@owner_id">
+    <argument id="154" parent="43" name="@owner_id">
       <DataType>int|0</DataType>
     </argument>
-    <argument id="153" parent="43" name="@version">
+    <argument id="155" parent="43" name="@version">
       <DataType>int|0</DataType>
     </argument>
-    <argument id="154" parent="43" name="@definition">
+    <argument id="156" parent="43" name="@definition">
       <DataType>varbinary|0</DataType>
     </argument>
-    <argument id="155" parent="44" name="@diagramname">
+    <argument id="157" parent="44" name="@diagramname">
       <DataType>sysname|0</DataType>
     </argument>
-    <argument id="156" parent="44" name="@owner_id">
+    <argument id="158" parent="44" name="@owner_id">
       <DataType>int|0</DataType>
     </argument>
-    <argument id="157" parent="45" name="@diagramname">
+    <argument id="159" parent="45" name="@diagramname">
       <DataType>sysname|0</DataType>
     </argument>
-    <argument id="158" parent="45" name="@owner_id">
+    <argument id="160" parent="45" name="@owner_id">
       <DataType>int|0</DataType>
     </argument>
-    <argument id="159" parent="46" name="@diagramname">
+    <argument id="161" parent="46" name="@diagramname">
       <DataType>sysname|0</DataType>
     </argument>
-    <argument id="160" parent="46" name="@owner_id">
+    <argument id="162" parent="46" name="@owner_id">
       <DataType>int|0</DataType>
     </argument>
-    <argument id="161" parent="47" name="@diagramname">
+    <argument id="163" parent="47" name="@diagramname">
       <DataType>sysname|0</DataType>
     </argument>
-    <argument id="162" parent="47" name="@owner_id">
+    <argument id="164" parent="47" name="@owner_id">
       <DataType>int|0</DataType>
     </argument>
-    <argument id="163" parent="47" name="@new_diagramname">
+    <argument id="165" parent="47" name="@new_diagramname">
       <DataType>sysname|0</DataType>
     </argument>
   </database-model>

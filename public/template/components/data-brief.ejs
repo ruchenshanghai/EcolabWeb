@@ -1,6 +1,17 @@
 <tr id="<%= record.ID %>" onclick="window.location.href = 'http://localhost:2017/detail/<%= record.ID %>';">
-    <td><a href="/detail/<%= record.ID %>" target="_self"><%= record.OpportunityCode %></a></td>
-    <td><a href="/detail/<%= record.ID %>" target="_self"><%= record.EnglishName + '/' + record.ChineseName %></a></td>
-    <td><a href="/detail/<%= record.ID %>" target="_self"><%= record.SalesRep %></a></td>
-    <td><a href="/detail/<%= record.ID %>" target="_self"><%= record.RecordOwner %></a></td>
+    <td><a><%= record.ChineseName %></a></td>
+    <td><a><%= record.PipelineStatus %></a></td>
+    <td><a><%= record.TargetRate %></a></td>
+    <td><a><%= record.AnnualSales %></a></td>
+    <td><a><%= record.SalesRep %></a></td>
+    <td><a><%= record.FollowingStatus %></a></td>
+    <td>
+        <a>
+            <% let salesTypeArray = JSON.parse(record.SalesType); %>
+            <% salesTypeArray.forEach(function (type) { %>
+            <%= type %><br/>
+            <% }); %>
+        </a>
+    </td>
+    <td><a><%= record.MarketClassification %></a></td>
 </tr>

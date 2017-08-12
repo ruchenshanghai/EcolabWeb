@@ -31,6 +31,9 @@
                         <th>Number</th>
                         <th>ID</th>
                         <th>Detail</th>
+                        <% if (masterTable.tableName === 'Reviewer') {%>
+                            <th>Domain Name(like GLOBAL\XXX)</th>
+                        <%}%>
                         <th>Delete</th>
                         <th>Update</th>
                     </tr>
@@ -42,6 +45,9 @@
                         <td><%= count%></td>
                         <td><%= record.ID%></td>
                         <td><input type="text" value="<%= record.Detail %>" class="<%= masterTable.tableName%>-input" id="input-<%= record.ID %>"/></td>
+                        <% if (masterTable.tableName === 'Reviewer') {%>
+                        <td><input type="text" value="<%= record.DomainName %>" class="DomainName-input" id="DomainName-input-<%= record.ID %>"/></td>
+                        <%}%>
                         <td><button class="<%=masterTable.tableName%>-Delete btn btn-primary" value="<%= record.ID %>" id="delete-<%= record.ID %>">Delete</button></td>
                         <td><button class="<%=masterTable.tableName%>-Update btn btn-primary"  value="<%= record.ID %>" id="update-<%= record.ID %>">Update</button></td>
                     </tr>
