@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     // observe EstimatedPCO <=100%, two numbers
     $('#EstimatedPCOInput').on("input propertychange", function () {
-        if ($('#EstimatedPCOInput').val().slice(0, 3) === 100) {
+        if ($('#EstimatedPCOInput').val().slice(0, 3) === '100') {
             $('#EstimatedPCOInput').val($('#EstimatedPCOInput').val().slice(0, 3));
         } else {
             $('#EstimatedPCOInput').val($('#EstimatedPCOInput').val().slice(0, 2));
@@ -161,7 +161,7 @@ $(document).ready(function () {
                 console.log(result.ID);
                     if (!isNaN(result.ID)) {
                         // console.log(status);
-                        window.location.href = 'http://localhost:2017/detail/' + result.ID;
+                        window.location.href = 'http://cnshafinaap01p:2017/detail/' + result.ID;
                     }
             },
             error: function(xhr, type, errerThrown){
@@ -171,7 +171,7 @@ $(document).ready(function () {
     });
 
     $('#back-button').click(function () {
-        window.location.href = 'http://localhost:2017/index';
+        window.location.href = 'http://cnshafinaap01p:2017/index';
     });
 
 });

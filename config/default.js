@@ -2,7 +2,7 @@
  * Created by wenjin on 2017/6/19.
  */
 module.exports = {
-    hostname: 'http://localhost',
+    hostname: 'http://cnshafinaap01p',
     port: 2017,
     userName: 'GTW',
     password: 'Ecolabit@123',

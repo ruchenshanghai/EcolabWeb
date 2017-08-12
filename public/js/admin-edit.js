@@ -14,7 +14,7 @@ $(document).ready(function () {
             // post to server
             $.post('/delete/' + tableName + '/' + recordList[i].value).then(status => {
                 if (status === 'success') {
-                    window.location.href = 'http://localhost:2017/admin/' + tableName;
+                    window.location.href = 'http://cnshafinaap01p:2017/admin/' + tableName;
                 }
             });
         });
@@ -47,7 +47,7 @@ $(document).ready(function () {
                 success: function (result) {
                     console.log(result.status);
                     if (result.status === 'success') {
-                        window.location.href = 'http://localhost:2017/admin/' + tableName;
+                        window.location.href = 'http://cnshafinaap01p:2017/admin/' + tableName;
                     } else {
                         window.location.reload();
                     }
@@ -112,7 +112,7 @@ $(document).ready(function () {
                     success: function (result) {
                         console.log(result.status);
                         if (result.status === 'success') {
-                            window.location.href = 'http://localhost:2017/admin/' + tableName;
+                            window.location.href = 'http://cnshafinaap01p:2017/admin/' + tableName;
                         } else {
                             window.location.reload();
                         }
