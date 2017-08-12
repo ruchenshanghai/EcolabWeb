@@ -9,7 +9,7 @@ var fs = require('fs');
 
 var indexRouter = require('./routers/index');
 var config = require('./config/default');
-
+var Util = require('./lib/Util');
 
 app.set('views', path.join(__dirname, 'public/template'));
 // app.set('views', path.join(__dirname, 'views'));
@@ -29,7 +29,6 @@ app.use(function (req, res, next) {
 
 app.use(bodyParser.json());
 app.use('/', indexRouter);
-
 
 
 server.listen(config.port, function () {

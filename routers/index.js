@@ -176,7 +176,7 @@ router.get('/download', function (req, res) {
 router.get('/admin', function (req, res) {
     let masterData = {};
     masterData.Username = req.connection.user;
-    if (Util.checkAdminIdentity(masterData.Username)) {
+    if (Util.checkAdminRight(masterData.Username)) {
         masterData.tables = Tables;
         res.render('admin', {
             masterData: masterData
@@ -189,7 +189,7 @@ router.get('/admin/:tableName', function (req, res) {
     let masterTable = {};
     masterTable.Username = req.connection.user;
     masterTable.tableName = req.params.tableName;
-    if (!checkAdminTableName(masterTable.tableName) || !Util.checkAdminIdentity(masterTable.Username)) {
+    if (!checkAdminTableName(masterTable.tableName) || !Util.checkAdminRight(masterTable.Username)) {
         res.redirect('/index');
     } else {
         Util.getMetaDataByTableName(masterTable, masterTable.tableName).then(() => {
