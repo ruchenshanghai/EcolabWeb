@@ -162,6 +162,18 @@ $(document).ready(function () {
         if (updateMessage.FirstCollaborationDate === '') {
             updateMessage.FirstCollaborationDate = null;
         }
+        if ($('#ServiceTimeRequestedInputStart').val() !== '' || $('#ServiceTimeRequestedInputEnd').val() !== '') {
+            if ($('#ServiceTimeRequestedInputStart').val() === '' || $('#ServiceTimeRequestedInputEnd').val() === '') {
+                $('#ServiceTimeRequested-container').addClass('error-container');
+                alert('Please input two correct time.');
+                return;
+            } else {
+                $('#ServiceTimeRequested-container').removeClass('error-container');
+            }
+        }
+        updateMessage.ServiceTimeRequested = $('#ServiceTimeRequestedInputStart').val();
+        updateMessage.ServiceTimeRequested += '-';
+        updateMessage.ServiceTimeRequested += $('#ServiceTimeRequestedInputEnd').val();
 
         console.log(JSON.stringify(updateMessage));
         $.ajax({

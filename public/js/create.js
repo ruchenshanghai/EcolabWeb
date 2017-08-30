@@ -50,6 +50,7 @@ $(document).ready(function () {
         newMessage.Remark = $('#RemarkInput').val();
 
 
+
         if (newMessage.Province === '') {
             $('#province-container').addClass('error-container');
             alert('Please input Province');
@@ -148,8 +149,20 @@ $(document).ready(function () {
         if (newMessage.FirstCollaborationDate === '') {
             newMessage.FirstCollaborationDate = null;
         }
+        if ($('#ServiceTimeRequestedInputStart').val() !== '' || $('#ServiceTimeRequestedInputEnd').val() !== '') {
+            if ($('#ServiceTimeRequestedInputStart').val() === '' || $('#ServiceTimeRequestedInputEnd').val() === '') {
+                $('#ServiceTimeRequested-container').addClass('error-container');
+                alert('Please input two correct time.');
+                return;
+            } else {
+                $('#ServiceTimeRequested-container').removeClass('error-container');
+            }
+        }
+        newMessage.ServiceTimeRequested = $('#ServiceTimeRequestedInputStart').val();
+        newMessage.ServiceTimeRequested += '-';
+        newMessage.ServiceTimeRequested += $('#ServiceTimeRequestedInputEnd').val();
 
-        // console.log(JSON.stringify(newMessage));
+        console.log(JSON.stringify(newMessage));
         $.ajax({
             type: 'POST',
             url: '/insert',

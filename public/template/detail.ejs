@@ -426,6 +426,18 @@
                                 </div>
                             </div>
                         </td>
+                        <td>
+                            <div class="single-container" id="ServiceTimeRequested-container">
+                                <label class="label">ServiceTimeRequested/客户要求服务时间</label><br/>
+                                <div class="help-label">
+                                    <label class="label">格式要求</label>选填 可编辑<br/>
+                                    <label class="label">名词解释</label>由开始和结束的时间点组成<br/>
+                                </div>
+                                Start: <input type="time" class="time-input" id="ServiceTimeRequestedInputStart" value="<%= mainData.ServiceTimeRequestedStart%>">
+                                <br />
+                                End: <input type="time" class="time-input" id="ServiceTimeRequestedInputEnd" value="<%= mainData.ServiceTimeRequestedEnd%>">
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="1">

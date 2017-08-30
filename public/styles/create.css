@@ -37,3 +37,7 @@
 .error-container {
     background-color: red;
 }
+
+.time-input {
+    width: 100px;
+}

@@ -6,6 +6,7 @@ var path = require('path');
 
 var router = express.Router();
 var Util = require('../lib/Util');
+var MainData = require('../model/MainData');
 
 let Tables = [
     {
@@ -96,6 +97,9 @@ router.get('/detail/:id', function (req, res) {
             }
             mainData.SalesType = JSON.parse(mainData.SalesType);
             mainData.CompetitorCN = JSON.parse(mainData.CompetitorCN);
+            mainData.ServiceTimeRequestedStart = mainData.ServiceTimeRequested.split('-')[0];
+            mainData.ServiceTimeRequestedEnd = mainData.ServiceTimeRequested.split('-')[1];
+
             // get meta data
             let promiseArray = new Array();
             promiseArray.push(Util.getMetaDataByTableName(mainData, 'Reviewer'));
@@ -150,7 +154,7 @@ router.get('/download', function (req, res) {
             let data = new Array();
             let tempArray = new Array();
             for (let index in records[0]) {
-                tempArray.push(index);
+                tempArray.push(MainData.getChineseName(index));
             }
             data.push(tempArray);
             for (let index in records) {
