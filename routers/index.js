@@ -160,7 +160,11 @@ router.get('/download', function (req, res) {
             for (let index in records) {
                 tempArray = new Array();
                 for (let key in records[index]) {
-                    tempArray.push(records[index][key]);
+                    if (key === 'EstimatedPCO') {
+                        tempArray.push(records[index][key] + '%');
+                    } else {
+                        tempArray.push(records[index][key]);
+                    }
                 }
                 data.push(tempArray);
             }

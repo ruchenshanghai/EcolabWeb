@@ -274,7 +274,7 @@
                                 <label class="label">CTCBU/CTC业务部</label><br/>
                                 <div class="help-label">
                                     <label class="label">格式要求</label>选填 单选<br/>
-                                    <label class="label">名词解释</label>请填写该客户ctc的部门,如果适用的话<br/>
+                                    <label class="label">名词解释</label>请填写该客户CTC的部门,如果适用的话<br/>
                                 </div>
                                 <select class="form-control" id="CTCBUInput">
                                     <% mainData.CTCBUArray.forEach(function (CTCBU) { %>
@@ -338,7 +338,7 @@
                                     <label class="label">格式要求</label>必填 多选 可编辑<br/>
                                     <label class="label">名词解释</label>请填写该客户的主要竞争对手<br/>
                                 </div>
-                                <div class="checkbox" id="CompetitorCNInput-container">
+                                <div id="CompetitorCNInput-container">
                                     <% mainData.CompetitorCNArray.forEach(function (CompetitorCN) { %>
                                     <span class="input-group-addon">
 						                <input type="checkbox" name="CompetitorCNCheck"
@@ -407,7 +407,7 @@
                                     <label class="label">格式要求</label>必填 单选 可编辑<br/>
                                     <label class="label">名词解释</label>请填写该客户的市场分类<br/>
                                 </div>
-                                <div class="radio" id="MarketClassification-container">
+                                <div id="MarketClassification-container">
                                     <% mainData.MarketClassificationArray.forEach(function (MarketClassification) { %>
                                     <input type="radio" name="MarketClassificationRadio"
                                             <% if (MarketClassification.Detail === mainData.MarketClassification) { %>
