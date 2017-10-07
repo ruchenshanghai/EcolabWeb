@@ -154,6 +154,7 @@ router.get('/download', function (req, res) {
             let data = new Array();
             let tempArray = new Array();
             for (let index in records[0]) {
+                console.log(index);
                 tempArray.push(MainData.getChineseName(index));
             }
             data.push(tempArray);

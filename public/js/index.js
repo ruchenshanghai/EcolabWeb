@@ -3,7 +3,7 @@
  */
 
 $(document).ready(function () {
-    $('#download-button').click(function () {
-        window.open('/download');
-    });
+    // $('#download-button').click(function () {
+    //     window.open('/download');
+    // });
 });
