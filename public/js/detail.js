@@ -61,6 +61,7 @@ $(document).ready(function () {
         updateMessage.FirstCollaborationDate = $('#FirstCollaborationDateInput').val();
         updateMessage.EstimatedPCO = Number($('#EstimatedPCOInput').val());
         updateMessage.Remark = $('#RemarkInput').val();
+        updateMessage.ModifyRemark = $('#ModifyRemarkInput').val();
         // not change
         updateMessage.ID = mainDataID;
 

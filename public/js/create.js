@@ -48,6 +48,7 @@ $(document).ready(function () {
         newMessage.FirstCollaborationDate = $('#FirstCollaborationDateInput').val();
         newMessage.EstimatedPCO = Number($('#EstimatedPCOInput').val());
         newMessage.Remark = $('#RemarkInput').val();
+        newMessage.ModifyRemark = $('#ModifyRemarkInput').val();
 
 
 

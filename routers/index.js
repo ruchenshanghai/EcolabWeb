@@ -118,6 +118,7 @@ router.get('/detail/:id', function (req, res) {
                 res.render('detail', {
                     mainData: mainData
                 });
+                Util.addCheckedUser(dataID, username);
             });
         } else {
             res.redirect('/index');
@@ -220,7 +221,8 @@ router.get('*', function (req, res) {
 router.post('/update', function (req, res) {
     // console.log(req.body);
     let mainData = req.body;
-    Util.updateMainData(mainData).then(status => {
+    let username = req.connection.user;
+    Util.updateMainData(mainData, username).then(status => {
         if (status === 'success') {
             console.log('update: ' + status);
             res.json({

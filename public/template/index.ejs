@@ -42,7 +42,8 @@
           </thead>
           <tbody id="content-container">
           <% records.forEach(function (record) { %>
-          <%- include('components/data-brief', { record: record }) %>
+          <%- include('components/data-brief', { record: record,
+          currentUser: records.user}) %>
           <% }) %>
           </tbody>
         </table>

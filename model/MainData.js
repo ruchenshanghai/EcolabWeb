@@ -33,6 +33,8 @@ function MainData() {
     this.MarketClassification = null;
     this.RecordOwner = null;
     this.ServiceTimeRequested = null;
+    this.ModifyRemark = null;
+    this.CheckedUsers = null;
 };
 
 MainData.prototype.constructTest = function () {
@@ -64,6 +66,8 @@ MainData.prototype.constructTest = function () {
     this.MarketClassification = '市场分类';
     this.RecordOwner = 'GLOBAL/wenja';
     this.ServiceTimeRequested = '12:00-13:00';
+    this.ModifyRemark = 'initial';
+    this.CheckedUsers = ['initial'];
 }
 
 MainData.getChineseName = function (EnglishPropertyName) {
@@ -155,6 +159,12 @@ MainData.getChineseName = function (EnglishPropertyName) {
             break;
         case 'ServiceTimeRequested':
             resultChineseName = '客户要求服务时间';
+            break;
+        case 'ModifyRemark':
+            resultChineseName = '更改备注';
+            break;
+        case 'CheckedUsers':
+            resultChineseName = '已经查阅过更改的用户';
             break;
     }
     return resultChineseName;
