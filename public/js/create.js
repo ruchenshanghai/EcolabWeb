@@ -50,7 +50,12 @@ $(document).ready(function () {
         newMessage.Remark = $('#RemarkInput').val();
         newMessage.ModifyRemark = $('#ModifyRemarkInput').val();
 
-
+        if ($('#RecordOwnerInput').length > 0 && $('#RecordOwnerInput').val() !== '') {
+            newMessage.RecordOwner = $('#RecordOwnerInput').val();
+        } else {
+            newMessage.RecordOwner = null;
+        }
+        // console.log(newMessage.RecordOwner);
 
         if (newMessage.Province === '') {
             $('#province-container').addClass('error-container');
@@ -162,6 +167,8 @@ $(document).ready(function () {
         newMessage.ServiceTimeRequested = $('#ServiceTimeRequestedInputStart').val();
         newMessage.ServiceTimeRequested += '-';
         newMessage.ServiceTimeRequested += $('#ServiceTimeRequestedInputEnd').val();
+
+
 
         console.log(JSON.stringify(newMessage));
         $.ajax({

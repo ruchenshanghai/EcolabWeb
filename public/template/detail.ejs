@@ -23,9 +23,11 @@
     </div>
 
     <div class="container" id="content-container">
-        <b>Welcome! <%= mainData.username %><br />
-            The record's creater is <%= mainData.RecordOwner %><br />
-            You can update the old record.</b>
+        <b>Welcome! You are <span><%= mainData.username %></span>,<br />
+            You can update the old record.<br /></b>
+        <% if (mainData.IsAdmin) {%>
+        <b>The Record's Owner :</b><input type="text" class="form-control" id="RecordOwnerInput" placeholder="Target's Domain Name" value="<%= mainData.RecordOwner%>">
+        <% }%>
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <table>

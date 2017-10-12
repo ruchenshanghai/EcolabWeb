@@ -87,6 +87,8 @@ router.get('/detail/:id', function (req, res) {
     Util.getMainDataByID(dataID).then(mainData => {
         if (mainData !== null) {
             mainData.username = username;
+            mainData.IsAdmin = Util.checkAdminRight(username);
+
             // purify Date
             if (mainData.FirstCollaborationDate !== null) {
                 let tempDate = new Date();
@@ -127,7 +129,9 @@ router.get('/detail/:id', function (req, res) {
 });
 router.get('/create', function (req, res) {
     let metaData = {};
+    let username = req.connection.user;
     metaData.RecordOwner = req.connection.user;
+    metaData.IsAdmin = Util.checkAdminRight(username);
     // get meta data
     let promiseArray = new Array();
     promiseArray.push(Util.getMetaDataByTableName(metaData, 'Reviewer'));
@@ -142,7 +146,7 @@ router.get('/create', function (req, res) {
     promiseArray.push(Util.getMetaDataByTableName(metaData, 'CompetitorCN'));
     promiseArray.push(Util.getMetaDataByTableName(metaData, 'MarketClassification'));
     Promise.all(promiseArray).then(status => {
-        // console.log(status);
+        // console.log(metaData);
         res.render('create', {
             metaData: metaData
         });
@@ -222,6 +226,9 @@ router.post('/update', function (req, res) {
     // console.log(req.body);
     let mainData = req.body;
     let username = req.connection.user;
+    if (mainData === null) {
+        mainData.RecordOwner = username;
+    }
     Util.updateMainData(mainData, username).then(status => {
         if (status === 'success') {
             console.log('update: ' + status);
@@ -233,9 +240,12 @@ router.post('/update', function (req, res) {
 });
 router.post('/insert', function (req, res) {
     let mainData = req.body;
-    mainData.RecordOwner = req.connection.user;
+    let username = req.connection.user;
+    if (mainData.RecordOwner === null) {
+        mainData.RecordOwner = username;
+    }
     console.log(mainData);
-    Util.insertNewMainData(mainData).then(dataID => {
+    Util.insertNewMainData(mainData, username).then(dataID => {
         console.log(dataID);
         res.json({
             ID: dataID

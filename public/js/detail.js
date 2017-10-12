@@ -64,6 +64,12 @@ $(document).ready(function () {
         updateMessage.ModifyRemark = $('#ModifyRemarkInput').val();
         // not change
         updateMessage.ID = mainDataID;
+        if ($('#RecordOwnerInput').length > 0 && $('#RecordOwnerInput').val() !== '') {
+            updateMessage.RecordOwner = $('#RecordOwnerInput').val();
+        } else {
+            updateMessage.RecordOwner = null;
+        }
+
 
         if (updateMessage.Province === '') {
             $('#province-container').addClass('error-container');

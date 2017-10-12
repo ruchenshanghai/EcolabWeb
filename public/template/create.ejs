@@ -23,7 +23,12 @@
     </div>
 
     <div class="container" id="content-container">
-        <b>Welcome!<h1 id="username"><%= metaData.Username %></h1>You can create a new record.</b>
+        <b>Welcome! You are <span><%= metaData.RecordOwner %></span>,<br />
+            You can create a new record.<br /></b>
+        <% if (metaData.IsAdmin) {%>
+        <b>Target Record Owner:</b><input type="text" class="form-control" id="RecordOwnerInput" placeholder="Target's Domain Name">
+        <% }%>
+
         <div class="row">
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                 <table>
