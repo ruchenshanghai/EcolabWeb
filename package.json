@@ -33,6 +33,7 @@
     "pm2": "2.5.0",
     "safe-buffer": "5.1.0",
     "serve-favicon": "^2.4.3",
-    "tedious": "^2.0.0"
+    "tedious": "^2.0.0",
+    "tedious-ntlm": "^0.1.3"
   }
 }
