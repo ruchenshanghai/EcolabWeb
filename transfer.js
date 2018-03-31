@@ -1,10 +1,8 @@
 
-// Util.getAdminData().then(data => {
-//   fs.writeFileSync('./test.json', JSON.stringify(data));
-// })
-
+var Util = require('./lib/Util');
 var fs = require('fs');
-var obj = JSON.parse(fs.readFileSync('./test.json'));
+
+var obj = JSON.parse(fs.readFileSync('./gtw-backup.json'));
 console.log(obj.length);
 var newObj = [];
 for (let index in obj) {
@@ -30,10 +28,12 @@ for (let index in obj) {
   tempItem.CTCSales = obj[index].CTCSales;
   tempItem.FollowingStatusRemark = obj[index].FollowingStatusRemark;
   tempItem.SalesDetails = JSON.stringify([{
-    SalesType: obj[index].SalesType,
+    TypeName: 'Total Pest Program#全方位',
+    ProgramName: 'RCF#全方位',
     AnnualSales: obj[index].AnnualSales,
     EstimatedPCO: obj[index].EstimatedPCO,
   }]);
+  tempItem.TotalSalesAmount = obj[index].AnnualSales;
   tempItem.CompetitorCN = obj[index].CompetitorCN;
   tempItem.FirstCollaborationDate = obj[index].FirstCollaborationDate;
   tempItem.Remark = obj[index].Remark;
@@ -42,9 +42,8 @@ for (let index in obj) {
   tempItem.ModifyRemark = obj[index].ModifyRemark;
   tempItem.RecordOwner = obj[index].RecordOwner;
   tempItem.CheckedUsers = obj[index].CheckedUsers;
-  tempItem.BUDistrict = '2018-01-01';
+  tempItem.UpdateDate = '2018-03-31';
   tempItem.UpdateUser = obj[index].RecordOwner;
-  tempItem.TotalSalesAmount = obj[index].AnnualSales;
   newObj.push(tempItem);
 }
-fs.writeFileSync('./hmt.json', JSON.stringify(newObj));
+fs.writeFileSync('./hmt-backup.json', JSON.stringify(newObj));
